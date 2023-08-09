@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  prodsec: snyk/prodsec-orb@1.0
+  snyk: snyk/snyk@1.7.0
+
+jobs:
+  scan:
+    docker:
+      - image: cimg/go:1.21.0-node
+    steps:
+      - checkout
+      - snyk/install
+      - snyk/scan:
+          fail-on-issues: false
+          severity-threshold: critical
+          additional-arguments: --all-projects --exclude=test,dist
+
+
+workflows:
+  version: 2
+  CICD:
+    jobs:
+      - prodsec/secrets-scan:
+          name: Scan repository for secrets
+          context:
+            - snyk-bot-slack
+          channel: hammerhead-alerts
+      - scan:
+          context: hammerhead-snyk-orb-snyk-creds

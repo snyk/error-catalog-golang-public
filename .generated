@@ -1,0 +1,12 @@
+errorcodes/errorcodes.go
+errorcodes/errorcodes_test.go
+fix/fix.go
+isolatedbuilds/isolatedbuilds.go
+openapi/openapi.go
+opensource/ecosystems/ecosystems.go
+opensource/project/issues/issues.go
+opensource/project/snapshots/snapshots.go
+opensource/unmanaged/unmanaged.go
+purl/vulnerabilities/vulnerabilities.go
+sbomexport/sbomexport.go
+snyk/snyk.go
