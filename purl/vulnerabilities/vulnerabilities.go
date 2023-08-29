@@ -182,12 +182,12 @@ func NewComponentNotSupportedError(detail string, options ...snyk_errors.Option)
 }
 
 // NewUnsupportedGoVersionFormatError displays errors with the following description:
-// Go pseudo versions are not supported.
+// Go pseudo version not supported.
 func NewUnsupportedGoVersionFormatError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2023",
-    Title:      "Unsupported Go version format",
+    Title:      "Go version format not supported",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2023",
     Links: []string{},
