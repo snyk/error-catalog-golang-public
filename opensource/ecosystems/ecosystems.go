@@ -777,7 +777,7 @@ func NewIncompleteProjectError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewInconsistentVendoringError displays errors with the following description:
-// Generating the dependency graph requires Snyk to run go list `go list -deps -json` inside the project. If the operation fails, creating a full dependency graph cannot continue.  
+// Generating the dependency graph requires Snyk to run `go list -deps -json` inside the project. If the operation fails, creating a full dependency graph cannot continue.  
 // 
 // This error means that there is inconsistency between your `vendor/modules.txt` file and your `go.mod` file. To remediate, you need to:
 // 
