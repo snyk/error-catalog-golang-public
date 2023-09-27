@@ -741,11 +741,11 @@ func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewIncompleteProjectError displays errors with the following description:
-// Generating the dependency graph requires Snyk to run go list `go list -deps -json` inside the Project. If the operation fails, creating a full dependency graph cannot continue.  
+// Generating the dependency graph requires Snyk to run go list `go list -deps -json` inside the project. If the operation fails, creating a full dependency graph cannot continue.  
 // 
-// This error usually means that you need some cleanup, such as `go mod tidy`) or your Project deployment process contains a code generation step such as `protobuf` or something similar that is not currently supported by Snyk. 
+// This error means that you need some cleanup, such as `go mod tidy`) or your project deployment process contains a code generation step such as `protobuf` or similar that is not currently supported by Snyk. 
 // 
-// To verify if this is the case, clone your Project in a clean environment, run go list `go list -deps -json` and verify whether the operation fails. 
+// To verify if this is the case, clone your project in a clean environment, run go list `go list -deps -json` and verify whether the operation fails. 
 // 
 // If Snyk cannot process your code successfully, insert the Snyk CLI as part of your deployment pipeline.
 //
@@ -764,6 +764,42 @@ func NewIncompleteProjectError(detail string, options ...snyk_errors.Option) sny
       "https://docs.snyk.io/snyk-cli",
       "https://github.com/snyk/snyk-go-plugin",
       "https://github.com/golang/go/blob/master/src/cmd/go/internal/list/list.go",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInconsistentVendoringError displays errors with the following description:
+// Generating the dependency graph requires Snyk to run go list `go list -deps -json` inside the project. If the operation fails, creating a full dependency graph cannot continue.  
+// 
+// This error means that there is inconsistency between your `vendor/modules.txt` file and your `go.mod` file. To remediate, you need to:
+// 
+// * `go mod vendor`
+// * `go mod tidy`
+// 
+// Next, commit those changes to your repo. Snyk does not manipulate with your code on our end by design, which is why this is not done automatically.
+// 
+// To verify if this is the case, clone your project in a clean environment, run go list `go list -deps -json` and verify whether the operation fails. 
+// Then try and run the above mentioned commands and see if your SCM system reports changes in files.
+//
+// Read more:
+// - https://go.dev/ref/mod#go-mod-vendor
+func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0005",
+    Title:      "Your project repository has inconsistent vendoring information",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0005",
+    Links: []string{
+      "https://go.dev/ref/mod#go-mod-vendor",
     },
     Level:  "error",
     Detail: detail,

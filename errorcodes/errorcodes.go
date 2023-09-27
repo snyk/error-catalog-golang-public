@@ -65,6 +65,7 @@ type OpenSourceEcosystemsCodes struct {
   GoModFileMissingError string
   SsoReAuthRequiredError string
   IncompleteProjectError string
+  InconsistentVendoringError string
   MissingRequirementFromPomError string
   UnableToResolveValueForPropertyError string
   UnableToResolveVersionForPropertyError string
@@ -210,6 +211,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",
   IncompleteProjectError: "SNYK-OS-GO-0004",
+  InconsistentVendoringError: "SNYK-OS-GO-0005",
   MissingRequirementFromPomError: "SNYK-OS-MAVEN-0001",
   UnableToResolveValueForPropertyError: "SNYK-OS-MAVEN-0002",
   UnableToResolveVersionForPropertyError: "SNYK-OS-MAVEN-0003",
