@@ -653,6 +653,47 @@ func NewUnsupportedTargetFrameworkError(detail string, options ...snyk_errors.Op
   return err
 }
 
+// NewMissingStaticMainFunctionError displays errors with the following description:
+// This error occurs when no static Main method with a correct signature is found in the code that produces an executable file. 
+// It also occurs if the entry point function, `Main`, is defined with the wrong case, such as lower-case main.
+// 
+// In order to fix this issue, ensure that your program has a .cs file that contains a main function, such as
+// ```c#
+// namespace Example
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             Console.WriteLine("hello world");
+//         }
+//     }
+// }
+// ```
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs5001
+func NewMissingStaticMainFunctionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0003",
+    Title:      "Your C# code is missing a static Main function",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0003",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs5001",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //

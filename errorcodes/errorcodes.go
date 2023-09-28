@@ -61,6 +61,7 @@ type OpenSourceEcosystemsCodes struct {
   InvalidConfigurationError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
+  MissingStaticMainFunctionError string
   PrivateModuleError string
   GoModFileMissingError string
   SsoReAuthRequiredError string
@@ -207,6 +208,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   InvalidConfigurationError: "SNYK-OS-0027",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
+  MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
   PrivateModuleError: "SNYK-OS-GO-0001",
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",
