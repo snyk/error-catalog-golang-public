@@ -167,6 +167,7 @@ type FixCodes struct {
   FailedToParsePullRequestAttributesError string
   FailedToLoadCompiledYamlError string
   FailedToGenerateHashError string
+  FailedToSavePRTemplateError string
 }
 
 var Snyk = SnykCodes {
@@ -314,5 +315,6 @@ var Fix = FixCodes {
   FailedToParsePullRequestAttributesError: "SNYK-PR-TEMPLATE-0004",
   FailedToLoadCompiledYamlError: "SNYK-PR-TEMPLATE-0005",
   FailedToGenerateHashError: "SNYK-PR-TEMPLATE-0006",
+  FailedToSavePRTemplateError: "SNYK-PULL-REQUEST-SERVICE-0001",
 }
 

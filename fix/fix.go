@@ -174,3 +174,24 @@ func NewFailedToGenerateHashError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
+// NewFailedToSavePRTemplateError displays errors with the following description:
+// Snyk could not save pull request template.
+func NewFailedToSavePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pull-request-service-0001",
+    Title:      "Failed to save pull request template",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PULL-REQUEST-SERVICE-0001",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
