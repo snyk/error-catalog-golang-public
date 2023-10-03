@@ -701,9 +701,9 @@ func NewMissingStaticMainFunctionError(detail string, options ...snyk_errors.Opt
 // Steps to determine why this happened:
 // 
 // * Checkout a clean version of your project in a temporary folder
-// * Run `dotnet publish --sc --framework <your-target-framework> ` on your project, and validate this step indeed fails.
+// * Run `dotnet publish --sc --framework <your-target-framework> ` on your project, and confirm this step fails.
 // 
-// If this step success locally, it's possible that Snyk is running another version of the .NET SDK than you are running locally. To tell Snyk which version of the .NET SDK to use, consider using the [global.json](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json) solution provided by Microsoft.
+// If this step is successful locally, it is possible that Snyk is running another version of the .NET SDK. To tell Snyk which version of the .NET SDK to use, consider using the [global.json](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json) solution provided by Microsoft.
 //
 // Read more:
 // - https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/
@@ -713,7 +713,7 @@ func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_er
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0004",
-    Title:      "The dotnet CLI was unable to generate a self-contained binary",
+    Title:      "The dotnet CLI is unable to generate a self-contained binary",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0004",
     Links: []string{
