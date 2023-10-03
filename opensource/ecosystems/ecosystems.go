@@ -694,6 +694,44 @@ func NewMissingStaticMainFunctionError(detail string, options ...snyk_errors.Opt
   return err
 }
 
+// NewPublishFailedError displays errors with the following description:
+// This error occurs when running `dotnet publish --sc --framework <your-target-framework>` fails to generate a 
+// self-contained binary. Snyk needs to run this command in order to adequately determine the dependency tree for your project. If this command fails, Snyk cannot continue.
+// 
+// Steps to determine why this happened:
+// 
+// * Checkout a clean version of your project in a temporary folder
+// * Run `dotnet publish --sc --framework <your-target-framework> ` on your project, and validate this step indeed fails.
+// 
+// If this step success locally, it's possible that Snyk is running another version of the .NET SDK than you are running locally. To tell Snyk which version of the .NET SDK to use, consider using the [global.json](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json) solution provided by Microsoft.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/
+// - https://learn.microsoft.com/en-us/dotnet/core/tools/global-json
+// - https://github.com/snyk/snyk-nuget-plugin/blob/885486aa656c28d3db465c8d22710770d5cc6773/lib/nuget-parser/cli/dotnet.ts#L67
+func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0004",
+    Title:      "The dotnet CLI was unable to generate a self-contained binary",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0004",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/",
+      "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+      "https://github.com/snyk/snyk-nuget-plugin/blob/885486aa656c28d3db465c8d22710770d5cc6773/lib/nuget-parser/cli/dotnet.ts#L67",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
