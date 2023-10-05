@@ -174,16 +174,73 @@ func NewFailedToGenerateHashError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
-// NewFailedToSavePRTemplateError displays errors with the following description:
-// Snyk could not save pull request template.
-func NewFailedToSavePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// NewFailedToCreatePRTemplateError displays errors with the following description:
+// Snyk could not create pull request template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
+func NewFailedToCreatePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pull-request-service-0001",
-    Title:      "Failed to save pull request template",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0007",
+    Title:      "Unable to create pull request template",
     StatusCode: 500,
-    ErrorCode:  "SNYK-PULL-REQUEST-SERVICE-0001",
-    Links: []string{},
+    ErrorCode:  "SNYK-PR-TEMPLATE-0007",
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewFailedToReadPRTemplateError displays errors with the following description:
+// Snyk could not get pull request template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
+func NewFailedToReadPRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0008",
+    Title:      "Unable to get pull request template",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-TEMPLATE-0008",
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewFailedToDeletePRTemplateError displays errors with the following description:
+// Snyk could not delete pull request template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
+func NewFailedToDeletePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0009",
+    Title:      "Unable to delete pull request template",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-TEMPLATE-0009",
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
     Level:  "error",
     Detail: detail,
   }
