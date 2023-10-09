@@ -171,6 +171,7 @@ type FixCodes struct {
   FailedToCreatePRTemplateError string
   FailedToReadPRTemplateError string
   FailedToDeletePRTemplateError string
+  PRTemplateInvalidPayloadError string
 }
 
 var Snyk = SnykCodes {
@@ -322,5 +323,6 @@ var Fix = FixCodes {
   FailedToCreatePRTemplateError: "SNYK-PR-TEMPLATE-0007",
   FailedToReadPRTemplateError: "SNYK-PR-TEMPLATE-0008",
   FailedToDeletePRTemplateError: "SNYK-PR-TEMPLATE-0009",
+  PRTemplateInvalidPayloadError: "SNYK-PR-TEMPLATE-0010",
 }
 

@@ -252,3 +252,24 @@ func NewFailedToDeletePRTemplateError(detail string, options ...snyk_errors.Opti
   return err
 }
 
+// NewPRTemplateInvalidPayloadError displays errors with the following description:
+// The pull request template payload is invalid.
+func NewPRTemplateInvalidPayloadError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0010",
+    Title:      "Invalid payload",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-PR-TEMPLATE-0010",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
