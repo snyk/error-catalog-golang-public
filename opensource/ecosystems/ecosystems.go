@@ -891,6 +891,29 @@ func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option)
   return err
 }
 
+// NewUnsupportedExternalFileGenerationSCMError displays errors with the following description:
+// Snyk currently does not support external file generation in your project. This limitation is due to Snyk's lack of visibility into the third-party generator tools you may be using and the specific commands required to generate these files.
+// 
+// Snyk can only work with the files available in your repository and does not have insight into the generation process for external files.
+func NewUnsupportedExternalFileGenerationSCMError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0006",
+    Title:      "Unsupported external file generation",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0006",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewMissingRequirementFromPomError displays errors with the following description:
 // The required property is missing from the pom object.
 func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
