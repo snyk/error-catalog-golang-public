@@ -27,7 +27,7 @@ import (
 // The language or package manager is not supported.
 //
 // Read more:
-// - https://docs.snyk.io/products/snyk-open-source/language-and-package-manager-support
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source
 func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -36,7 +36,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-0001",
     Links: []string{
-      "https://docs.snyk.io/products/snyk-open-source/language-and-package-manager-support",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source",
     },
     Level:  "error",
     Detail: detail,
@@ -604,10 +604,10 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
 // The provided manifest file is not supported by Snyk for .NET.
 //
 // Read more:
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#git-services-for-.net-projects
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#dependencies-managed-by-packagereference
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#dependencies-managed-by-packages.config
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#paket-dependencies-managed-by-paket
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#snyk-web-ui-git-repository-integration
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packagereference
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packages.config
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#cli-options-for-use-with-other-dependencies
 func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -616,10 +616,10 @@ func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Optio
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-DOTNET-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#git-services-for-.net-projects",
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#dependencies-managed-by-packagereference",
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#dependencies-managed-by-packages.config",
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-.net#paket-dependencies-managed-by-paket",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#snyk-web-ui-git-repository-integration",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packagereference",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packages.config",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#cli-options-for-use-with-other-dependencies",
     },
     Level:  "error",
     Detail: detail,
@@ -736,8 +736,8 @@ func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_er
 // Snyk could not access the private modules within your go.mod files.
 //
 // Read more:
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-snyk-cli
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-git
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git
 func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -746,8 +746,8 @@ func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_er
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-snyk-cli",
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-git",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git",
     },
     Level:  "error",
     Detail: detail,
@@ -764,8 +764,8 @@ func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_er
 // A go.mod file was not found in the current directory or any parent directory.
 //
 // Read more:
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-snyk-cli
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-git
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git
 func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -774,8 +774,8 @@ func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0002",
     Links: []string{
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-snyk-cli",
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-golang#go-modules-and-git",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git",
     },
     Level:  "error",
     Detail: detail,
@@ -1296,7 +1296,7 @@ func NewBadNPMVersionError(detail string, options ...snyk_errors.Option) snyk_er
 // The provided requirements file is not supported by Snyk for Python.
 //
 // Read more:
-// - https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-python#git-services-for-pip-projects
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python#pip-and-git-repositories
 func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -1305,7 +1305,7 @@ func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.O
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PIP-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-application-code/snyk-open-source/snyk-open-source-supported-languages-and-package-managers/snyk-for-python#git-services-for-pip-projects",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python#pip-and-git-repositories",
     },
     Level:  "error",
     Detail: detail,
