@@ -196,32 +196,6 @@ func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Op
   return err
 }
 
-// NewUnsupportedEcosystemError displays errors with the following description:
-// The language or package manager is not supported.
-//
-// Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source
-func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-8003",
-    Title:      "Unsupported Ecosystem",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-OS-8003",
-    Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source",
-    },
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //
