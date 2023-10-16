@@ -23,62 +23,15 @@ import (
   "github.com/google/uuid"
 )
 
-// NewUnsupportedEcosystemError displays errors with the following description:
-// The language or package manager is not supported.
-//
-// Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source
-func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0001",
-    Title:      "Unsupported Ecosystem",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0001",
-    Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source",
-    },
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
 // NewUnparseableManifestError displays errors with the following description:
 // The provided manifest file could not be parsed as it has invalid syntax or does not match the expected schema. Review the manifest file, then try again.
 func NewUnparseableManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0002",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0001",
     Title:      "Unable to parse manifest file",
     StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0002",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewLockFileOutOfSyncError displays errors with the following description:
-// Some of the dependencies that are expected to be in the lock file are missing, usually indicating that the lock file is out of sync with the provided manifest file. Re-sync the lock file, then try again.
-func NewLockFileOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0003",
-    Title:      "Lock file out of sync with manifest file",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0003",
+    ErrorCode:  "SNYK-OS-0001",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -96,10 +49,10 @@ func NewLockFileOutOfSyncError(detail string, options ...snyk_errors.Option) sny
 func NewUnparseableLockFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0004",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0002",
     Title:      "Unable to parse lock file",
     StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0004",
+    ErrorCode:  "SNYK-OS-0002",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -120,14 +73,35 @@ func NewUnparseableLockFileError(detail string, options ...snyk_errors.Option) s
 func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0005",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0003",
     Title:      "Unknown dependency version",
     StatusCode: 404,
-    ErrorCode:  "SNYK-OS-0005",
+    ErrorCode:  "SNYK-OS-0003",
     Links: []string{
       "https://support.snyk.io/hc/en-us/articles/360001373178-Could-not-determine-version-for-dependencies",
     },
     Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewMissingHeaderError displays errors with the following description:
+// The server encountered a request that is missing a mandatory request header.
+func NewMissingHeaderError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0004",
+    Title:      "Missing required request header",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-0004",
+    Links: []string{},
+    Level:  "error",
     Detail: detail,
   }
 
@@ -143,10 +117,10 @@ func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Opti
 func NewMissingPayloadError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0006",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0005",
     Title:      "Payload missing required elements",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0006",
+    ErrorCode:  "SNYK-OS-0005",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -164,31 +138,10 @@ func NewMissingPayloadError(detail string, options ...snyk_errors.Option) snyk_e
 func NewUnprocessableFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0007",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0006",
     Title:      "Files cannot be processed",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0007",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewSourceNotSupportedError displays errors with the following description:
-// The source used is not supported by fetcher. The supported sources are: github, bitbucket, gitlab.
-func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0008",
-    Title:      "Source is not supported",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0008",
+    ErrorCode:  "SNYK-OS-0006",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -206,304 +159,10 @@ func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) sn
 func NewCannotGetFileFromSourceError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0009",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0007",
     Title:      "Cannot get file from source",
     StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0009",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewNoReleasedVersionForVersionsRangeError displays errors with the following description:
-// There was no version released for the specified versions range.
-func NewNoReleasedVersionForVersionsRangeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0010",
-    Title:      "No released version for versions range",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0010",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewTimeoutWhenProcessingTheDepTreeError displays errors with the following description:
-// There was an timeout when processing the dependecy tree.
-func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0011",
-    Title:      "Timeout when processing the dependency tree",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0011",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewTooManyManifestFilesError displays errors with the following description:
-// Too many manifest files were provided in the request body.
-func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0012",
-    Title:      "Received more manifests than expected",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0012",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewFailedToApplyDependencyUpdatesError displays errors with the following description:
-// An error occured while updating dependencies.
-func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0013",
-    Title:      "Failed to apply dependency updates",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0013",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewUnknownBlobEncodingOnGithubError displays errors with the following description:
-// Unknown blob encoding on Github.
-func NewUnknownBlobEncodingOnGithubError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0014",
-    Title:      "Unknown blob encoding on Github",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0014",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewNoResultsFromForkerProcessesError displays errors with the following description:
-// No result from forked process.
-func NewNoResultsFromForkerProcessesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0015",
-    Title:      "No result from forked process",
-    StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0015",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewChildProcessExecutionError displays errors with the following description:
-// The child process encountered an error during execution.
-func NewChildProcessExecutionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0016",
-    Title:      "Child Process Execution Error",
-    StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0016",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewNoValidPackageUpgradesError displays errors with the following description:
-// The system attempted to find valid upgrades for the packages specified in the lock file, but none were available.
-func NewNoValidPackageUpgradesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0017",
-    Title:      "No valid package upgrades",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0017",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewNoDependencyUpdatesError displays errors with the following description:
-// There are no available updates for the dependencies.
-func NewNoDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0018",
-    Title:      "No dependency updates",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0018",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewMissingRequiredRequestHeaderError displays errors with the following description:
-// The server encountered a request that is missing a mandatory request header.
-func NewMissingRequiredRequestHeaderError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0019",
-    Title:      "Missing required request header",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0019",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewCouldNotParseJSONFileError displays errors with the following description:
-// An error occurred while attempting to parse a JSON file.
-func NewCouldNotParseJSONFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0020",
-    Title:      "Could not parse JSON file",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0020",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewBase64EncodeError displays errors with the following description:
-// An error occurred while attempting to perform Base64 encoding.
-func NewBase64EncodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0021",
-    Title:      "Could not Base64 encode",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0021",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewBase64DecodeError displays errors with the following description:
-// An error occurred while attempting to perform Base64 decoding.
-func NewBase64DecodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0022",
-    Title:      "Could not Base64 decode",
-    StatusCode: 422,
-    ErrorCode:  "SNYK-OS-0022",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewMissingSupportedFileError displays errors with the following description:
-// Could not find supported file.
-func NewMissingSupportedFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0023",
-    Title:      "Missing supported file",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0023",
+    ErrorCode:  "SNYK-OS-0007",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -521,10 +180,10 @@ func NewMissingSupportedFileError(detail string, options ...snyk_errors.Option) 
 func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0024",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0008",
     Title:      "Missing environment variable",
     StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0024",
+    ErrorCode:  "SNYK-OS-0008",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -537,59 +196,22 @@ func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Op
   return err
 }
 
-// NewNoOutputFromIsolatedBuildsError displays errors with the following description:
-// The response from isolated builds had no output.
-func NewNoOutputFromIsolatedBuildsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// NewUnsupportedEcosystemError displays errors with the following description:
+// The language or package manager is not supported.
+//
+// Read more:
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source
+func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0025",
-    Title:      "No output from isolated builds",
-    StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0025",
-    Links: []string{},
-    Level:  "warn",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewFailedToRelockError displays errors with the following description:
-// An error occurred while attempting to relock.
-func NewFailedToRelockError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0026",
-    Title:      "Failed to relock",
-    StatusCode: 500,
-    ErrorCode:  "SNYK-OS-0026",
-    Links: []string{},
-    Level:  "warn",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewInvalidConfigurationError displays errors with the following description:
-// The configuration parameter does not meet the expected data type. Please ensure the provided value is of the correct data type.
-func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0027",
-    Title:      "Invalid configuration",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-8003",
+    Title:      "Unsupported Ecosystem",
     StatusCode: 400,
-    ErrorCode:  "SNYK-OS-0027",
-    Links: []string{},
-    Level:  "warn",
+    ErrorCode:  "SNYK-OS-8003",
+    Links: []string{
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source",
+    },
+    Level:  "error",
     Detail: detail,
   }
 
@@ -1187,6 +809,69 @@ func NewCannotCreateGitHostError(detail string, options ...snyk_errors.Option) s
   return err
 }
 
+// NewNoReleasedVersionForVersionsRangeError displays errors with the following description:
+// There was no version released for the specified versions range.
+func NewNoReleasedVersionForVersionsRangeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0014",
+    Title:      "No released version for versions range",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-MAVEN-0014",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewSourceNotSupportedError displays errors with the following description:
+// The source used is not supported by fetcher. The supported sources are: github, bitbucket, gitlab.
+func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0015",
+    Title:      "Source is not supported",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-MAVEN-0015",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTimeoutWhenProcessingTheDepTreeError displays errors with the following description:
+// There was an timeout when processing the dependecy tree.
+func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0016",
+    Title:      "Timeout when processing the dependency tree",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-MAVEN-0016",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewNoRepoFoundForTheNPMPackageError displays errors with the following description:
 // No repository found for the NPM package.
 func NewNoRepoFoundForTheNPMPackageError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -1292,6 +977,216 @@ func NewBadNPMVersionError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewUnknownBlobEncodingOnGithubError displays errors with the following description:
+// Unknown blob encoding on Github.
+func NewUnknownBlobEncodingOnGithubError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0006",
+    Title:      "Unknown blob encoding on Github",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0006",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNoResultsFromForkerProcessesError displays errors with the following description:
+// No result from forked process.
+func NewNoResultsFromForkerProcessesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0007",
+    Title:      "No result from forked process",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-NODEJS-0007",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewChildProcessExecutionError displays errors with the following description:
+// The child process encountered an error during execution.
+func NewChildProcessExecutionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0008",
+    Title:      "Child Process Execution Error",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-NODEJS-0008",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNoValidPackageUpgradesError displays errors with the following description:
+// The system attempted to find valid upgrades for the packages specified in the lock file, but none were available.
+func NewNoValidPackageUpgradesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0009",
+    Title:      "No valid package upgrades",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0009",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNoDependencyUpdatesError displays errors with the following description:
+// There are no available updates for the dependencies.
+func NewNoDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0010",
+    Title:      "No dependency updates",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0010",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCouldNotParseJSONFileError displays errors with the following description:
+// An error occurred while attempting to parse a JSON file.
+func NewCouldNotParseJSONFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0011",
+    Title:      "Could not parse JSON file",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0011",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewBase64EncodeError displays errors with the following description:
+// An error occurred while attempting to perform Base64 encoding.
+func NewBase64EncodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0012",
+    Title:      "Could not Base64 encode",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0012",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewBase64DecodeError displays errors with the following description:
+// An error occurred while attempting to perform Base64 decoding.
+func NewBase64DecodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0013",
+    Title:      "Could not Base64 decode",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0013",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewMissingSupportedFileError displays errors with the following description:
+// Could not find supported file.
+func NewMissingSupportedFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0014",
+    Title:      "Missing supported file",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-OS-NODEJS-0014",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInvalidConfigurationError displays errors with the following description:
+// The configuration parameter does not meet the expected data type. Please ensure the provided value is of the correct data type.
+func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0015",
+    Title:      "Invalid configuration",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-OS-NODEJS-0015",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedRequirementsFileError displays errors with the following description:
 // The provided requirements file is not supported by Snyk for Python.
 //
@@ -1307,6 +1202,48 @@ func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.O
     Links: []string{
       "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python#pip-and-git-repositories",
     },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTooManyManifestFilesError displays errors with the following description:
+// Too many manifest files were provided in the request body.
+func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0002",
+    Title:      "Received more manifests than expected",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PIP-0002",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewFailedToApplyDependencyUpdatesError displays errors with the following description:
+// An error occured while updating dependencies.
+func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0003",
+    Title:      "Failed to apply dependency updates",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PIP-0003",
+    Links: []string{},
     Level:  "error",
     Detail: detail,
   }

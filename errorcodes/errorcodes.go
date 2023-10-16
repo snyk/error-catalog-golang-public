@@ -32,33 +32,14 @@ type SnykCodes struct {
 }
 
 type OpenSourceEcosystemsCodes struct {
-  UnsupportedEcosystemError string
   UnparseableManifestError string
-  LockFileOutOfSyncError string
   UnparseableLockFileError string
   UnknownDependencyVersionError string
+  MissingHeaderError string
   MissingPayloadError string
   UnprocessableFileError string
-  SourceNotSupportedError string
   CannotGetFileFromSourceError string
-  NoReleasedVersionForVersionsRangeError string
-  TimeoutWhenProcessingTheDepTreeError string
-  TooManyManifestFilesError string
-  FailedToApplyDependencyUpdatesError string
-  UnknownBlobEncodingOnGithubError string
-  NoResultsFromForkerProcessesError string
-  ChildProcessExecutionError string
-  NoValidPackageUpgradesError string
-  NoDependencyUpdatesError string
-  MissingRequiredRequestHeaderError string
-  CouldNotParseJSONFileError string
-  Base64EncodeError string
-  Base64DecodeError string
-  MissingSupportedFileError string
   MissingEnvironmentVariableError string
-  NoOutputFromIsolatedBuildsError string
-  FailedToRelockError string
-  InvalidConfigurationError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -82,12 +63,27 @@ type OpenSourceEcosystemsCodes struct {
   CannotResolveTargetPomFromRepoError string
   CannotGetBuildFileFromRepoError string
   CannotCreateGitHostError string
+  NoReleasedVersionForVersionsRangeError string
+  SourceNotSupportedError string
+  TimeoutWhenProcessingTheDepTreeError string
   NoRepoFoundForTheNPMPackageError string
   CouldNotParseNPMRegistryURLError string
   CouldNotFindBrokerURLError string
   UnableToReplaceBrokerURLError string
   BadNPMVersionError string
+  UnknownBlobEncodingOnGithubError string
+  NoResultsFromForkerProcessesError string
+  ChildProcessExecutionError string
+  NoValidPackageUpgradesError string
+  NoDependencyUpdatesError string
+  CouldNotParseJSONFileError string
+  Base64EncodeError string
+  Base64DecodeError string
+  MissingSupportedFileError string
+  InvalidConfigurationError string
   UnsupportedRequirementsFileError string
+  TooManyManifestFilesError string
+  FailedToApplyDependencyUpdatesError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -116,6 +112,7 @@ type PurlVulnerabilityFetchingCodes struct {
 type IsolatedBuildsCodes struct {
   InvalidRequestError string
   BuildEnvironmentNotFoundError string
+  UnsupportedEcosystemError string
 }
 
 type OpenSourceProjectSnapshotsCodes struct {
@@ -185,33 +182,14 @@ var Snyk = SnykCodes {
 }
 
 var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
-  UnsupportedEcosystemError: "SNYK-OS-0001",
-  UnparseableManifestError: "SNYK-OS-0002",
-  LockFileOutOfSyncError: "SNYK-OS-0003",
-  UnparseableLockFileError: "SNYK-OS-0004",
-  UnknownDependencyVersionError: "SNYK-OS-0005",
-  MissingPayloadError: "SNYK-OS-0006",
-  UnprocessableFileError: "SNYK-OS-0007",
-  SourceNotSupportedError: "SNYK-OS-0008",
-  CannotGetFileFromSourceError: "SNYK-OS-0009",
-  NoReleasedVersionForVersionsRangeError: "SNYK-OS-0010",
-  TimeoutWhenProcessingTheDepTreeError: "SNYK-OS-0011",
-  TooManyManifestFilesError: "SNYK-OS-0012",
-  FailedToApplyDependencyUpdatesError: "SNYK-OS-0013",
-  UnknownBlobEncodingOnGithubError: "SNYK-OS-0014",
-  NoResultsFromForkerProcessesError: "SNYK-OS-0015",
-  ChildProcessExecutionError: "SNYK-OS-0016",
-  NoValidPackageUpgradesError: "SNYK-OS-0017",
-  NoDependencyUpdatesError: "SNYK-OS-0018",
-  MissingRequiredRequestHeaderError: "SNYK-OS-0019",
-  CouldNotParseJSONFileError: "SNYK-OS-0020",
-  Base64EncodeError: "SNYK-OS-0021",
-  Base64DecodeError: "SNYK-OS-0022",
-  MissingSupportedFileError: "SNYK-OS-0023",
-  MissingEnvironmentVariableError: "SNYK-OS-0024",
-  NoOutputFromIsolatedBuildsError: "SNYK-OS-0025",
-  FailedToRelockError: "SNYK-OS-0026",
-  InvalidConfigurationError: "SNYK-OS-0027",
+  UnparseableManifestError: "SNYK-OS-0001",
+  UnparseableLockFileError: "SNYK-OS-0002",
+  UnknownDependencyVersionError: "SNYK-OS-0003",
+  MissingHeaderError: "SNYK-OS-0004",
+  MissingPayloadError: "SNYK-OS-0005",
+  UnprocessableFileError: "SNYK-OS-0006",
+  CannotGetFileFromSourceError: "SNYK-OS-0007",
+  MissingEnvironmentVariableError: "SNYK-OS-0008",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
@@ -235,12 +213,27 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   CannotResolveTargetPomFromRepoError: "SNYK-OS-MAVEN-0011",
   CannotGetBuildFileFromRepoError: "SNYK-OS-MAVEN-0012",
   CannotCreateGitHostError: "SNYK-OS-MAVEN-0013",
+  NoReleasedVersionForVersionsRangeError: "SNYK-OS-MAVEN-0014",
+  SourceNotSupportedError: "SNYK-OS-MAVEN-0015",
+  TimeoutWhenProcessingTheDepTreeError: "SNYK-OS-MAVEN-0016",
   NoRepoFoundForTheNPMPackageError: "SNYK-OS-NODEJS-0001",
   CouldNotParseNPMRegistryURLError: "SNYK-OS-NODEJS-0002",
   CouldNotFindBrokerURLError: "SNYK-OS-NODEJS-0003",
   UnableToReplaceBrokerURLError: "SNYK-OS-NODEJS-0004",
   BadNPMVersionError: "SNYK-OS-NODEJS-0005",
+  UnknownBlobEncodingOnGithubError: "SNYK-OS-NODEJS-0006",
+  NoResultsFromForkerProcessesError: "SNYK-OS-NODEJS-0007",
+  ChildProcessExecutionError: "SNYK-OS-NODEJS-0008",
+  NoValidPackageUpgradesError: "SNYK-OS-NODEJS-0009",
+  NoDependencyUpdatesError: "SNYK-OS-NODEJS-0010",
+  CouldNotParseJSONFileError: "SNYK-OS-NODEJS-0011",
+  Base64EncodeError: "SNYK-OS-NODEJS-0012",
+  Base64DecodeError: "SNYK-OS-NODEJS-0013",
+  MissingSupportedFileError: "SNYK-OS-NODEJS-0014",
+  InvalidConfigurationError: "SNYK-OS-NODEJS-0015",
   UnsupportedRequirementsFileError: "SNYK-OS-PIP-0001",
+  TooManyManifestFilesError: "SNYK-OS-PIP-0002",
+  FailedToApplyDependencyUpdatesError: "SNYK-OS-PIP-0003",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
@@ -269,6 +262,7 @@ var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
 var IsolatedBuilds = IsolatedBuildsCodes {
   InvalidRequestError: "SNYK-OS-8001",
   BuildEnvironmentNotFoundError: "SNYK-OS-8002",
+  UnsupportedEcosystemError: "SNYK-OS-8003",
 }
 
 var OpenSourceProjectSnapshots = OpenSourceProjectSnapshotsCodes {
