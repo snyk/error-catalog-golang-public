@@ -332,8 +332,7 @@ func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_er
 // Snyk could not access the private modules within your go.mod files.
 //
 // Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go
 func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -342,8 +341,7 @@ func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_er
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli",
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go",
     },
     Level:  "error",
     Detail: detail,
@@ -360,8 +358,7 @@ func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_er
 // A go.mod file was not found in the current directory or any parent directory.
 //
 // Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go
 func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -370,8 +367,7 @@ func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0002",
     Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-snyk-cli",
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go#go-modules-and-git",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/go",
     },
     Level:  "error",
     Detail: detail,
