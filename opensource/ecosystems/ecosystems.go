@@ -200,10 +200,7 @@ func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Op
 // The provided manifest file is not supported by Snyk for .NET.
 //
 // Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#snyk-web-ui-git-repository-integration
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packagereference
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packages.config
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#cli-options-for-use-with-other-dependencies
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net
 func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -212,10 +209,7 @@ func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Optio
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-DOTNET-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#snyk-web-ui-git-repository-integration",
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packagereference",
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#dependencies-managed-by-packages.config",
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net#cli-options-for-use-with-other-dependencies",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/.net",
     },
     Level:  "error",
     Detail: detail,
@@ -1161,7 +1155,7 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
 // The provided requirements file is not supported by Snyk for Python.
 //
 // Read more:
-// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python#pip-and-git-repositories
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python
 func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -1170,7 +1164,7 @@ func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.O
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PIP-0001",
     Links: []string{
-      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python#pip-and-git-repositories",
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python",
     },
     Level:  "error",
     Detail: detail,
