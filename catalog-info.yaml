@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: error-catalog-golang-public
+  annotations:
+    github.com/project-slug: snyk/error-catalog-golang-public
+    github.com/team-slug: "@snyk/hammerhead"
+spec:
+  type: external-library
+  lifecycle: "-"
+  owner: hammerhead
