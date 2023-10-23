@@ -36,6 +36,7 @@ func NewMavenSearchServiceUnavailableError(detail string, options ...snyk_errors
     Title:      "Maven search service unavailable",
     StatusCode: 503,
     ErrorCode:  "SNYK-OSJVM-001",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://search.maven.org",
       "https://status.maven.org",
@@ -63,6 +64,7 @@ func NewSha1NotFoundError(detail string, options ...snyk_errors.Option) snyk_err
     Title:      "SHA1 not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OSJVM-002",
+    Classification: "ACTIONABLE",
     Links: []string{
       "https://docs.snyk.io/snyk-cli/test-for-vulnerabilities/scan-all-unmanaged-jar-files",
     },

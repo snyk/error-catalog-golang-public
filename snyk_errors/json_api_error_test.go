@@ -26,13 +26,14 @@ import (
 
 func TestMarshalToJSONAPIError(t *testing.T) {
 	err := Error{
-		ID:         "id",
-		Type:       "type",
-		Title:      "title",
-		StatusCode: 1,
-		ErrorCode:  "error-code",
-		Level:      "level",
-		Detail:     "detail",
+		ID:             "id",
+		Type:           "type",
+		Title:          "title",
+		StatusCode:     1,
+		ErrorCode:      "error-code",
+		Level:          "level",
+		Detail:         "detail",
+		Classification: "ACTIONABLE",
 		Meta: map[string]any{
 			"foo": "bar",
 		},
@@ -52,11 +53,12 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 		},
 		Errors: []errorObject{
 			{
-				ID:     "id",
-				Title:  "title",
-				Detail: "detail",
-				Status: "1",
-				Code:   "error-code",
+				ID:             "id",
+				Title:          "title",
+				Detail:         "detail",
+				Status:         "1",
+				Code:           "error-code",
+				Classification: "ACTIONABLE",
 				Meta: map[string]any{
 					"foo": "bar",
 				},

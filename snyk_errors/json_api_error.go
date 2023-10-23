@@ -33,14 +33,15 @@ type errorsPayloadVersion struct {
 }
 
 type errorObject struct {
-	ID     string                 `json:"id,omitempty"`
-	Title  string                 `json:"title,omitempty"`
-	Detail string                 `json:"detail,omitempty"`
-	Status string                 `json:"status,omitempty"`
-	Code   string                 `json:"code,omitempty"`
-	Meta   map[string]interface{} `json:"meta,omitempty"`
-	Links  errorObjectLink        `json:"links,omitempty"`
-	Source errorObjectSource      `json:"source"`
+	ID             string                 `json:"id,omitempty"`
+	Title          string                 `json:"title,omitempty"`
+	Detail         string                 `json:"detail,omitempty"`
+	Status         string                 `json:"status,omitempty"`
+	Code           string                 `json:"code,omitempty"`
+	Classification string                 `json:"classification,omitempty"`
+	Meta           map[string]interface{} `json:"meta,omitempty"`
+	Links          errorObjectLink        `json:"links,omitempty"`
+	Source         errorObjectSource      `json:"source"`
 }
 
 type errorObjectLink struct {
@@ -58,12 +59,13 @@ func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
 		},
 		Errors: []errorObject{
 			{
-				ID:     e.ID,
-				Title:  e.Title,
-				Detail: e.Detail,
-				Status: strconv.Itoa(e.StatusCode),
-				Code:   e.ErrorCode,
-				Meta:   e.Meta,
+				ID:             e.ID,
+				Title:          e.Title,
+				Detail:         e.Detail,
+				Status:         strconv.Itoa(e.StatusCode),
+				Code:           e.ErrorCode,
+				Meta:           e.Meta,
+				Classification: e.Classification,
 				Links: errorObjectLink{
 					About: e.Type,
 				},

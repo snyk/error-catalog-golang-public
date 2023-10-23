@@ -35,6 +35,7 @@ func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_e
     Title:      "Invalid request",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-8001",
+    Classification: "ACTIONABLE",
     Links: []string{
       "https://apidocs.snyk.io/",
     },
@@ -58,6 +59,7 @@ func NewBuildEnvironmentNotFoundError(detail string, options ...snyk_errors.Opti
     Title:      "Build environment not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-8002",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "warn",
     Detail: detail,
@@ -82,6 +84,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
     Title:      "Unsupported Ecosystem",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-8003",
+    Classification: "ACTIONABLE",
     Links: []string{
       "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source",
     },

@@ -16,16 +16,17 @@
 package snyk_errors
 
 type Error struct {
-	ID         string
-	Type       string
-	Title      string
-	StatusCode int
-	ErrorCode  string
-	Level      string
-	Links      []string
-	Detail     string
-	Meta       map[string]any
-	Cause      error
+	ID             string
+	Type           string
+	Title          string
+	StatusCode     int
+	ErrorCode      string
+	Level          string
+	Links          []string
+	Detail         string
+	Meta           map[string]any
+	Cause          error
+	Classification string
 }
 
 func (e Error) Error() string {

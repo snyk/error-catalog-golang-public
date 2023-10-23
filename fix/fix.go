@@ -35,6 +35,7 @@ func NewFailedToGetPullRequestAttributesError(detail string, options ...snyk_err
     Title:      "Failed to get pull request attributes",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0001",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -58,6 +59,7 @@ func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.O
     Title:      "Not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-PR-TEMPLATE-0002",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -82,6 +84,7 @@ func NewFailedToCompilePrTemplateError(detail string, options ...snyk_errors.Opt
     Title:      "Failed to compile pull request template",
     StatusCode: 400,
     ErrorCode:  "SNYK-PR-TEMPLATE-0003",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -108,6 +111,7 @@ func NewFailedToParsePullRequestAttributesError(detail string, options ...snyk_e
     Title:      "Failed to parse pull request attributes",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0004",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -134,6 +138,7 @@ func NewFailedToLoadCompiledYamlError(detail string, options ...snyk_errors.Opti
     Title:      "Failed to load YAML file after substituting Snyk variables",
     StatusCode: 400,
     ErrorCode:  "SNYK-PR-TEMPLATE-0005",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -160,6 +165,7 @@ func NewFailedToGenerateHashError(detail string, options ...snyk_errors.Option) 
     Title:      "Failed to generate hash for custom PR template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0006",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -186,6 +192,7 @@ func NewFailedToCreatePRTemplateError(detail string, options ...snyk_errors.Opti
     Title:      "Unable to create pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0007",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -212,6 +219,7 @@ func NewFailedToReadPRTemplateError(detail string, options ...snyk_errors.Option
     Title:      "Unable to get pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0008",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -238,6 +246,7 @@ func NewFailedToDeletePRTemplateError(detail string, options ...snyk_errors.Opti
     Title:      "Unable to delete pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0009",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -261,6 +270,7 @@ func NewPRTemplateInvalidPayloadError(detail string, options ...snyk_errors.Opti
     Title:      "Invalid payload",
     StatusCode: 400,
     ErrorCode:  "SNYK-PR-TEMPLATE-0010",
+    Classification: "UNEXPECTED",
     Links: []string{},
     Level:  "error",
     Detail: detail,

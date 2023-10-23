@@ -32,6 +32,7 @@ func NewTooManyRequestsError(detail string, options ...snyk_errors.Option) snyk_
     Title:      "Service temporarily throttled",
     StatusCode: 429,
     ErrorCode:  "SNYK-0001",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "warn",
     Detail: detail,
@@ -56,6 +57,7 @@ func NewNotImplementedError(detail string, options ...snyk_errors.Option) snyk_e
     Title:      "Server error response",
     StatusCode: 501,
     ErrorCode:  "SNYK-0002",
+    Classification: "UNSUPPORTED",
     Links: []string{
       "https://docs.snyk.io/snyk-api-info",
     },
@@ -79,6 +81,7 @@ func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_error
     Title:      "Client request cannot be processed",
     StatusCode: 400,
     ErrorCode:  "SNYK-0003",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -103,6 +106,7 @@ func NewTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.E
     Title:      "Server communication error",
     StatusCode: 504,
     ErrorCode:  "SNYK-0004",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
     },
@@ -126,6 +130,7 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
     Title:      "Authentication error",
     StatusCode: 401,
     ErrorCode:  "SNYK-0005",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
     Detail: detail,
@@ -150,6 +155,7 @@ func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Er
     Title:      "Request not fulfilled due to server error ",
     StatusCode: 500,
     ErrorCode:  "SNYK-9999",
+    Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
     },
