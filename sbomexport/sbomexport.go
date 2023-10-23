@@ -197,13 +197,13 @@ func NewEmptyRequestBodyError(detail string, options ...snyk_errors.Option) snyk
 }
 
 // NewInvalidDepGraphError displays errors with the following description:
-// The request cannot be processed due to an internal error. Review the request, then try again.
+// The supplied dependency graph was not valid. Review the request, then try again.
 func NewInvalidDepGraphError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9008",
     Title:      "Invalid dependency graph",
-    StatusCode: 400,
+    StatusCode: 422,
     ErrorCode:  "SNYK-OS-9008",
     Links: []string{},
     Level:  "warn",

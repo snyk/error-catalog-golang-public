@@ -71,7 +71,7 @@ func NewBuildEnvironmentNotFoundError(detail string, options ...snyk_errors.Opti
 }
 
 // NewUnsupportedEcosystemError displays errors with the following description:
-// The language or package manager is not supported.
+// The language or package manager is not supported. Please refer to the supported package managers in the links.
 //
 // Read more:
 // - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#open-source-and-licensing-snyk-open-source

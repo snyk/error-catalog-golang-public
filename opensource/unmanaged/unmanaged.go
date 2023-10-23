@@ -52,7 +52,7 @@ func NewMavenSearchServiceUnavailableError(detail string, options ...snyk_errors
 }
 
 // NewSha1NotFoundError displays errors with the following description:
-// Unable to find the coordinates for the provided SHA1.
+// Unable to find the coordinates for the provided SHA1. Please verify the data you are sending and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/test-for-vulnerabilities/scan-all-unmanaged-jar-files

@@ -45,7 +45,7 @@ func NewTooManyRequestsError(detail string, options ...snyk_errors.Option) snyk_
 }
 
 // NewNotImplementedError displays errors with the following description:
-// The server doesn’t recognize the request method, or it cannot fulfill it. Review the request and try again.
+// The server doesn't recognize the request method, or it cannot fulfill it. Review the request and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-api-info

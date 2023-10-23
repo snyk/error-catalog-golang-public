@@ -50,7 +50,7 @@ func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_error
 }
 
 // NewForbiddenError displays errors with the following description:
-// Access to the requested resource is forbidden.
+// Access to the requested resource is forbidden. Review the request, then try again.
 func NewForbiddenError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -92,7 +92,7 @@ func NewNotAcceptableError(detail string, options ...snyk_errors.Option) snyk_er
 }
 
 // NewNotFoundError displays errors with the following description:
-// The server cannot find the requested resource.
+// The server cannot find the requested resource. Review the request, then try again.
 func NewNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -134,7 +134,7 @@ func NewMethodNotAllowedError(detail string, options ...snyk_errors.Option) snyk
 }
 
 // NewRequestEntityTooLargeError displays errors with the following description:
-// The request entity exceeds server limitations.
+// The request entity exceeds server limitations. Reduce the size of the request entity, then try again.
 func NewRequestEntityTooLargeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -155,10 +155,10 @@ func NewRequestEntityTooLargeError(detail string, options ...snyk_errors.Option)
 }
 
 // NewUnauthorizedError displays errors with the following description:
-// The request lacks authentication credentials for the requested resource.
+// The request lacks authentication credentials for the requested resource. Ensure you are sending valid credentials, then try again.
 //
 // Read more:
-// - https://docs.snyk.io/snyk-api-info/authentication-for-api 
+// - https://docs.snyk.io/snyk-api-info/authentication-for-api
 func NewUnauthorizedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -167,7 +167,7 @@ func NewUnauthorizedError(detail string, options ...snyk_errors.Option) snyk_err
     StatusCode: 401,
     ErrorCode:  "SNYK-OPENAPI-0007",
     Links: []string{
-      "https://docs.snyk.io/snyk-api-info/authentication-for-api ",
+      "https://docs.snyk.io/snyk-api-info/authentication-for-api",
     },
     Level:  "warn",
     Detail: detail,
@@ -181,7 +181,7 @@ func NewUnauthorizedError(detail string, options ...snyk_errors.Option) snyk_err
 }
 
 // NewUnsupportedMediaTypeError displays errors with the following description:
-// The media format of the request is not supported.
+// The media format of the request is not supported. Change media format, then try again.
 func NewUnsupportedMediaTypeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),

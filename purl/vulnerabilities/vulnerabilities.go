@@ -139,7 +139,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
 }
 
 // NewMissingComponentError displays errors with the following description:
-// A list of components of the purl spec is required. The purl did not specify all the required components.
+// A list of components of the purl spec is required. The purl did not specify all the required components. Please add the missing components to the purl and try again.
 func NewMissingComponentError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -438,7 +438,7 @@ func NewUndefinedContainerVendorError(detail string, options ...snyk_errors.Opti
 }
 
 // NewUnsupportedContainerVendorError displays errors with the following description:
-// The given Package URL does not contain a supported vendor.
+// The given Package URL does not contain a supported vendor. Please use one of the listed vendors and try again.
 func NewUnsupportedContainerVendorError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),

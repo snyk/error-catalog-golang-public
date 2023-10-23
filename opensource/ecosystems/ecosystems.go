@@ -549,7 +549,7 @@ func NewUnableToResolveVersionForPropertyError(detail string, options ...snyk_er
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0003",
     Title:      "Unable to resolve version for property",
-    StatusCode: 422,
+    StatusCode: 500,
     ErrorCode:  "SNYK-OS-MAVEN-0003",
     Links: []string{},
     Level:  "error",
@@ -591,7 +591,7 @@ func NewUnableToParseXMLError(detail string, options ...snyk_errors.Option) snyk
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0005",
     Title:      "Error parsing the XML file",
-    StatusCode: 500,
+    StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0005",
     Links: []string{},
     Level:  "error",
@@ -816,7 +816,7 @@ func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) sn
 }
 
 // NewTimeoutWhenProcessingTheDepTreeError displays errors with the following description:
-// There was an timeout when processing the dependecy tree.
+// There was an timeout when processing the dependency tree.
 func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -1199,7 +1199,7 @@ func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) 
 }
 
 // NewFailedToApplyDependencyUpdatesError displays errors with the following description:
-// An error occured while updating dependencies.
+// An error occurred while updating dependencies.
 func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
