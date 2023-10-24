@@ -1271,3 +1271,25 @@ func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_error
   return err
 }
 
+// NewNoMatchingDistributionError displays errors with the following description:
+// One or more of the packages require a different Python version.
+func NewNoMatchingDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0004",
+    Title:      "No matching distribution found for one or more of the packages",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PIP-0004",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

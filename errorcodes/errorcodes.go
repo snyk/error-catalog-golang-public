@@ -84,6 +84,7 @@ type OpenSourceEcosystemsCodes struct {
   UnsupportedRequirementsFileError string
   TooManyManifestFilesError string
   FailedToApplyDependencyUpdatesError string
+  NoMatchingDistributionError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -234,6 +235,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   UnsupportedRequirementsFileError: "SNYK-OS-PIP-0001",
   TooManyManifestFilesError: "SNYK-OS-PIP-0002",
   FailedToApplyDependencyUpdatesError: "SNYK-OS-PIP-0003",
+  NoMatchingDistributionError: "SNYK-OS-PIP-0004",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
