@@ -1271,9 +1271,11 @@ func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_error
   return err
 }
 
-// NewNoMatchingDistributionError displays errors with the following description:
-// One or more of the packages require a different Python version.
-func NewNoMatchingDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// NewNoMatchingPythonDistributionError displays errors with the following description:
+// At least one of the packages requires a Python version that doesn't match the one used in the project scan.
+// Make sure to select a suitable Python version from the organization Python language settings.
+// Alternatively, add a `.snyk` file for Python version selection override.
+func NewNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0004",
