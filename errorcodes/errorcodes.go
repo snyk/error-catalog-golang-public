@@ -95,7 +95,6 @@ type PurlVulnerabilityFetchingCodes struct {
   UnsupportedEcosystemError string
   MissingComponentError string
   ComponentNotSupportedError string
-  UnsupportedGoVersionFormatError string
   PackageNotFoundError string
   VulnerabilityServiceUnavailableError string
   VulnDBInvalidResponseError string
@@ -246,7 +245,6 @@ var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
   UnsupportedEcosystemError: "SNYK-OSSI-2020",
   MissingComponentError: "SNYK-OSSI-2021",
   ComponentNotSupportedError: "SNYK-OSSI-2022",
-  UnsupportedGoVersionFormatError: "SNYK-OSSI-2023",
   PackageNotFoundError: "SNYK-OSSI-2030",
   VulnerabilityServiceUnavailableError: "SNYK-OSSI-2031",
   VulnDBInvalidResponseError: "SNYK-OSSI-2032",

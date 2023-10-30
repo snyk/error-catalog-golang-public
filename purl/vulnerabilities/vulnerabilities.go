@@ -187,28 +187,6 @@ func NewComponentNotSupportedError(detail string, options ...snyk_errors.Option)
   return err
 }
 
-// NewUnsupportedGoVersionFormatError displays errors with the following description:
-// Go pseudo version not supported.
-func NewUnsupportedGoVersionFormatError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2023",
-    Title:      "Go version format not supported",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-OSSI-2023",
-    Classification: "UNSUPPORTED",
-    Links: []string{},
-    Level:  "warn",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
 // NewPackageNotFoundError displays errors with the following description:
 // The package you specified in the purl cannot be found in the vulnerability database. Check the package name, ecosystem, and version, then try again.
 func NewPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
