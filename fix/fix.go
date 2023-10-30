@@ -51,7 +51,7 @@ func NewFailedToGetPullRequestAttributesError(detail string, options ...snyk_err
 }
 
 // NewPullRequestTemplateNotFoundError displays errors with the following description:
-// Could not find pull request template.
+// Could not find pull request template. The file might be missing or wrong file name was provided.
 func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -73,7 +73,7 @@ func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.O
 }
 
 // NewFailedToCompilePrTemplateError displays errors with the following description:
-// Could not compile your customize pull request template, using Handlebars compilation and Snyk variables in place.
+// Could not compile your customize pull request template. Please check for syntax errors using the Snyk variables inside the template.
 //
 // Read more:
 // - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
@@ -84,7 +84,7 @@ func NewFailedToCompilePrTemplateError(detail string, options ...snyk_errors.Opt
     Title:      "Failed to compile pull request template",
     StatusCode: 400,
     ErrorCode:  "SNYK-PR-TEMPLATE-0003",
-    Classification: "UNEXPECTED",
+    Classification: "ACTIONABLE",
     Links: []string{
       "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
     },
@@ -136,7 +136,7 @@ func NewFailedToLoadCompiledYamlError(detail string, options ...snyk_errors.Opti
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0005",
     Title:      "Failed to load YAML file after substituting Snyk variables",
-    StatusCode: 400,
+    StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0005",
     Classification: "UNEXPECTED",
     Links: []string{
@@ -268,10 +268,37 @@ func NewPRTemplateInvalidPayloadError(detail string, options ...snyk_errors.Opti
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0010",
     Title:      "Invalid payload",
-    StatusCode: 400,
+    StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0010",
     Classification: "UNEXPECTED",
     Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewFailedToLoadCompiledJSONError displays errors with the following description:
+// Could not load JSON file after substituting Snyk variables into the custom PR template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
+func NewFailedToLoadCompiledJSONError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0011",
+    Title:      "Failed to load JSON file after substituting Snyk variables",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-TEMPLATE-0011",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
     Level:  "error",
     Detail: detail,
   }
