@@ -173,6 +173,11 @@ type FixCodes struct {
   FailedToLoadCompiledJSONError string
 }
 
+type CodeCodes struct {
+  AnalysisFileCountLimitExceededError string
+  AnalysisResultSizeLimitExceededError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -322,5 +327,10 @@ var Fix = FixCodes {
   FailedToDeletePRTemplateError: "SNYK-PR-TEMPLATE-0009",
   PRTemplateInvalidPayloadError: "SNYK-PR-TEMPLATE-0010",
   FailedToLoadCompiledJSONError: "SNYK-PR-TEMPLATE-0011",
+}
+
+var Code = CodeCodes {
+  AnalysisFileCountLimitExceededError: "SNYK-CODE-0001",
+  AnalysisResultSizeLimitExceededError: "SNYK-CODE-0002",
 }
 
