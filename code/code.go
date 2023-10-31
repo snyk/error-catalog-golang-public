@@ -59,7 +59,7 @@ func NewAnalysisFileCountLimitExceededError(detail string, options ...snyk_error
 // NewAnalysisResultSizeLimitExceededError displays errors with the following description:
 // This error occurs when the analysis target generates a result with a byte size that exceeds current system limits.
 // 
-// To reduce the file count, use a `.snyk` file to ignore specified directories or files. Alternatively, use the Snyk CLI to analyze individual subdirectories separately.
+// To reduce the overall result size, use a `.snyk` file to ignore specified directories or files. Alternatively, use the Snyk CLI to analyze individual subdirectories separately.
 //
 // Read more:
 // - https://docs.snyk.io/scan-applications/start-scanning-using-the-cli-web-ui-or-api/snyk-code-and-your-repositories/excluding-directories-and-files-from-the-import-process
