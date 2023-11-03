@@ -69,7 +69,7 @@ func NewAnalysisResultSizeLimitExceededError(detail string, options ...snyk_erro
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-code-0002",
     Title:      "Analysis result size limit exceeded",
-    StatusCode: 500,
+    StatusCode: 422,
     ErrorCode:  "SNYK-CODE-0002",
     Classification: "UNSUPPORTED",
     Links: []string{
