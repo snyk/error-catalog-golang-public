@@ -51,7 +51,10 @@ func NewFailedToGetPullRequestAttributesError(detail string, options ...snyk_err
 }
 
 // NewPullRequestTemplateNotFoundError displays errors with the following description:
-// Could not find pull request template. The file might be missing or wrong file name was provided.
+// We could not find your pull request template, have you created one yet? Please check the attached link for instructions on how to setup your pull request template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
 func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -60,7 +63,9 @@ func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.O
     StatusCode: 404,
     ErrorCode:  "SNYK-PR-TEMPLATE-0002",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
     Level:  "error",
     Detail: detail,
   }
