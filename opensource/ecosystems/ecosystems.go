@@ -494,19 +494,27 @@ func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option)
   return err
 }
 
-// NewUnsupportedExternalFileGenerationSCMError displays errors with the following description:
-// Snyk currently does not support external file generation in your project. This limitation is due to Snyk's lack of visibility into the third-party generator tools you may be using and the specific commands required to generate these files.
+// NewUnableToAccessPrivateDepsError displays errors with the following description:
+// The Go tool encountered a `DepsError` while trying to download a private dependency. Private repositories that are not accessible to the public internet, and this not available on the official Go proxy mirror, are cloned with a version control system and built on-demand. 
+// This requires the VCS to have the correct access rights to that repository.
 // 
-// Snyk can only work with the files available in your repository and does not have insight into the generation process for external files.
-func NewUnsupportedExternalFileGenerationSCMError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// Snyk supports private repositories hosted on the same organization and the project being scanned for vulnerabilities. The authentication Snyk uses, is the same as the one you have used with your Snyk integration to the same repository. 
+// 
+// If those credentials are not allowed to access the private dependency being requested, this error is thrown.
+//
+// Read more:
+// - https://go.dev/ref/mod#vcs
+func NewUnableToAccessPrivateDepsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0006",
-    Title:      "Unsupported external file generation",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0007",
+    Title:      "Authorization problem with private dependencies",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-GO-0006",
+    ErrorCode:  "SNYK-OS-GO-0007",
     Classification: "UNSUPPORTED",
-    Links: []string{},
+    Links: []string{
+      "https://go.dev/ref/mod#vcs",
+    },
     Level:  "error",
     Detail: detail,
   }
