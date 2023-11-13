@@ -43,29 +43,29 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 
 	require.NoError(t, err.MarshalToJSONAPIError(&buf, "instance"))
 
-	var actual errorsPayload
+	var actual jsonAPIDoc
 
 	require.NoError(t, json.Unmarshal(buf.Bytes(), &actual))
 
-	expected := errorsPayload{
-		JSONAPI: errorsPayloadVersion{
+	expected := jsonAPIDoc{
+		JSONAPI: jsonAPIObject{
 			Version: "1.0",
 		},
-		Errors: []errorObject{
+		Errors: []jsonAPIError{
 			{
-				ID:             "id",
-				Title:          "title",
-				Detail:         "detail",
-				Status:         "1",
-				Code:           "error-code",
-				Classification: "ACTIONABLE",
+				ID:     "id",
+				Title:  "title",
+				Detail: "detail",
+				Status: "1",
+				Code:   "error-code",
 				Meta: map[string]any{
-					"foo": "bar",
+					"foo":            "bar",
+					"classification": "ACTIONABLE",
 				},
-				Links: errorObjectLink{
+				Links: jsonAPILinks{
 					About: "type",
 				},
-				Source: errorObjectSource{
+				Source: jsonAPIErrSource{
 					Pointer: "instance",
 				},
 			},

@@ -23,57 +23,60 @@ import (
 	_ "github.com/google/uuid"
 )
 
-type errorsPayload struct {
-	JSONAPI errorsPayloadVersion `json:"jsonapi"`
-	Errors  []errorObject        `json:"errors"`
+type jsonAPIDoc struct {
+	JSONAPI jsonAPIObject  `json:"jsonapi"`
+	Errors  []jsonAPIError `json:"errors"`
 }
 
-type errorsPayloadVersion struct {
+type jsonAPIObject struct {
 	Version string `json:"version"`
 }
 
-type errorObject struct {
-	ID             string                 `json:"id,omitempty"`
-	Title          string                 `json:"title,omitempty"`
-	Detail         string                 `json:"detail,omitempty"`
-	Status         string                 `json:"status,omitempty"`
-	Code           string                 `json:"code,omitempty"`
-	Classification string                 `json:"classification,omitempty"`
-	Meta           map[string]interface{} `json:"meta,omitempty"`
-	Links          errorObjectLink        `json:"links,omitempty"`
-	Source         errorObjectSource      `json:"source"`
+type jsonAPIError struct {
+	ID     string                 `json:"id,omitempty"`
+	Title  string                 `json:"title,omitempty"`
+	Detail string                 `json:"detail,omitempty"`
+	Status string                 `json:"status,omitempty"`
+	Code   string                 `json:"code,omitempty"`
+	Meta   map[string]interface{} `json:"meta,omitempty"`
+	Links  jsonAPILinks           `json:"links,omitempty"`
+	Source jsonAPIErrSource       `json:"source"`
 }
 
-type errorObjectLink struct {
+type jsonAPILinks struct {
 	About string `json:"about,omitempty"`
 }
 
-type errorObjectSource struct {
+type jsonAPIErrSource struct {
 	Pointer string `json:"pointer,omitempty"`
 }
 
 func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
-	payload := errorsPayload{
-		JSONAPI: errorsPayloadVersion{
-			Version: "1.0",
+	err := jsonAPIError{
+		ID:     e.ID,
+		Title:  e.Title,
+		Detail: e.Detail,
+		Status: strconv.Itoa(e.StatusCode),
+		Code:   e.ErrorCode,
+		Meta:   make(map[string]any),
+		Links: jsonAPILinks{
+			About: e.Type,
 		},
-		Errors: []errorObject{
-			{
-				ID:             e.ID,
-				Title:          e.Title,
-				Detail:         e.Detail,
-				Status:         strconv.Itoa(e.StatusCode),
-				Code:           e.ErrorCode,
-				Meta:           e.Meta,
-				Classification: e.Classification,
-				Links: errorObjectLink{
-					About: e.Type,
-				},
-				Source: errorObjectSource{
-					Pointer: instance,
-				},
-			},
+		Source: jsonAPIErrSource{
+			Pointer: instance,
 		},
 	}
-	return json.NewEncoder(w).Encode(payload)
+
+	if e.Meta != nil {
+		err.Meta = e.Meta
+	}
+
+	err.Meta["classification"] = e.Classification
+
+	return json.NewEncoder(w).Encode(jsonAPIDoc{
+		JSONAPI: jsonAPIObject{
+			Version: "1.0",
+		},
+		Errors: []jsonAPIError{err},
+	})
 }
