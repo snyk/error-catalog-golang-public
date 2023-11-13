@@ -495,12 +495,12 @@ func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option)
 }
 
 // NewUnableToAccessPrivateDepsError displays errors with the following description:
-// The Go tool encountered a `DepsError` while trying to download a private dependency. Private repositories that are not accessible to the public internet, and this not available on the official Go proxy mirror, are cloned with a version control system and built on-demand. 
+// The Go tool encountered a `DepsError` while trying to download a private dependency. Private repositories that are not accessible to the public internet and are not available on the official Go proxy mirror are cloned with a version control system and built on demand. 
 // This requires the VCS to have the correct access rights to that repository.
 // 
-// Snyk supports private repositories hosted on the same organization and the project being scanned for vulnerabilities. The authentication Snyk uses, is the same as the one you have used with your Snyk integration to the same repository. 
+// Snyk supports private repositories that are hosted in the same Organization and on the same Project that is scanned for vulnerabilities. The authentication to the private repository is the same as the authentication used to integrate that repository with Snyk. 
 // 
-// If those credentials are not allowed to access the private dependency being requested, this error is thrown.
+// This error appears when the authorization credentials do not allow access to the requested private dependency. 
 //
 // Read more:
 // - https://go.dev/ref/mod#vcs
@@ -508,7 +508,7 @@ func NewUnableToAccessPrivateDepsError(detail string, options ...snyk_errors.Opt
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0007",
-    Title:      "Authorization problem with private dependencies",
+    Title:      "Unable to access private dependencies",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0007",
     Classification: "UNSUPPORTED",
