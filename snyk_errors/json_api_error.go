@@ -73,10 +73,36 @@ func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
 
 	err.Meta["classification"] = e.Classification
 
+	// Allow consumers to probe if this specific type of JsonApi response originates from an error catalog error.
+	err.Meta["isErrorCatalogError"] = true
+
 	return json.NewEncoder(w).Encode(jsonAPIDoc{
 		JSONAPI: jsonAPIObject{
 			Version: "1.0",
 		},
 		Errors: []jsonAPIError{err},
 	})
+}
+
+func (j jsonAPIDoc) MarshalFromJSONAPIError() []Error {
+	var errors []Error
+
+	for _, jsonAPIErr := range j.Errors {
+		status, _ := strconv.Atoi(jsonAPIErr.Status)
+
+		err := Error{
+			ID:             jsonAPIErr.ID,
+			Type:           jsonAPIErr.Links.About,
+			Title:          jsonAPIErr.Title,
+			StatusCode:     status,
+			ErrorCode:      jsonAPIErr.Code,
+			Detail:         jsonAPIErr.Detail,
+			Meta:           jsonAPIErr.Meta,
+			Classification: jsonAPIErr.Meta["classification"].(string),
+		}
+
+		errors = append(errors, err)
+	}
+
+	return errors
 }

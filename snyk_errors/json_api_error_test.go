@@ -59,8 +59,9 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 				Status: "1",
 				Code:   "error-code",
 				Meta: map[string]any{
-					"foo":            "bar",
-					"classification": "ACTIONABLE",
+					"foo":                 "bar",
+					"classification":      "ACTIONABLE",
+					"isErrorCatalogError": true,
 				},
 				Links: jsonAPILinks{
 					About: "type",
@@ -89,4 +90,28 @@ func TestMarshalToJSONAPIErrorWithWriterError(t *testing.T) {
 	})
 
 	require.ErrorContains(t, err.MarshalToJSONAPIError(w, "instance"), "something went wrong")
+}
+
+func TestMarshalFromJSONAPIError(t *testing.T) {
+	expected := Error{
+		ID:             "id",
+		Type:           "type",
+		Title:          "title",
+		StatusCode:     1,
+		ErrorCode:      "error-code",
+		Detail:         "detail",
+		Classification: "ACTIONABLE",
+		Meta: map[string]any{
+			"foo": "bar",
+		},
+	}
+
+	var buf bytes.Buffer
+	require.NoError(t, expected.MarshalToJSONAPIError(&buf, "instance"))
+
+	var actual jsonAPIDoc
+	require.NoError(t, json.Unmarshal(buf.Bytes(), &actual))
+
+	first := actual.MarshalFromJSONAPIError()[0]
+	require.Equal(t, expected, first)
 }
