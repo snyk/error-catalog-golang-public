@@ -178,6 +178,10 @@ type CodeCodes struct {
   AnalysisResultSizeLimitExceededError string
 }
 
+type PRChecksCodes struct {
+  FailedToReadManifestError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -332,5 +336,9 @@ var Fix = FixCodes {
 var Code = CodeCodes {
   AnalysisFileCountLimitExceededError: "SNYK-CODE-0001",
   AnalysisResultSizeLimitExceededError: "SNYK-CODE-0002",
+}
+
+var PRChecks = PRChecksCodes {
+  FailedToReadManifestError: "SNYK-PR-CHECK-0001",
 }
 
