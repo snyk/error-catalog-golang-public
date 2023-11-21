@@ -181,6 +181,13 @@ type CodeCodes struct {
 
 type PRChecksCodes struct {
   FailedToReadManifestError string
+  ManifestNotFoundError string
+  ThirdPartyRateLimitError string
+  OutOfSyncError string
+  FailedDeterminingProjectTargetError string
+  FailedToCompleteTestError string
+  FailedToFetchMergeCommitShaError string
+  MergeConflictError string
 }
 
 var Snyk = SnykCodes {
@@ -342,5 +349,12 @@ var Code = CodeCodes {
 
 var PRChecks = PRChecksCodes {
   FailedToReadManifestError: "SNYK-PR-CHECK-0001",
+  ManifestNotFoundError: "SNYK-PR-CHECK-0002",
+  ThirdPartyRateLimitError: "SNYK-PR-CHECK-0003",
+  OutOfSyncError: "SNYK-PR-CHECK-0004",
+  FailedDeterminingProjectTargetError: "SNYK-PR-CHECK-0005",
+  FailedToCompleteTestError: "SNYK-PR-CHECK-0006",
+  FailedToFetchMergeCommitShaError: "SNYK-PR-CHECK-0007",
+  MergeConflictError: "SNYK-PR-CHECK-0008",
 }
 
