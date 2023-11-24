@@ -262,3 +262,80 @@ func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewFailedToDetectIssuesError displays errors with the following description:
+// Snyk is always trying to check for new issues and vulnerabilities to keep you safe. We do so by testing on your code on webhook Pull Request events and Push events.
+// 
+// Occasionally you might see a "Failed to detect issues" commit status which may block your PR. This means that we tried to run a test against your changes but unfortunately something went wrong / we encountered an internal problem. If this happens to you try recreating the pull request and if it still occurs reach out and let us know which user, organization and project and commit sha you experienced the issue with on support@snyk.io
+//
+// Read more:
+// - https://support.snyk.io/hc/en-us/articles/360000920678-Failed-to-detect-issues
+func NewFailedToDetectIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0009",
+    Title:      "Failed to detect issues",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-CHECK-0009",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://support.snyk.io/hc/en-us/articles/360000920678-Failed-to-detect-issues",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInvalidThirdPartyCredentialsError displays errors with the following description:
+// Snyk uses credentials configured on your integration to test your code and to update your PR Check.
+// 
+// If this error occurs, please ensure your integration and credentials are correctly set up, by following the instructions for your SCM here: https://docs.snyk.io/integrate-with-snyk/git-repository-scm-integrations
+func NewInvalidThirdPartyCredentialsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0010",
+    Title:      "No valid credentials to process PR check",
+    StatusCode: 401,
+    ErrorCode:  "SNYK-PR-CHECK-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewFailedToGenerateCommitStatusError displays errors with the following description:
+// Snyk is always trying to check for new issues and vulnerabilities to keep you safe. We do so by testing on your code on webhook Pull Request events and Push events.
+// 
+// Occasionally you might see a "Failed to generate a commit status" which may block your PR. This means that we tried to run a test against your changes but unfortunately something went wrong / we encountered an internal problem. If this happens to you try recreating the pull request and if it still occurs reach out and let us know which user, organization and project and commit sha you experienced the issue with on support@snyk.io
+func NewFailedToGenerateCommitStatusError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0011",
+    Title:      "Failed to generate a commit status",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-CHECK-0011",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

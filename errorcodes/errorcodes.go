@@ -188,6 +188,9 @@ type PRChecksCodes struct {
   FailedToCompleteTestError string
   FailedToFetchMergeCommitShaError string
   MergeConflictError string
+  FailedToDetectIssuesError string
+  InvalidThirdPartyCredentialsError string
+  FailedToGenerateCommitStatusError string
 }
 
 var Snyk = SnykCodes {
@@ -356,5 +359,8 @@ var PRChecks = PRChecksCodes {
   FailedToCompleteTestError: "SNYK-PR-CHECK-0006",
   FailedToFetchMergeCommitShaError: "SNYK-PR-CHECK-0007",
   MergeConflictError: "SNYK-PR-CHECK-0008",
+  FailedToDetectIssuesError: "SNYK-PR-CHECK-0009",
+  InvalidThirdPartyCredentialsError: "SNYK-PR-CHECK-0010",
+  FailedToGenerateCommitStatusError: "SNYK-PR-CHECK-0011",
 }
 
