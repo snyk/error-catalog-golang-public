@@ -71,6 +71,11 @@ func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
 		err.Meta = e.Meta
 	}
 
+	if e.Logs != nil {
+		j, _ := json.Marshal(e.Logs)
+		err.Meta["logs"] = string(j)
+	}
+
 	err.Meta["classification"] = e.Classification
 
 	// Allow consumers to probe if this specific type of JsonApi response originates from an error catalog error.
@@ -99,6 +104,10 @@ func (j jsonAPIDoc) MarshalFromJSONAPIError() []Error {
 			Detail:         jsonAPIErr.Detail,
 			Meta:           jsonAPIErr.Meta,
 			Classification: jsonAPIErr.Meta["classification"].(string),
+		}
+
+		if err.Logs != nil {
+			err.Meta["logs"] = err.Logs
 		}
 
 		errors = append(errors, err)

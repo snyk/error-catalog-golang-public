@@ -17,6 +17,7 @@ package snyk_errors
 
 import (
 	"errors"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -44,4 +45,14 @@ func TestErrorCause(t *testing.T) {
 	if !errors.Is(err, cause) {
 		t.Fatalf("not wrapping the cause")
 	}
+}
+
+func TestErrorLogs(t *testing.T) {
+	var logs = []string{"a", "b"}
+
+	var err Error
+
+	WithLogs(logs)(&err)
+
+	assert.ElementsMatch(t, logs, err.Logs)
 }

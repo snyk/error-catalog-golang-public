@@ -25,55 +25,152 @@ import (
 )
 
 func TestMarshalToJSONAPIError(t *testing.T) {
-	err := Error{
-		ID:             "id",
-		Type:           "type",
-		Title:          "title",
-		StatusCode:     1,
-		ErrorCode:      "error-code",
-		Level:          "level",
-		Detail:         "detail",
-		Classification: "ACTIONABLE",
-		Meta: map[string]any{
-			"foo": "bar",
-		},
+	type test struct {
+		description string
+		error       Error
+		expected    jsonAPIDoc
 	}
 
-	var buf bytes.Buffer
-
-	require.NoError(t, err.MarshalToJSONAPIError(&buf, "instance"))
-
-	var actual jsonAPIDoc
-
-	require.NoError(t, json.Unmarshal(buf.Bytes(), &actual))
-
-	expected := jsonAPIDoc{
-		JSONAPI: jsonAPIObject{
-			Version: "1.0",
-		},
-		Errors: []jsonAPIError{
-			{
-				ID:     "id",
-				Title:  "title",
-				Detail: "detail",
-				Status: "1",
-				Code:   "error-code",
+	tests := []test{
+		{
+			description: "standard error",
+			error: Error{
+				ID:             "id",
+				Type:           "type",
+				Title:          "title",
+				StatusCode:     1,
+				ErrorCode:      "error-code",
+				Level:          "level",
+				Detail:         "detail",
+				Classification: "ACTIONABLE",
 				Meta: map[string]any{
-					"foo":                 "bar",
-					"classification":      "ACTIONABLE",
-					"isErrorCatalogError": true,
+					"foo": "bar",
 				},
-				Links: jsonAPILinks{
-					About: "type",
+			},
+			expected: jsonAPIDoc{
+				JSONAPI: jsonAPIObject{
+					Version: "1.0",
 				},
-				Source: jsonAPIErrSource{
-					Pointer: "instance",
+				Errors: []jsonAPIError{
+					{
+						ID:     "id",
+						Title:  "title",
+						Detail: "detail",
+						Status: "1",
+						Code:   "error-code",
+						Meta: map[string]any{
+							"foo":                 "bar",
+							"classification":      "ACTIONABLE",
+							"isErrorCatalogError": true,
+						},
+						Links: jsonAPILinks{
+							About: "type",
+						},
+						Source: jsonAPIErrSource{
+							Pointer: "instance",
+						},
+					},
+				},
+			},
+		},
+		{
+			description: "with cause, should not be displayed",
+			error: Error{
+				ID:             "id",
+				Type:           "type",
+				Title:          "title",
+				StatusCode:     1,
+				ErrorCode:      "error-code",
+				Level:          "level",
+				Detail:         "detail",
+				Classification: "ACTIONABLE",
+				Cause:          errors.New("something bad"),
+				Meta: map[string]any{
+					"foo": "bar",
+				},
+			},
+			expected: jsonAPIDoc{
+				JSONAPI: jsonAPIObject{
+					Version: "1.0",
+				},
+				Errors: []jsonAPIError{
+					{
+						ID:     "id",
+						Title:  "title",
+						Detail: "detail",
+						Status: "1",
+						Code:   "error-code",
+						Meta: map[string]any{
+							"foo":                 "bar",
+							"classification":      "ACTIONABLE",
+							"isErrorCatalogError": true,
+						},
+						Links: jsonAPILinks{
+							About: "type",
+						},
+						Source: jsonAPIErrSource{
+							Pointer: "instance",
+						},
+					},
+				},
+			},
+		},
+		{
+			description: "with logs",
+			error: Error{
+				ID:             "id",
+				Type:           "type",
+				Title:          "title",
+				StatusCode:     1,
+				ErrorCode:      "error-code",
+				Level:          "level",
+				Detail:         "detail",
+				Classification: "ACTIONABLE",
+				Logs:           []string{"a", "b"},
+				Meta: map[string]any{
+					"foo": "bar",
+				},
+			},
+			expected: jsonAPIDoc{
+				JSONAPI: jsonAPIObject{
+					Version: "1.0",
+				},
+				Errors: []jsonAPIError{
+					{
+						ID:     "id",
+						Title:  "title",
+						Detail: "detail",
+						Status: "1",
+						Code:   "error-code",
+						Meta: map[string]any{
+							"foo":                 "bar",
+							"classification":      "ACTIONABLE",
+							"isErrorCatalogError": true,
+							"logs":                "[\"a\",\"b\"]",
+						},
+						Links: jsonAPILinks{
+							About: "type",
+						},
+						Source: jsonAPIErrSource{
+							Pointer: "instance",
+						},
+					},
 				},
 			},
 		},
 	}
 
-	require.Equal(t, expected, actual)
+	for _, tt := range tests {
+		t.Run(tt.description, func(t *testing.T) {
+			var buf bytes.Buffer
+			require.NoError(t, tt.error.MarshalToJSONAPIError(&buf, "instance"))
+
+			var actual jsonAPIDoc
+			require.NoError(t, json.Unmarshal(buf.Bytes(), &actual))
+
+			require.Equal(t, tt.expected, actual, "Actual and Expected should be the same for %s", tt.description)
+		})
+	}
 }
 
 type mockWriter func(b []byte) (int, error)

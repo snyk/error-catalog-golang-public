@@ -27,6 +27,7 @@ type Error struct {
 	Meta           map[string]any
 	Cause          error
 	Classification string
+	Logs           []string
 }
 
 func (e Error) Error() string {
@@ -54,5 +55,11 @@ func WithMeta(key string, value any) Option {
 func WithCause(cause error) Option {
 	return func(e *Error) {
 		e.Cause = cause
+	}
+}
+
+func WithLogs(logs []string) Option {
+	return func(e *Error) {
+		e.Logs = logs
 	}
 }
