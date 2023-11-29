@@ -87,3 +87,32 @@ func NewAnalysisResultSizeLimitExceededError(detail string, options ...snyk_erro
   return err
 }
 
+// NewAnalysisTargetSizeLimitExceededError displays errors with the following description:
+// This error occurs when the analysis target byte size exceeds current system limits.
+// 
+// To reduce the overall result size, use a `.snyk` file to ignore specified directories or files. Alternatively, use the Snyk CLI to analyze individual subdirectories separately.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/using-snyk-code-from-the-cli
+func NewAnalysisTargetSizeLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-code-0003",
+    Title:      "Analysis target size limit exceeded",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-CODE-0003",
+    Classification: "UNSUPPORTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/using-snyk-code-from-the-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
