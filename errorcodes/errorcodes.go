@@ -52,6 +52,8 @@ type OpenSourceEcosystemsCodes struct {
   InconsistentVendoringError string
   UnsupportedExternalFileGenerationSCMError string
   UnableToAccessPrivateDepsError string
+  UnableToUseCredentialsError string
+  ToolchainNotAvailableError string
   MissingRequirementFromPomError string
   UnableToResolveValueForPropertyError string
   UnableToResolveVersionForPropertyError string
@@ -225,6 +227,8 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   InconsistentVendoringError: "SNYK-OS-GO-0005",
   UnsupportedExternalFileGenerationSCMError: "SNYK-OS-GO-0006",
   UnableToAccessPrivateDepsError: "SNYK-OS-GO-0007",
+  UnableToUseCredentialsError: "SNYK-OS-GO-0008",
+  ToolchainNotAvailableError: "SNYK-OS-GO-0009",
   MissingRequirementFromPomError: "SNYK-OS-MAVEN-0001",
   UnableToResolveValueForPropertyError: "SNYK-OS-MAVEN-0002",
   UnableToResolveVersionForPropertyError: "SNYK-OS-MAVEN-0003",

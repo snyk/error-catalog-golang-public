@@ -614,6 +614,54 @@ func NewUnableToAccessPrivateDepsError(detail string, options ...snyk_errors.Opt
   return err
 }
 
+// NewUnableToUseCredentialsError displays errors with the following description:
+// The Go tool encountered a permissions error while fetching one of the private dependencies. Ensure that the integration token you used to sign in to Snyk is properly configured so that Snyk can access the private dependencies.
+// 
+// The Snyk Go integration only supports private dependencies that are used inside the same Organization as the Project you are scanning.
+// 
+// This error appears when Snyk is unable to properly access the authorization credentials for the requested private dependency. 
+func NewUnableToUseCredentialsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0008",
+    Title:      "Unable to fetch private dependencies",
+    StatusCode: 401,
+    ErrorCode:  "SNYK-OS-GO-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewToolchainNotAvailableError displays errors with the following description:
+// Could not download Go toolchain.
+func NewToolchainNotAvailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0009",
+    Title:      "Toolchain not available",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-GO-0009",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewMissingRequirementFromPomError displays errors with the following description:
 // The required property is missing from the pom object.
 func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
