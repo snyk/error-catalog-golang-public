@@ -24,7 +24,7 @@ import (
 )
 
 // NewAnalysisFileCountLimitExceededError displays errors with the following description:
-// This error occurs when the analysis target has a supported file count which exceeds current system limits.
+// This error occurs when the analysis target has a supported file count that exceeds current system limits.
 // 
 // To reduce the file count, use a `.snyk` file to ignore specified directories or files. Alternatively, use the Snyk CLI to analyze individual subdirectories separately.
 //
