@@ -28,6 +28,7 @@ type SnykCodes struct {
   BadRequestError string
   TimeoutError string
   UnauthorisedError string
+  TestLimitReachedError string
   ServerError string
 }
 
@@ -203,6 +204,7 @@ var Snyk = SnykCodes {
   BadRequestError: "SNYK-0003",
   TimeoutError: "SNYK-0004",
   UnauthorisedError: "SNYK-0005",
+  TestLimitReachedError: "SNYK-0006",
   ServerError: "SNYK-9999",
 }
 

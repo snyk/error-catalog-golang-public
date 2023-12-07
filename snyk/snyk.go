@@ -143,6 +143,40 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
   return err
 }
 
+// NewTestLimitReachedError displays errors with the following description:
+// Maximum number of test reached. 
+// 
+// This means you have fully consumed your test quota for your level of subscription. 
+// This will cause Snyk Test on PRs and CLI to fail. If this is an blocking issue, you can either deactivate Snyk Test on the project of upgrade your subscription.
+//
+// Read more:
+// - https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project
+// - https://docs.snyk.io/scan-using-snyk/working-with-snyk-in-your-environment/what-counts-as-a-test
+// - https://support.snyk.io/hc/en-us/articles/360001945297-Snyk-Test-of-PR-failing-due-to-test-limit
+func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0006",
+    Title:      "Test Limit Reached error",
+    StatusCode: 406,
+    ErrorCode:  "SNYK-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project",
+      "https://docs.snyk.io/scan-using-snyk/working-with-snyk-in-your-environment/what-counts-as-a-test",
+      "https://support.snyk.io/hc/en-us/articles/360001945297-Snyk-Test-of-PR-failing-due-to-test-limit",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewServerError displays errors with the following description:
 // The server cannot process the request due to an unexpected error. Check Snyk status, then try again.
 //
