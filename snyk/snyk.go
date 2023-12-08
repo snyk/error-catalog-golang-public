@@ -144,10 +144,7 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
 }
 
 // NewTestLimitReachedError displays errors with the following description:
-// Maximum number of test reached. 
-// 
-// This means you have fully consumed your test quota for your level of subscription. 
-// This will cause Snyk Test on PRs and CLI to fail. If this is an blocking issue, you can either deactivate Snyk Test on the project of upgrade your subscription.
+// You have reached the maximum number of tests in your Snyk plan. This will cause Snyk tests on PRs and CLI to fail. Deactivate Snyk Test on your Project or upgrade your Snyk plan.
 //
 // Read more:
 // - https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project
@@ -157,7 +154,7 @@ func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0006",
-    Title:      "Test Limit Reached error",
+    Title:      "Test limit reached",
     StatusCode: 406,
     ErrorCode:  "SNYK-0006",
     Classification: "ACTIONABLE",
