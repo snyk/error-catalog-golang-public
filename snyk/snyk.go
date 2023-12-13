@@ -155,7 +155,7 @@ func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0006",
     Title:      "Test limit reached",
-    StatusCode: 406,
+    StatusCode: 429,
     ErrorCode:  "SNYK-0006",
     Classification: "ACTIONABLE",
     Links: []string{
