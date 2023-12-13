@@ -144,7 +144,7 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
 }
 
 // NewTestLimitReachedError displays errors with the following description:
-// You have reached the maximum number of tests in your Snyk plan. This will cause Snyk tests on PRs and CLI to fail. Deactivate Snyk Test on your Project or upgrade your Snyk plan.
+// You have reached the maximum number of tests in your Snyk plan. This causes Snyk tests on PRs and CLI to fail. Deactivate Snyk Test on your Project or upgrade your Snyk plan.
 //
 // Read more:
 // - https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project
