@@ -176,6 +176,7 @@ type FixCodes struct {
   FailedToDeletePRTemplateError string
   PRTemplateInvalidPayloadError string
   FailedToLoadCompiledJSONError string
+  FailedToRenderDefaultTemplateError string
 }
 
 type CodeCodes struct {
@@ -352,6 +353,7 @@ var Fix = FixCodes {
   FailedToDeletePRTemplateError: "SNYK-PR-TEMPLATE-0009",
   PRTemplateInvalidPayloadError: "SNYK-PR-TEMPLATE-0010",
   FailedToLoadCompiledJSONError: "SNYK-PR-TEMPLATE-0011",
+  FailedToRenderDefaultTemplateError: "SNYK-PR-TEMPLATE-0012",
 }
 
 var Code = CodeCodes {

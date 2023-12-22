@@ -315,3 +315,30 @@ func NewFailedToLoadCompiledJSONError(detail string, options ...snyk_errors.Opti
   return err
 }
 
+// NewFailedToRenderDefaultTemplateError displays errors with the following description:
+// Could not render default PR template.
+//
+// Read more:
+// - https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta
+func NewFailedToRenderDefaultTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0012",
+    Title:      "Failed to render default PR template",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-PR-TEMPLATE-0012",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/scan-application-code/snyk-open-source/open-source-basics/customize-pr-templates-closed-beta",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
