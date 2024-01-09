@@ -1,5 +1,5 @@
 /*
- * © 2023 Snyk Limited
+ * © 2024 Snyk Limited
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -1352,10 +1352,10 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
 func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0001",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0001",
     Title:      "Unsupported manifest file type for remediation",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-PIP-0001",
+    ErrorCode:  "SNYK-OS-PYTHON-0001",
     Classification: "UNSUPPORTED",
     Links: []string{
       "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/python",
@@ -1376,10 +1376,10 @@ func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.O
 func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0002",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0002",
     Title:      "Received more manifests than expected",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-PIP-0002",
+    ErrorCode:  "SNYK-OS-PYTHON-0002",
     Classification: "UNSUPPORTED",
     Links: []string{},
     Level:  "error",
@@ -1398,10 +1398,10 @@ func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) 
 func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0003",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0003",
     Title:      "Failed to apply dependency updates",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-PIP-0003",
+    ErrorCode:  "SNYK-OS-PYTHON-0003",
     Classification: "UNEXPECTED",
     Links: []string{},
     Level:  "error",
@@ -1415,18 +1415,179 @@ func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_error
   return err
 }
 
-// NewNoMatchingPythonDistributionError displays errors with the following description:
+// NewPythonPackageNotFoundError displays errors with the following description:
+// A package listed in the manifest file cannot be found in the Python Package Index(PyPI).
+// Make sure all packages included in the manifest file are public existing ones.
+func NewPythonPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0004",
+    Title:      "Python package not found",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0004",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewSyntaxIssuesError displays errors with the following description:
+// The manifest file has syntax issues like incorrect package names or unsupported characters.
+// Make sure the manifest file follows the syntax stardards and can be installed locally as well.
+func NewSyntaxIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0005",
+    Title:      "Syntax errors found in manifest file",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0005",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPipUnsupportedPythonVersionError displays errors with the following description:
 // At least one of the packages requires a Python version that doesn't match the one used in the project scan.
 // Make sure to select a suitable Python version from the organization Python language settings.
 // Alternatively, add a `.snyk` file for Python version selection override.
-func NewNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewPipUnsupportedPythonVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-pip-0004",
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0006",
+    Title:      "Python version not supported",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPythonVersionConfictError displays errors with the following description:
+// Two or more packages have conflicting version requirements that cannot be resolved.
+// Make sure no two packages and their requirements cause conflicts and that the manifest file can be installed locally.
+func NewPythonVersionConfictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0007",
+    Title:      "Packages versions caused conflicts",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPipNoMatchingPythonDistributionError displays errors with the following description:
+// At least one of the packages requires a Python version that doesn't match the one used in the project scan.
+// Make sure to select a suitable Python version from the organization Python language settings.
+// Alternatively, add a `.snyk` file for Python version selection override.
+func NewPipNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0008",
     Title:      "No matching distribution found for one or more of the packages",
     StatusCode: 422,
-    ErrorCode:  "SNYK-OS-PIP-0004",
+    ErrorCode:  "SNYK-OS-PYTHON-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInstallationFailureError displays errors with the following description:
+// Some packages failed during installation due to missing system dependencies, compilation errors, or other package-specific issues.
+func NewInstallationFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0009",
+    Title:      "Packages installation failed",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0009",
     Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPipenvUnsupportedPythonVersionError displays errors with the following description:
+// At least one of the packages requires a Python version that doesn't match the one used in the project scan.
+// Make sure to use the correct python version in the requires section of the Pipfile.
+func NewPipenvUnsupportedPythonVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0010",
+    Title:      "Python version not supported",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPipenvNoMatchingPythonDistributionError displays errors with the following description:
+// At least one of the packages requires a Python version that doesn't match the one used in the project scan.
+// Make sure to use the correct python version in the requires section of the Pipfile.
+func NewPipenvNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0011",
+    Title:      "No matching distribution found for one or more of the packages",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0011",
+    Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
     Detail: detail,

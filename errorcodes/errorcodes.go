@@ -1,5 +1,5 @@
 /*
- * © 2023 Snyk Limited
+ * © 2024 Snyk Limited
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -89,7 +89,14 @@ type OpenSourceEcosystemsCodes struct {
   UnsupportedRequirementsFileError string
   TooManyManifestFilesError string
   FailedToApplyDependencyUpdatesError string
-  NoMatchingPythonDistributionError string
+  PythonPackageNotFoundError string
+  SyntaxIssuesError string
+  PipUnsupportedPythonVersionError string
+  PythonVersionConfictError string
+  PipNoMatchingPythonDistributionError string
+  InstallationFailureError string
+  PipenvUnsupportedPythonVersionError string
+  PipenvNoMatchingPythonDistributionError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -263,10 +270,17 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   Base64DecodeError: "SNYK-OS-NODEJS-0013",
   MissingSupportedFileError: "SNYK-OS-NODEJS-0014",
   InvalidConfigurationError: "SNYK-OS-NODEJS-0015",
-  UnsupportedRequirementsFileError: "SNYK-OS-PIP-0001",
-  TooManyManifestFilesError: "SNYK-OS-PIP-0002",
-  FailedToApplyDependencyUpdatesError: "SNYK-OS-PIP-0003",
-  NoMatchingPythonDistributionError: "SNYK-OS-PIP-0004",
+  UnsupportedRequirementsFileError: "SNYK-OS-PYTHON-0001",
+  TooManyManifestFilesError: "SNYK-OS-PYTHON-0002",
+  FailedToApplyDependencyUpdatesError: "SNYK-OS-PYTHON-0003",
+  PythonPackageNotFoundError: "SNYK-OS-PYTHON-0004",
+  SyntaxIssuesError: "SNYK-OS-PYTHON-0005",
+  PipUnsupportedPythonVersionError: "SNYK-OS-PYTHON-0006",
+  PythonVersionConfictError: "SNYK-OS-PYTHON-0007",
+  PipNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0008",
+  InstallationFailureError: "SNYK-OS-PYTHON-0009",
+  PipenvUnsupportedPythonVersionError: "SNYK-OS-PYTHON-0010",
+  PipenvNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0011",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
