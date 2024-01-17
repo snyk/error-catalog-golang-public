@@ -398,6 +398,35 @@ func NewMissingMSBuildConditionError(detail string, options ...snyk_errors.Optio
   return err
 }
 
+// NewNoTargetFrameworksFoundError displays errors with the following description:
+// Snyk was unable to detect any `<TargetFramework>`s in the supplied manifest files. 
+// 
+// If you are using `Directory.Build.props` files to determine the target framework, please ensure that it is named as such, as Snyk does not perform case-insensitive searches for `.props` files due to performance considerations on the customer's SCM network.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets
+func NewNoTargetFrameworksFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0007",
+    Title:      "No target frameworks found in manifest files",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory?view=vs-2022#directorybuildprops-and-directorybuildtargets",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
