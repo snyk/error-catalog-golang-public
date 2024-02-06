@@ -39,7 +39,7 @@ import (
 func NewFailedToReadManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0001",
     Title:      "Error reading manifest",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0001",
@@ -73,7 +73,7 @@ func NewFailedToReadManifestError(detail string, options ...snyk_errors.Option) 
 func NewManifestNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0002",
     Title:      "Manifest not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-PR-CHECK-0002",
@@ -99,7 +99,7 @@ func NewManifestNotFoundError(detail string, options ...snyk_errors.Option) snyk
 func NewThirdPartyRateLimitError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0003",
     Title:      "Rate limit hit while testing project",
     StatusCode: 429,
     ErrorCode:  "SNYK-PR-CHECK-0003",
@@ -128,7 +128,7 @@ func NewThirdPartyRateLimitError(detail string, options ...snyk_errors.Option) s
 func NewOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0004",
     Title:      "Out of Sync Error",
     StatusCode: 422,
     ErrorCode:  "SNYK-PR-CHECK-0004",
@@ -156,7 +156,7 @@ func NewOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors
 func NewFailedDeterminingProjectTargetError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0005",
     Title:      "Failed determining project target",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0005",
@@ -185,7 +185,7 @@ func NewFailedDeterminingProjectTargetError(detail string, options ...snyk_error
 func NewFailedToCompleteTestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0006",
     Title:      "Failed to complete the test",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0006",
@@ -214,7 +214,7 @@ func NewFailedToCompleteTestError(detail string, options ...snyk_errors.Option) 
 func NewFailedToFetchMergeCommitShaError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0007",
     Title:      "Failed to fetch merge commit SHA",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0007",
@@ -243,7 +243,7 @@ func NewFailedToFetchMergeCommitShaError(detail string, options ...snyk_errors.O
 func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0008",
     Title:      "Merge conflict error",
     StatusCode: 422,
     ErrorCode:  "SNYK-PR-CHECK-0008",
@@ -272,7 +272,7 @@ func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_er
 func NewFailedToDetectIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0009",
     Title:      "Failed to detect issues",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0009",
@@ -298,7 +298,7 @@ func NewFailedToDetectIssuesError(detail string, options ...snyk_errors.Option) 
 func NewInvalidThirdPartyCredentialsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0010",
     Title:      "No valid credentials to process PR check",
     StatusCode: 401,
     ErrorCode:  "SNYK-PR-CHECK-0010",
@@ -322,7 +322,7 @@ func NewInvalidThirdPartyCredentialsError(detail string, options ...snyk_errors.
 func NewFailedToGenerateCommitStatusError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-check-0011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-check-0011",
     Title:      "Failed to generate a commit status",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0011",

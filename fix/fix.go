@@ -31,7 +31,7 @@ import (
 func NewFailedToGetPullRequestAttributesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0001",
     Title:      "Failed to get pull request attributes",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0001",
@@ -58,7 +58,7 @@ func NewFailedToGetPullRequestAttributesError(detail string, options ...snyk_err
 func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0002",
     Title:      "Not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-PR-TEMPLATE-0002",
@@ -85,7 +85,7 @@ func NewPullRequestTemplateNotFoundError(detail string, options ...snyk_errors.O
 func NewFailedToCompilePrTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0003",
     Title:      "Failed to compile pull request template",
     StatusCode: 400,
     ErrorCode:  "SNYK-PR-TEMPLATE-0003",
@@ -112,7 +112,7 @@ func NewFailedToCompilePrTemplateError(detail string, options ...snyk_errors.Opt
 func NewFailedToParsePullRequestAttributesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0004",
     Title:      "Failed to parse pull request attributes",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0004",
@@ -139,7 +139,7 @@ func NewFailedToParsePullRequestAttributesError(detail string, options ...snyk_e
 func NewFailedToLoadCompiledYamlError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0005",
     Title:      "Failed to load YAML file after substituting Snyk variables",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0005",
@@ -166,7 +166,7 @@ func NewFailedToLoadCompiledYamlError(detail string, options ...snyk_errors.Opti
 func NewFailedToGenerateHashError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0006",
     Title:      "Failed to generate hash for custom PR template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0006",
@@ -193,7 +193,7 @@ func NewFailedToGenerateHashError(detail string, options ...snyk_errors.Option) 
 func NewFailedToCreatePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0007",
     Title:      "Unable to create pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0007",
@@ -220,7 +220,7 @@ func NewFailedToCreatePRTemplateError(detail string, options ...snyk_errors.Opti
 func NewFailedToReadPRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0008",
     Title:      "Unable to get pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0008",
@@ -247,7 +247,7 @@ func NewFailedToReadPRTemplateError(detail string, options ...snyk_errors.Option
 func NewFailedToDeletePRTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0009",
     Title:      "Unable to delete pull request template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0009",
@@ -271,7 +271,7 @@ func NewFailedToDeletePRTemplateError(detail string, options ...snyk_errors.Opti
 func NewPRTemplateInvalidPayloadError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0010",
     Title:      "Invalid payload",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0010",
@@ -296,7 +296,7 @@ func NewPRTemplateInvalidPayloadError(detail string, options ...snyk_errors.Opti
 func NewFailedToLoadCompiledJSONError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0011",
     Title:      "Failed to load JSON file after substituting Snyk variables",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0011",
@@ -323,7 +323,7 @@ func NewFailedToLoadCompiledJSONError(detail string, options ...snyk_errors.Opti
 func NewFailedToRenderDefaultTemplateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-pr-template-0012",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-pr-template-0012",
     Title:      "Failed to render default PR template",
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-TEMPLATE-0012",

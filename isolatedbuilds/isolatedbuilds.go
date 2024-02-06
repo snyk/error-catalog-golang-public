@@ -31,7 +31,7 @@ import (
 func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-8001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8001",
     Title:      "Invalid request",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-8001",
@@ -55,7 +55,7 @@ func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_e
 func NewBuildEnvironmentNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-8002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8002",
     Title:      "Build environment not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-8002",
@@ -80,7 +80,7 @@ func NewBuildEnvironmentNotFoundError(detail string, options ...snyk_errors.Opti
 func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-8003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8003",
     Title:      "Unsupported Ecosystem",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-8003",

@@ -28,7 +28,7 @@ import (
 func NewUnparseableManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0001",
     Title:      "Unable to parse manifest file",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-0001",
@@ -50,7 +50,7 @@ func NewUnparseableManifestError(detail string, options ...snyk_errors.Option) s
 func NewUnparseableLockFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0002",
     Title:      "Unable to parse lock file",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-0002",
@@ -75,7 +75,7 @@ func NewUnparseableLockFileError(detail string, options ...snyk_errors.Option) s
 func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0003",
     Title:      "Unknown dependency version",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-0003",
@@ -99,7 +99,7 @@ func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Opti
 func NewMissingHeaderError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0004",
     Title:      "Missing required request header",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-0004",
@@ -121,7 +121,7 @@ func NewMissingHeaderError(detail string, options ...snyk_errors.Option) snyk_er
 func NewMissingPayloadError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0005",
     Title:      "Payload missing required elements",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-0005",
@@ -143,7 +143,7 @@ func NewMissingPayloadError(detail string, options ...snyk_errors.Option) snyk_e
 func NewUnprocessableFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0006",
     Title:      "Files cannot be processed",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-0006",
@@ -165,7 +165,7 @@ func NewUnprocessableFileError(detail string, options ...snyk_errors.Option) sny
 func NewCannotGetFileFromSourceError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0007",
     Title:      "Cannot get file from source",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-0007",
@@ -187,7 +187,7 @@ func NewCannotGetFileFromSourceError(detail string, options ...snyk_errors.Optio
 func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0008",
     Title:      "Missing environment variable",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-0008",
@@ -212,7 +212,7 @@ func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Op
 func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0001",
     Title:      "Unsupported manifest file type for remediation",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-DOTNET-0001",
@@ -236,7 +236,7 @@ func NewUnsupportedManifestFileError(detail string, options ...snyk_errors.Optio
 func NewUnsupportedTargetFrameworkError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0002",
     Title:      "Target framework not supported",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0002",
@@ -276,7 +276,7 @@ func NewUnsupportedTargetFrameworkError(detail string, options ...snyk_errors.Op
 func NewMissingStaticMainFunctionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0003",
     Title:      "Your C# code is missing a static Main function",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0003",
@@ -313,7 +313,7 @@ func NewMissingStaticMainFunctionError(detail string, options ...snyk_errors.Opt
 func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0004",
     Title:      "The dotnet CLI is unable to generate a self-contained binary",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0004",
@@ -379,7 +379,7 @@ func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_er
 func NewMissingMSBuildConditionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0006",
     Title:      "Missing MSBuild Condition Construct in project file",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0006",
@@ -408,7 +408,7 @@ func NewMissingMSBuildConditionError(detail string, options ...snyk_errors.Optio
 func NewNoTargetFrameworksFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-dotnet-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0007",
     Title:      "No target frameworks found in manifest files",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-DOTNET-0007",
@@ -435,7 +435,7 @@ func NewNoTargetFrameworksFoundError(detail string, options ...snyk_errors.Optio
 func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0001",
     Title:      "Failed to access private module",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0001",
@@ -462,7 +462,7 @@ func NewPrivateModuleError(detail string, options ...snyk_errors.Option) snyk_er
 func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0002",
     Title:      "Go mod file not found",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-GO-0002",
@@ -494,7 +494,7 @@ func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk
 func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0003",
     Title:      "OAuth re-authorization required",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0003",
@@ -529,7 +529,7 @@ func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) sny
 func NewIncompleteProjectError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0004",
     Title:      "Your project repository is missing required files",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0004",
@@ -568,7 +568,7 @@ func NewIncompleteProjectError(detail string, options ...snyk_errors.Option) sny
 func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0005",
     Title:      "Your project repository has inconsistent vendoring information",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0005",
@@ -594,7 +594,7 @@ func NewInconsistentVendoringError(detail string, options ...snyk_errors.Option)
 func NewUnsupportedExternalFileGenerationSCMError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0006",
     Title:      "Unsupported external file generation",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0006",
@@ -624,7 +624,7 @@ func NewUnsupportedExternalFileGenerationSCMError(detail string, options ...snyk
 func NewUnableToAccessPrivateDepsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0007",
     Title:      "Unable to access private dependencies",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0007",
@@ -652,7 +652,7 @@ func NewUnableToAccessPrivateDepsError(detail string, options ...snyk_errors.Opt
 func NewUnableToUseCredentialsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0008",
     Title:      "Unable to fetch private dependencies",
     StatusCode: 401,
     ErrorCode:  "SNYK-OS-GO-0008",
@@ -674,7 +674,7 @@ func NewUnableToUseCredentialsError(detail string, options ...snyk_errors.Option
 func NewToolchainNotAvailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-go-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0009",
     Title:      "Toolchain not available",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-GO-0009",
@@ -696,7 +696,7 @@ func NewToolchainNotAvailableError(detail string, options ...snyk_errors.Option)
 func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0001",
     Title:      "Missing property",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0001",
@@ -718,7 +718,7 @@ func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Opt
 func NewUnableToResolveValueForPropertyError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0002",
     Title:      "Unable to resolve value for property",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0002",
@@ -740,7 +740,7 @@ func NewUnableToResolveValueForPropertyError(detail string, options ...snyk_erro
 func NewUnableToResolveVersionForPropertyError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0003",
     Title:      "Unable to resolve version for property",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-MAVEN-0003",
@@ -762,7 +762,7 @@ func NewUnableToResolveVersionForPropertyError(detail string, options ...snyk_er
 func NewCyclicPropertyDetectedInPomFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0004",
     Title:      "Cyclic property detected in POM file",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0004",
@@ -784,7 +784,7 @@ func NewCyclicPropertyDetectedInPomFileError(detail string, options ...snyk_erro
 func NewUnableToParseXMLError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0005",
     Title:      "Error parsing the XML file",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0005",
@@ -806,7 +806,7 @@ func NewUnableToParseXMLError(detail string, options ...snyk_errors.Option) snyk
 func NewInvalidCoordinatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0006",
     Title:      "Invalid coordinates provided",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0006",
@@ -828,7 +828,7 @@ func NewInvalidCoordinatesError(detail string, options ...snyk_errors.Option) sn
 func NewSkippedGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0007",
     Title:      "Skipping group",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0007",
@@ -850,7 +850,7 @@ func NewSkippedGroupError(detail string, options ...snyk_errors.Option) snyk_err
 func NewPomFileNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0008",
     Title:      "Pom file not found",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0008",
@@ -872,7 +872,7 @@ func NewPomFileNotFoundError(detail string, options ...snyk_errors.Option) snyk_
 func NewMissingProjectFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0009",
     Title:      "Missing project from POM",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0009",
@@ -894,7 +894,7 @@ func NewMissingProjectFromPomError(detail string, options ...snyk_errors.Option)
 func NewCannotResolveTargetPomFromXmlError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0010",
     Title:      "Cannot resolve the target POM from the input XML",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0010",
@@ -916,7 +916,7 @@ func NewCannotResolveTargetPomFromXmlError(detail string, options ...snyk_errors
 func NewCannotResolveTargetPomFromRepoError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0011",
     Title:      "Cannot resolve the target POM from the repository",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-MAVEN-0011",
@@ -938,7 +938,7 @@ func NewCannotResolveTargetPomFromRepoError(detail string, options ...snyk_error
 func NewCannotGetBuildFileFromRepoError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0012",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0012",
     Title:      "Cannot get the build file repository",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-MAVEN-0012",
@@ -960,7 +960,7 @@ func NewCannotGetBuildFileFromRepoError(detail string, options ...snyk_errors.Op
 func NewCannotCreateGitHostError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0013",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0013",
     Title:      "Unable to create hosted git info",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-MAVEN-0013",
@@ -982,7 +982,7 @@ func NewCannotCreateGitHostError(detail string, options ...snyk_errors.Option) s
 func NewNoReleasedVersionForVersionsRangeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0014",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0014",
     Title:      "No released version for versions range",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0014",
@@ -1004,7 +1004,7 @@ func NewNoReleasedVersionForVersionsRangeError(detail string, options ...snyk_er
 func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0015",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0015",
     Title:      "Source is not supported",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0015",
@@ -1026,7 +1026,7 @@ func NewSourceNotSupportedError(detail string, options ...snyk_errors.Option) sn
 func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-maven-0016",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0016",
     Title:      "Timeout when processing the dependency tree",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-MAVEN-0016",
@@ -1048,7 +1048,7 @@ func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_erro
 func NewNoRepoFoundForTheNPMPackageError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0001",
     Title:      "No repository found for A NPM package",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0001",
@@ -1070,7 +1070,7 @@ func NewNoRepoFoundForTheNPMPackageError(detail string, options ...snyk_errors.O
 func NewCouldNotParseNPMRegistryURLError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0002",
     Title:      "Could not parse NPM registry URL",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0002",
@@ -1092,7 +1092,7 @@ func NewCouldNotParseNPMRegistryURLError(detail string, options ...snyk_errors.O
 func NewCouldNotFindBrokerURLError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0003",
     Title:      "Could not find a broker resolved URL",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0003",
@@ -1114,7 +1114,7 @@ func NewCouldNotFindBrokerURLError(detail string, options ...snyk_errors.Option)
 func NewUnableToReplaceBrokerURLError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0004",
     Title:      "Unable to replace broker URL",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0004",
@@ -1136,7 +1136,7 @@ func NewUnableToReplaceBrokerURLError(detail string, options ...snyk_errors.Opti
 func NewBadNPMVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0005",
     Title:      "Bad NPM version",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0005",
@@ -1158,7 +1158,7 @@ func NewBadNPMVersionError(detail string, options ...snyk_errors.Option) snyk_er
 func NewUnknownBlobEncodingOnGithubError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0006",
     Title:      "Unknown blob encoding on Github",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0006",
@@ -1180,7 +1180,7 @@ func NewUnknownBlobEncodingOnGithubError(detail string, options ...snyk_errors.O
 func NewNoResultsFromForkerProcessesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0007",
     Title:      "No result from forked process",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-NODEJS-0007",
@@ -1202,7 +1202,7 @@ func NewNoResultsFromForkerProcessesError(detail string, options ...snyk_errors.
 func NewChildProcessExecutionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0008",
     Title:      "Child Process Execution Error",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-NODEJS-0008",
@@ -1224,7 +1224,7 @@ func NewChildProcessExecutionError(detail string, options ...snyk_errors.Option)
 func NewNoValidPackageUpgradesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0009",
     Title:      "No valid package upgrades",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0009",
@@ -1246,7 +1246,7 @@ func NewNoValidPackageUpgradesError(detail string, options ...snyk_errors.Option
 func NewNoDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0010",
     Title:      "No dependency updates",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0010",
@@ -1268,7 +1268,7 @@ func NewNoDependencyUpdatesError(detail string, options ...snyk_errors.Option) s
 func NewCouldNotParseJSONFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0011",
     Title:      "Could not parse JSON file",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0011",
@@ -1290,7 +1290,7 @@ func NewCouldNotParseJSONFileError(detail string, options ...snyk_errors.Option)
 func NewBase64EncodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0012",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0012",
     Title:      "Could not Base64 encode",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0012",
@@ -1312,7 +1312,7 @@ func NewBase64EncodeError(detail string, options ...snyk_errors.Option) snyk_err
 func NewBase64DecodeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0013",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0013",
     Title:      "Could not Base64 decode",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-NODEJS-0013",
@@ -1334,7 +1334,7 @@ func NewBase64DecodeError(detail string, options ...snyk_errors.Option) snyk_err
 func NewMissingSupportedFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0014",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0014",
     Title:      "Missing supported file",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-NODEJS-0014",
@@ -1356,7 +1356,7 @@ func NewMissingSupportedFileError(detail string, options ...snyk_errors.Option) 
 func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-nodejs-0015",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0015",
     Title:      "Invalid configuration",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-NODEJS-0015",
@@ -1381,7 +1381,7 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
 func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0001",
     Title:      "Unsupported manifest file type for remediation",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0001",
@@ -1405,7 +1405,7 @@ func NewUnsupportedRequirementsFileError(detail string, options ...snyk_errors.O
 func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0002",
     Title:      "Received more manifests than expected",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0002",
@@ -1427,7 +1427,7 @@ func NewTooManyManifestFilesError(detail string, options ...snyk_errors.Option) 
 func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0003",
     Title:      "Failed to apply dependency updates",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0003",
@@ -1450,7 +1450,7 @@ func NewFailedToApplyDependencyUpdatesError(detail string, options ...snyk_error
 func NewPythonPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0004",
     Title:      "Python package not found",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0004",
@@ -1473,7 +1473,7 @@ func NewPythonPackageNotFoundError(detail string, options ...snyk_errors.Option)
 func NewSyntaxIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0005",
     Title:      "Syntax errors found in manifest file",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0005",
@@ -1497,7 +1497,7 @@ func NewSyntaxIssuesError(detail string, options ...snyk_errors.Option) snyk_err
 func NewPipUnsupportedPythonVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0006",
     Title:      "Python version not supported",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0006",
@@ -1520,7 +1520,7 @@ func NewPipUnsupportedPythonVersionError(detail string, options ...snyk_errors.O
 func NewPythonVersionConfictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0007",
     Title:      "Packages versions caused conflicts",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0007",
@@ -1544,7 +1544,7 @@ func NewPythonVersionConfictError(detail string, options ...snyk_errors.Option) 
 func NewPipNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0008",
     Title:      "No matching distribution found for one or more of the packages",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0008",
@@ -1566,7 +1566,7 @@ func NewPipNoMatchingPythonDistributionError(detail string, options ...snyk_erro
 func NewInstallationFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0009",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0009",
     Title:      "Packages installation failed",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0009",
@@ -1589,7 +1589,7 @@ func NewInstallationFailureError(detail string, options ...snyk_errors.Option) s
 func NewPipenvUnsupportedPythonVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0010",
     Title:      "Python version not supported",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0010",
@@ -1612,7 +1612,7 @@ func NewPipenvUnsupportedPythonVersionError(detail string, options ...snyk_error
 func NewPipenvNoMatchingPythonDistributionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-python-0011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0011",
     Title:      "No matching distribution found for one or more of the packages",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-PYTHON-0011",

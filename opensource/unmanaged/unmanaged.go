@@ -32,7 +32,7 @@ import (
 func NewMavenSearchServiceUnavailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-osjvm-001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-osjvm-001",
     Title:      "Maven search service unavailable",
     StatusCode: 503,
     ErrorCode:  "SNYK-OSJVM-001",
@@ -60,7 +60,7 @@ func NewMavenSearchServiceUnavailableError(detail string, options ...snyk_errors
 func NewSha1NotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-osjvm-002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-osjvm-002",
     Title:      "SHA1 not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OSJVM-002",

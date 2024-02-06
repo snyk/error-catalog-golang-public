@@ -31,7 +31,7 @@ import (
 func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0001",
     Title:      "Bad request",
     StatusCode: 400,
     ErrorCode:  "SNYK-OPENAPI-0001",
@@ -55,7 +55,7 @@ func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_error
 func NewForbiddenError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0002",
     Title:      "Forbidden",
     StatusCode: 403,
     ErrorCode:  "SNYK-OPENAPI-0002",
@@ -77,7 +77,7 @@ func NewForbiddenError(detail string, options ...snyk_errors.Option) snyk_errors
 func NewNotAcceptableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0003",
     Title:      "Not acceptable",
     StatusCode: 406,
     ErrorCode:  "SNYK-OPENAPI-0003",
@@ -99,7 +99,7 @@ func NewNotAcceptableError(detail string, options ...snyk_errors.Option) snyk_er
 func NewNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0004",
     Title:      "Not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OPENAPI-0004",
@@ -121,7 +121,7 @@ func NewNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.
 func NewMethodNotAllowedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0005",
     Title:      "Method not allowed",
     StatusCode: 405,
     ErrorCode:  "SNYK-OPENAPI-0005",
@@ -143,7 +143,7 @@ func NewMethodNotAllowedError(detail string, options ...snyk_errors.Option) snyk
 func NewRequestEntityTooLargeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0006",
     Title:      "Request entity too large",
     StatusCode: 413,
     ErrorCode:  "SNYK-OPENAPI-0006",
@@ -168,7 +168,7 @@ func NewRequestEntityTooLargeError(detail string, options ...snyk_errors.Option)
 func NewUnauthorizedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0007",
     Title:      "Unauthorized",
     StatusCode: 401,
     ErrorCode:  "SNYK-OPENAPI-0007",
@@ -192,7 +192,7 @@ func NewUnauthorizedError(detail string, options ...snyk_errors.Option) snyk_err
 func NewUnsupportedMediaTypeError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-openapi-0008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0008",
     Title:      "Unsupported media type",
     StatusCode: 415,
     ErrorCode:  "SNYK-OPENAPI-0008",

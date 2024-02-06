@@ -35,7 +35,7 @@ import (
 func NewAnalysisFileCountLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-code-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0001",
     Title:      "Analysis file count limit exceeded",
     StatusCode: 422,
     ErrorCode:  "SNYK-CODE-0001",
@@ -67,7 +67,7 @@ func NewAnalysisFileCountLimitExceededError(detail string, options ...snyk_error
 func NewAnalysisResultSizeLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-code-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0002",
     Title:      "Analysis result size limit exceeded",
     StatusCode: 422,
     ErrorCode:  "SNYK-CODE-0002",
@@ -97,7 +97,7 @@ func NewAnalysisResultSizeLimitExceededError(detail string, options ...snyk_erro
 func NewAnalysisTargetSizeLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-code-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0003",
     Title:      "Analysis target size limit exceeded",
     StatusCode: 422,
     ErrorCode:  "SNYK-CODE-0003",

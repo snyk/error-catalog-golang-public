@@ -28,7 +28,7 @@ import (
 func NewOrganizationNotWhitelistedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-1040",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-1040",
     Title:      "Your Organisation is not authorized to perform this action",
     StatusCode: 403,
     ErrorCode:  "SNYK-OSSI-1040",
@@ -50,7 +50,7 @@ func NewOrganizationNotWhitelistedError(detail string, options ...snyk_errors.Op
 func NewAuthorizationRequestFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-1050",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-1050",
     Title:      "Authorization request failure",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-1050",
@@ -75,7 +75,7 @@ func NewAuthorizationRequestFailureError(detail string, options ...snyk_errors.O
 func NewInvalidPurlError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2010",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2010",
     Title:      "Invalid purl",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2010",
@@ -102,7 +102,7 @@ func NewInvalidPurlError(detail string, options ...snyk_errors.Option) snyk_erro
 func NewNamespaceNotProvidedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2011",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2011",
     Title:      "Namespace not specified",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2011",
@@ -126,7 +126,7 @@ func NewNamespaceNotProvidedError(detail string, options ...snyk_errors.Option) 
 func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2020",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2020",
     Title:      "Unsupported ecosystem",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2020",
@@ -148,7 +148,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
 func NewMissingComponentError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2021",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2021",
     Title:      "Purl components required",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2021",
@@ -170,7 +170,7 @@ func NewMissingComponentError(detail string, options ...snyk_errors.Option) snyk
 func NewComponentNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2022",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2022",
     Title:      "Unsupported purl components",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2022",
@@ -192,7 +192,7 @@ func NewComponentNotSupportedError(detail string, options ...snyk_errors.Option)
 func NewPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2030",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2030",
     Title:      "Requested package not found",
     StatusCode: 404,
     ErrorCode:  "SNYK-OSSI-2030",
@@ -214,7 +214,7 @@ func NewPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_
 func NewVulnerabilityServiceUnavailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2031",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2031",
     Title:      "Vulnerability service not available",
     StatusCode: 503,
     ErrorCode:  "SNYK-OSSI-2031",
@@ -236,7 +236,7 @@ func NewVulnerabilityServiceUnavailableError(detail string, options ...snyk_erro
 func NewVulnDBInvalidResponseError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2032",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2032",
     Title:      "This issue is unexpected and the service should recover quickly if not please contact support",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-2032",
@@ -258,7 +258,7 @@ func NewVulnDBInvalidResponseError(detail string, options ...snyk_errors.Option)
 func NewVulndbNextError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2033",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2033",
     Title:      "This issue is unexpected and the service should recover quickly if not please contact support",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-2033",
@@ -280,7 +280,7 @@ func NewVulndbNextError(detail string, options ...snyk_errors.Option) snyk_error
 func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2040",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2040",
     Title:      "Request not processed due to unexpected error",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-2040",
@@ -302,7 +302,7 @@ func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_e
 func NewInvalidPaginationParametersError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2041",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2041",
     Title:      "Invalid pagination parameters",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2041",
@@ -324,7 +324,7 @@ func NewInvalidPaginationParametersError(detail string, options ...snyk_errors.O
 func NewTooManyPurlsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2042",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2042",
     Title:      "purls exceed limit",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2042",
@@ -346,7 +346,7 @@ func NewTooManyPurlsError(detail string, options ...snyk_errors.Option) snyk_err
 func NewTooManyIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2043",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2043",
     Title:      "Number of issues exceeds limit",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2043",
@@ -371,7 +371,7 @@ func NewTooManyIssuesError(detail string, options ...snyk_errors.Option) snyk_er
 func NewUndefinedContainerDistroError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2044",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2044",
     Title:      "Expected distro to be present",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2044",
@@ -395,7 +395,7 @@ func NewUndefinedContainerDistroError(detail string, options ...snyk_errors.Opti
 func NewUnsupportedDebianDistroError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2045",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2045",
     Title:      "Unsupported Debian distro",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2045",
@@ -417,7 +417,7 @@ func NewUnsupportedDebianDistroError(detail string, options ...snyk_errors.Optio
 func NewUndefinedContainerVendorError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2046",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2046",
     Title:      "Expected namespace to be present",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2046",
@@ -439,7 +439,7 @@ func NewUndefinedContainerVendorError(detail string, options ...snyk_errors.Opti
 func NewUnsupportedContainerVendorError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-2047",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2047",
     Title:      "Unsupported vendor",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-2047",

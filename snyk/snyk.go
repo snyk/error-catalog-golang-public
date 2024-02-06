@@ -28,7 +28,7 @@ import (
 func NewTooManyRequestsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0001",
     Title:      "Service temporarily throttled",
     StatusCode: 429,
     ErrorCode:  "SNYK-0001",
@@ -53,7 +53,7 @@ func NewTooManyRequestsError(detail string, options ...snyk_errors.Option) snyk_
 func NewNotImplementedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0002",
     Title:      "Server error response",
     StatusCode: 501,
     ErrorCode:  "SNYK-0002",
@@ -77,7 +77,7 @@ func NewNotImplementedError(detail string, options ...snyk_errors.Option) snyk_e
 func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0003",
     Title:      "Client request cannot be processed",
     StatusCode: 400,
     ErrorCode:  "SNYK-0003",
@@ -102,7 +102,7 @@ func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_error
 func NewTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0004",
     Title:      "Server communication error",
     StatusCode: 504,
     ErrorCode:  "SNYK-0004",
@@ -126,7 +126,7 @@ func NewTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.E
 func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0005",
     Title:      "Authentication error",
     StatusCode: 401,
     ErrorCode:  "SNYK-0005",
@@ -153,7 +153,7 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
 func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-0006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0006",
     Title:      "Test limit reached",
     StatusCode: 429,
     ErrorCode:  "SNYK-0006",
@@ -182,7 +182,7 @@ func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk
 func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-9999",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-9999",
     Title:      "Request not fulfilled due to server error ",
     StatusCode: 500,
     ErrorCode:  "SNYK-9999",

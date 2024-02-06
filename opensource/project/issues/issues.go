@@ -28,7 +28,7 @@ import (
 func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-ospi-1001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-ospi-1001",
     Title:      "Invalid request",
     StatusCode: 400,
     ErrorCode:  "SNYK-OSSI-OSPI-1001",
@@ -50,7 +50,7 @@ func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_e
 func NewInvalidResponseError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-ospi-1002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-ospi-1002",
     Title:      "Unable to return valid API response",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-OSPI-1002",
@@ -72,7 +72,7 @@ func NewInvalidResponseError(detail string, options ...snyk_errors.Option) snyk_
 func NewDataTransformationError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-ospi-2001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-ospi-2001",
     Title:      "Failed to process data",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-OSPI-2001",
@@ -94,7 +94,7 @@ func NewDataTransformationError(detail string, options ...snyk_errors.Option) sn
 func NewStorageFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-ospi-3001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-ospi-3001",
     Title:      "Failed to store issue data",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-OSPI-3001",
@@ -116,7 +116,7 @@ func NewStorageFailureError(detail string, options ...snyk_errors.Option) snyk_e
 func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-ossi-ospi-4001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-ospi-4001",
     Title:      "Internal server error",
     StatusCode: 500,
     ErrorCode:  "SNYK-OSSI-OSPI-4001",

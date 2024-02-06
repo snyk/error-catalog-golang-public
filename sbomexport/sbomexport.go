@@ -28,7 +28,7 @@ import (
 func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9000",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9000",
     Title:      "SBOM generation export server error",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-9000",
@@ -50,7 +50,7 @@ func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_e
 func NewUnexpectedDepGraphResponseError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9001",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9001",
     Title:      "Dependency graph error",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-9001",
@@ -72,7 +72,7 @@ func NewUnexpectedDepGraphResponseError(detail string, options ...snyk_errors.Op
 func NewUnexpectedParseDepGraphError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9002",
     Title:      "Error parsing dependency graph",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-9002",
@@ -94,7 +94,7 @@ func NewUnexpectedParseDepGraphError(detail string, options ...snyk_errors.Optio
 func NewIaCOrSASTProjectError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9003",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9003",
     Title:      "SBOM not supported due to project type",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-9003",
@@ -116,7 +116,7 @@ func NewIaCOrSASTProjectError(detail string, options ...snyk_errors.Option) snyk
 func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9004",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9004",
     Title:      "SBOM not supported",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-9004",
@@ -138,7 +138,7 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
 func NewDepGraphResponseError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9005",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9005",
     Title:      "Dependency graph request cannot be processed",
     StatusCode: 404,
     ErrorCode:  "SNYK-OS-9005",
@@ -163,7 +163,7 @@ func NewDepGraphResponseError(detail string, options ...snyk_errors.Option) snyk
 func NewMissingAuthTokenError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9006",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9006",
     Title:      "Authorization failed due to missing API token",
     StatusCode: 401,
     ErrorCode:  "SNYK-OS-9006",
@@ -187,7 +187,7 @@ func NewMissingAuthTokenError(detail string, options ...snyk_errors.Option) snyk
 func NewEmptyRequestBodyError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9007",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9007",
     Title:      "Client request cannot be processed",
     StatusCode: 400,
     ErrorCode:  "SNYK-OS-9007",
@@ -209,7 +209,7 @@ func NewEmptyRequestBodyError(detail string, options ...snyk_errors.Option) snyk
 func NewInvalidDepGraphError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/more-info/error-catalog#snyk-os-9008",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-9008",
     Title:      "Invalid dependency graph",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-9008",
