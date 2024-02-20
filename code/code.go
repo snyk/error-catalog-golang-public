@@ -116,3 +116,32 @@ func NewAnalysisTargetSizeLimitExceededError(detail string, options ...snyk_erro
   return err
 }
 
+// NewAnalysisFileNameLengthLimitExceededError displays errors with the following description:
+// This error occurs when the analysis target has a file name length that exceeds 255 bytes.
+// 
+// To be able to scan the analysis target, rename the file to a name that is 255 bytes or less.
+//
+// Read more:
+// - https://docs.snyk.io/scan-with-snyk/supported-languages-and-frameworks/introduction-to-snyk-supported-languages-and-frameworks#filename-length-limitation
+func NewAnalysisFileNameLengthLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0004",
+    Title:      "Analysis target includes a file with a name longer than 255 bytes",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-CODE-0004",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/scan-with-snyk/supported-languages-and-frameworks/introduction-to-snyk-supported-languages-and-frameworks#filename-length-limitation",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
