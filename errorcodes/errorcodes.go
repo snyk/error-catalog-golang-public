@@ -45,6 +45,7 @@ type OpenSourceEcosystemsCodes struct {
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
   PublishFailedError string
+  FailedToAccessPrivatePackageSourceError string
   MissingMSBuildConditionError string
   NoTargetFrameworksFoundError string
   PrivateModuleError string
@@ -231,6 +232,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
   PublishFailedError: "SNYK-OS-DOTNET-0004",
+  FailedToAccessPrivatePackageSourceError: "SNYK-OS-DOTNET-0005",
   MissingMSBuildConditionError: "SNYK-OS-DOTNET-0006",
   NoTargetFrameworksFoundError: "SNYK-OS-DOTNET-0007",
   PrivateModuleError: "SNYK-OS-GO-0001",

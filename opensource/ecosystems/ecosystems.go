@@ -334,6 +334,50 @@ func NewPublishFailedError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewFailedToAccessPrivatePackageSourceError displays errors with the following description:
+// This error occurs when running `dotnet restore` fails to access dependencies stored in a private package source that Snyk does not have access to. 
+// 
+// This means that your `.csproj` file or files refer to a dependency hosted on a private package store or Nuget Artifact Registry defined in your `NuGet.config` file, such as:
+// 
+// ```xml
+// <?xml version="1.0" encoding="utf-8"?>
+// <configuration>
+//   <packageSources>
+//     <clear />
+//     <add key="AzureFeed" value="https://pkgs.dev.azure.com/your-org/_packaging/your-repo/nuget/v3/index.json" />
+//     <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+//   </packageSources>
+// </configuration>
+// ```
+// 
+// In order to allow Snyk to access your private dependency package source, you must supply Snyk with a valid JSON object as a private registry token in the .NET language settings.
+// 
+// You can set up a connection to your private Nuget repository in your Snyk integration settings.
+//
+// Read more:
+// - https://github.com/microsoft/artifacts-credprovider#environment-variables
+func NewFailedToAccessPrivatePackageSourceError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0005",
+    Title:      "The dotnet CLI was unable to restore from private package sources",
+    StatusCode: 401,
+    ErrorCode:  "SNYK-OS-DOTNET-0005",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://github.com/microsoft/artifacts-credprovider#environment-variables",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewMissingMSBuildConditionError displays errors with the following description:
 // The `dotnet` tool was unable to locate the `.targets`, `.csproj` or `.props` file responsible for one or more MSBuild conditions in your project file.
 // 
