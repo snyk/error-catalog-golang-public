@@ -560,7 +560,7 @@ func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) sny
 // NewIncompleteProjectError displays errors with the following description:
 // Generating the dependency graph requires Snyk to run go list `go list -deps -json` inside the project. If the operation fails, creating a full dependency graph cannot continue.  
 // 
-// This error means that you need some cleanup, such as `go mod tidy`) or your project deployment process contains a code generation step such as `protobuf` or similar that is not currently supported by Snyk. 
+// This error means that you need some cleanup, (such as `go mod tidy`) or your project deployment process contains a code generation step such as `protobuf` or similar that is not currently supported by Snyk. 
 // 
 // To verify if this is the case, clone your project in a clean environment, run go list `go list -deps -json` and verify whether the operation fails. 
 // 
