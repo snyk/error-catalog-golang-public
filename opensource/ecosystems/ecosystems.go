@@ -471,6 +471,94 @@ func NewNoTargetFrameworksFoundError(detail string, options ...snyk_errors.Optio
   return err
 }
 
+// NewOutdatedSDKVersionRequestedError displays errors with the following description:
+// Snyk supports the latest channels of .NET which is currently [supported by Microsoft](https://dotnet.microsoft.com/en-us/download/dotnet), but does **not** guarantee to support all SDK versions within each currently supported channel.
+// 
+// Within the supported channels, Snyk aims to support most, if not all, of the SDK versions currently released under the **newest** of the channels.
+// 
+// If the channels currently supported by Microsoft are `8.0`, `7.0` and `6.0`, Snyk **will** support all of the *latest* SDKs released for these channels.
+// 
+// If the SDK versions released under `8.0.3` are: `8.0.203`, `8.0.202` and `8.0.103`, Snyk **cannot** guarantee to support *all* of them, but makes an effort to do so. Snyk **will** support the latest of the SDK versions currently released by Microsoft. 
+// 
+// If channel `8.0` is the newest channel currently supported, Snyk **cannot** guarantee that multiple, specific SDK versions for older, still supported channels such as .NET 6. 
+// 
+// ### Example support matrix
+// 
+// If:
+// 
+// * .NET channels currently supported by Microsoft are `.NET 8.0`,  `.NET 7.0` and  `.NET 6.0`
+// * Newest SDK version under `.NET 8.0` is `8.0.203`
+// 
+// Then:
+// 
+// | Channel |              SDK             | End-of-Life |  Supported  |
+// |:-------:|:----------------------------:|:-----------:|:-----------:|
+// |   8.0   | 8.0.203  (latest in channel) |      No     |     Yes     |
+// |   8.0   |            8.0.202           |      No     |     Yes     |
+// |   8.0   |            8.0.103           |      No     |     Yes     |
+// |         |             (...)            |             |             |
+// |   7.0   | 7.0.407  (latest in channel) |      No     |     Yes     |
+// |   7.0   |            7.0.314           |      No     |      No     |
+// |         |             (...)            |             |             |
+// |   6.0   |            6.0.420           |      No     |     Yes     |
+// |   6.0   |            6.0.128           |      No     |      No     |
+// |         |             (..)             |             |             |
+// |   5.0   |  5.0.408 (latest in channel) |     Yes     |      No     |
+// |   5.0   |            5.0.214           |     Yes     |      No     |
+// |         |             (..)             |             |             |
+// 
+// ### Workarounds
+// 
+// This limitation can lead to scan failures for customers that are pinning SDK versions in their `global.json` files without a [rollForward](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json#rollforward) directive, such as:
+// ```json
+// {
+//   "sdk": {
+//     "version": "6.0.101"
+//   }
+// }
+// ```
+// Since as `6.0` is not the newest .NET channel. 
+// 
+// To work around this issue, we recommend that customers employ some flexibility in their `global.json` file by employing the `rollFoward` directive to be `latestMajor`, as such:
+// ```json
+// {
+//   "sdk": {
+//     "version": "6.0.101",
+//     "rollForward": "latestMajor"
+//   }
+// }
+// ```
+// 
+// Which will allow Snyk to scan your code using a newer version of the SDK, despite your version pinning.
+//
+// Read more:
+// - https://versionsof.net/core/
+// - https://dotnet.microsoft.com/en-us/download/dotnet
+// - https://learn.microsoft.com/en-us/dotnet/core/tools/global-json#rollforward
+func NewOutdatedSDKVersionRequestedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0008",
+    Title:      "Your global.json is targeting an outdated SDK version",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://versionsof.net/core/",
+      "https://dotnet.microsoft.com/en-us/download/dotnet",
+      "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json#rollforward",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
@@ -1076,6 +1164,40 @@ func NewTimeoutWhenProcessingTheDepTreeError(detail string, options ...snyk_erro
     ErrorCode:  "SNYK-OS-MAVEN-0016",
     Classification: "UNEXPECTED",
     Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCannotReachConfiguredRepositoryError displays errors with the following description:
+// One or more of the Maven repositories configured under your organisations language settings cannot be reached.
+// 
+// This error can happen for a variety of reasons:
+// 
+// * If using broker it could be a misconfiguration in your broker client. Double check the username and password. 
+// * It could be network connectivity between the broker client and Snyk or between the broker client and the configured repository, check your firewall rules.
+// 
+// In order to solve this issue, refer to the specific details of this error message to identify which repository is causing issues. 
+//
+// Read more:
+// - https://docs.snyk.io/integrate-with-snyk/package-repository-integrations
+func NewCannotReachConfiguredRepositoryError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0017",
+    Title:      "Cannot reach one or more Maven repositories configured under your Snyk organisations language settings",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-OS-MAVEN-0017",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/integrate-with-snyk/package-repository-integrations",
+    },
     Level:  "error",
     Detail: detail,
   }

@@ -48,6 +48,7 @@ type OpenSourceEcosystemsCodes struct {
   FailedToAccessPrivatePackageSourceError string
   MissingMSBuildConditionError string
   NoTargetFrameworksFoundError string
+  OutdatedSDKVersionRequestedError string
   PrivateModuleError string
   GoModFileMissingError string
   SsoReAuthRequiredError string
@@ -73,6 +74,7 @@ type OpenSourceEcosystemsCodes struct {
   NoReleasedVersionForVersionsRangeError string
   SourceNotSupportedError string
   TimeoutWhenProcessingTheDepTreeError string
+  CannotReachConfiguredRepositoryError string
   NoRepoFoundForTheNPMPackageError string
   CouldNotParseNPMRegistryURLError string
   CouldNotFindBrokerURLError string
@@ -235,6 +237,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   FailedToAccessPrivatePackageSourceError: "SNYK-OS-DOTNET-0005",
   MissingMSBuildConditionError: "SNYK-OS-DOTNET-0006",
   NoTargetFrameworksFoundError: "SNYK-OS-DOTNET-0007",
+  OutdatedSDKVersionRequestedError: "SNYK-OS-DOTNET-0008",
   PrivateModuleError: "SNYK-OS-GO-0001",
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",
@@ -260,6 +263,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   NoReleasedVersionForVersionsRangeError: "SNYK-OS-MAVEN-0014",
   SourceNotSupportedError: "SNYK-OS-MAVEN-0015",
   TimeoutWhenProcessingTheDepTreeError: "SNYK-OS-MAVEN-0016",
+  CannotReachConfiguredRepositoryError: "SNYK-OS-MAVEN-0017",
   NoRepoFoundForTheNPMPackageError: "SNYK-OS-NODEJS-0001",
   CouldNotParseNPMRegistryURLError: "SNYK-OS-NODEJS-0002",
   CouldNotFindBrokerURLError: "SNYK-OS-NODEJS-0003",
