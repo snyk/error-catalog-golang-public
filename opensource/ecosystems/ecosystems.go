@@ -1539,6 +1539,59 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
+// NewPnpmOutOfSyncError displays errors with the following description:
+// Sometimes a project may become out of sync between the lockfile and the manifest file. This might happen if the package.json is modified or updated but the pnpm-lock.yaml is not. 
+// 
+// This can be resolved by ensuring the lockfile and manifest file are correctly synced, by executing pnpm install.
+// 
+// In some cases, it may be necessary to delete the node_modules folder and the pnpm-lock.yaml and run pnpm install again to force a full reinstall. 
+//
+// Read more:
+// - https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project
+func NewPnpmOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0016",
+    Title:      "Out of Sync Error",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0016",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPnpmUnsupportedLockfileVersionError displays errors with the following description:
+// The lockfile version is not supported. Supported lockfile versions for pnpm include v5 and v6.
+func NewPnpmUnsupportedLockfileVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0017",
+    Title:      "Unsupported pnpm lockfile version",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-NODEJS-0017",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedRequirementsFileError displays errors with the following description:
 // The provided requirements file is not supported by Snyk for Python.
 //

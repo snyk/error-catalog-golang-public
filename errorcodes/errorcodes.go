@@ -90,6 +90,8 @@ type OpenSourceEcosystemsCodes struct {
   Base64DecodeError string
   MissingSupportedFileError string
   InvalidConfigurationError string
+  PnpmOutOfSyncError string
+  PnpmUnsupportedLockfileVersionError string
   UnsupportedRequirementsFileError string
   TooManyManifestFilesError string
   FailedToApplyDependencyUpdatesError string
@@ -279,6 +281,8 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   Base64DecodeError: "SNYK-OS-NODEJS-0013",
   MissingSupportedFileError: "SNYK-OS-NODEJS-0014",
   InvalidConfigurationError: "SNYK-OS-NODEJS-0015",
+  PnpmOutOfSyncError: "SNYK-OS-NODEJS-0016",
+  PnpmUnsupportedLockfileVersionError: "SNYK-OS-NODEJS-0017",
   UnsupportedRequirementsFileError: "SNYK-OS-PYTHON-0001",
   TooManyManifestFilesError: "SNYK-OS-PYTHON-0002",
   FailedToApplyDependencyUpdatesError: "SNYK-OS-PYTHON-0003",
