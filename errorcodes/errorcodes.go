@@ -215,7 +215,6 @@ type PRChecksCodes struct {
 }
 
 type CLICodes struct {
-  UnableToCreateMonitorError string
   ConnectionTimeoutError string
 }
 
@@ -412,7 +411,6 @@ var PRChecks = PRChecksCodes {
 }
 
 var CLI = CLICodes {
-  UnableToCreateMonitorError: "SNYK-OS-7001",
-  ConnectionTimeoutError: "SNYK-OS-7002",
+  ConnectionTimeoutError: "SNYK-OS-7001",
 }
 

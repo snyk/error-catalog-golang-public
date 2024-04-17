@@ -23,48 +23,21 @@ import (
   "github.com/google/uuid"
 )
 
-// NewUnableToCreateMonitorError displays errors with the following description:
-// There was an unexpected error when attempting to monitor specified project.
-//
-// Read more:
-// - https://docs.snyk.io/snyk-cli
-func NewUnableToCreateMonitorError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-7001",
-    Title:      "Unable to create monitor",
-    StatusCode: 500,
-    ErrorCode:  "SNYK-OS-7001",
-    Classification: "UNEXPECTED",
-    Links: []string{
-      "https://docs.snyk.io/snyk-cli",
-    },
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
 // NewConnectionTimeoutError displays errors with the following description:
-// A request to the Snyk CLI has unexpectedly timeout.
+// A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
 // Read more:
-// - https://docs.snyk.io/snyk-cli
+// - https://status.snyk.io/
 func NewConnectionTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-7002",
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-7001",
     Title:      "Request to Snyk API timeout",
     StatusCode: 504,
-    ErrorCode:  "SNYK-OS-7002",
+    ErrorCode:  "SNYK-OS-7001",
     Classification: "UNEXPECTED",
     Links: []string{
-      "https://docs.snyk.io/snyk-cli",
+      "https://status.snyk.io/",
     },
     Level:  "error",
     Detail: detail,
