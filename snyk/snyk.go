@@ -174,6 +174,39 @@ func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk
   return err
 }
 
+// NewTagsForOrganizationWithoutGroupError displays errors with the following description:
+// This error occures when trying to add tags to Organizations that that are part of a Group.
+// 
+// Verify with your Group Admin if the Organization should be in a Group.
+// 
+// If you have more than one Organization, you can set the Organization with which new Projects should be associated by running `snyk config set org=ORG_ID`.
+// 
+// If you want to override this global configuration for individual runs of snyk monitor, `run snyk test --org=ORG_ID` or `snyk monitor --org=ORG_ID`.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-admin/snyk-projects/project-tags
+func NewTagsForOrganizationWithoutGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0007",
+    Title:      "Organization is not part of a group",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-admin/snyk-projects/project-tags",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewServerError displays errors with the following description:
 // The server cannot process the request due to an unexpected error. Check Snyk status, then try again.
 //

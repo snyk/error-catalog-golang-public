@@ -1,3 +1,4 @@
+cli/cli.go
 code/code.go
 errorcodes/errorcodes.go
 errorcodes/errorcodes_test.go

@@ -29,6 +29,7 @@ type SnykCodes struct {
   TimeoutError string
   UnauthorisedError string
   TestLimitReachedError string
+  TagsForOrganizationWithoutGroupError string
   ServerError string
 }
 
@@ -213,6 +214,11 @@ type PRChecksCodes struct {
   FailedToGenerateCommitStatusError string
 }
 
+type CLICodes struct {
+  UnableToCreateMonitorError string
+  ConnectionTimeoutError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -220,6 +226,7 @@ var Snyk = SnykCodes {
   TimeoutError: "SNYK-0004",
   UnauthorisedError: "SNYK-0005",
   TestLimitReachedError: "SNYK-0006",
+  TagsForOrganizationWithoutGroupError: "SNYK-0007",
   ServerError: "SNYK-9999",
 }
 
@@ -402,5 +409,10 @@ var PRChecks = PRChecksCodes {
   FailedToDetectIssuesError: "SNYK-PR-CHECK-0009",
   InvalidThirdPartyCredentialsError: "SNYK-PR-CHECK-0010",
   FailedToGenerateCommitStatusError: "SNYK-PR-CHECK-0011",
+}
+
+var CLI = CLICodes {
+  UnableToCreateMonitorError: "SNYK-OS-7001",
+  ConnectionTimeoutError: "SNYK-OS-7002",
 }
 
