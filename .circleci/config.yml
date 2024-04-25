@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  prodsec: snyk/prodsec-orb@1.0
+  prodsec: snyk/prodsec-orb@1
   snyk: snyk/snyk@1.7.0
 
 jobs:
@@ -11,11 +11,14 @@ jobs:
     steps:
       - checkout
       - snyk/install
-      - snyk/scan:
-          fail-on-issues: false
-          severity-threshold: critical
-          additional-arguments: --all-projects --exclude=test,dist
-
+  security-scans:
+    resource_class: small
+    docker:
+      - image: cimg/go:1.22
+    steps:
+      - checkout
+      - prodsec/security_scans:
+          mode: auto
 
 workflows:
   version: 2
@@ -26,5 +29,7 @@ workflows:
           context:
             - snyk-bot-slack
           channel: cli-alerts
+      - security-scans:
+          context: devex_cli
       - scan:
           context: hammerhead-snyk-orb-snyk-creds
