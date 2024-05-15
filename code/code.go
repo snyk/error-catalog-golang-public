@@ -145,3 +145,30 @@ func NewAnalysisFileNameLengthLimitExceededError(detail string, options ...snyk_
   return err
 }
 
+// NewFeatureIsNotEnabledError displays errors with the following description:
+// This error occurs when Snyk Code is not enabled for the current Organization. Activate Snyk Code and try again..
+//
+// Read more:
+// - https://docs.snyk.io/scan-using-snyk/snyk-code/configure-snyk-code#enable-snyk-code-in-snyk-web-ui
+func NewFeatureIsNotEnabledError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0005",
+    Title:      "Snyk Code is not enabled",
+    StatusCode: 403,
+    ErrorCode:  "SNYK-CODE-0005",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/scan-using-snyk/snyk-code/configure-snyk-code#enable-snyk-code-in-snyk-web-ui",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

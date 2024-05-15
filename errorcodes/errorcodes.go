@@ -198,6 +198,7 @@ type CodeCodes struct {
   AnalysisResultSizeLimitExceededError string
   AnalysisTargetSizeLimitExceededError string
   AnalysisFileNameLengthLimitExceededError string
+  FeatureIsNotEnabledError string
 }
 
 type PRChecksCodes struct {
@@ -394,6 +395,7 @@ var Code = CodeCodes {
   AnalysisResultSizeLimitExceededError: "SNYK-CODE-0002",
   AnalysisTargetSizeLimitExceededError: "SNYK-CODE-0003",
   AnalysisFileNameLengthLimitExceededError: "SNYK-CODE-0004",
+  FeatureIsNotEnabledError: "SNYK-CODE-0005",
 }
 
 var PRChecks = PRChecksCodes {
