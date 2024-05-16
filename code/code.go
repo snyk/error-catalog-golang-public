@@ -172,3 +172,30 @@ func NewFeatureIsNotEnabledError(detail string, options ...snyk_errors.Option) s
   return err
 }
 
+// NewUnsupportedProjectError displays errors with the following description:
+// Snyk was unable to find supported files.
+//
+// Read more:
+// - https://docs.snyk.io/getting-started/supported-languages-frameworks-and-feature-availability-overview#code-analysis-snyk-code
+func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0006",
+    Title:      "Project not supported",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-CODE-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/getting-started/supported-languages-frameworks-and-feature-availability-overview#code-analysis-snyk-code",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
