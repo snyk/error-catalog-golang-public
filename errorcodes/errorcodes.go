@@ -220,6 +220,27 @@ type CLICodes struct {
   ConnectionTimeoutError string
 }
 
+type CustomBaseImagesCodes struct {
+  VersioningSchemaDoesNotSupportTagError string
+  RequiredParameterNotProvidedError string
+  ProjectDoesNotExistError string
+  ProjectIsNotContainerImageError string
+  ProjectDoesNotBelongToGroupError string
+  RequestIdsDoNotMatchError string
+  RequestBodyAttributesMissingError string
+  InvalidPaginationCursorError string
+  UnableToSortByVersionError string
+  UpdateVersioningSchemaFailError string
+  ProjectAlreadyLinkedError string
+  VersioningSchemaMissingError string
+  VersioningSchemaInapplicableError string
+  ImageNotFoundError string
+  ImageDoesNotExistError string
+  ImageUpdateFailedError string
+  PropertiesRetrievalFailedError string
+  ImageCollectionRetrievalFailedError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -416,5 +437,26 @@ var PRChecks = PRChecksCodes {
 
 var CLI = CLICodes {
   ConnectionTimeoutError: "SNYK-OS-7001",
+}
+
+var CustomBaseImages = CustomBaseImagesCodes {
+  VersioningSchemaDoesNotSupportTagError: "SNYK-CBI-0001",
+  RequiredParameterNotProvidedError: "SNYK-CBI-0002",
+  ProjectDoesNotExistError: "SNYK-CBI-0003",
+  ProjectIsNotContainerImageError: "SNYK-CBI-0004",
+  ProjectDoesNotBelongToGroupError: "SNYK-CBI-0005",
+  RequestIdsDoNotMatchError: "SNYK-CBI-0006",
+  RequestBodyAttributesMissingError: "SNYK-CBI-0007",
+  InvalidPaginationCursorError: "SNYK-CBI-0008",
+  UnableToSortByVersionError: "SNYK-CBI-0009",
+  UpdateVersioningSchemaFailError: "SNYK-CBI-0010",
+  ProjectAlreadyLinkedError: "SNYK-CBI-0011",
+  VersioningSchemaMissingError: "SNYK-CBI-0012",
+  VersioningSchemaInapplicableError: "SNYK-CBI-0013",
+  ImageNotFoundError: "SNYK-CBI-0014",
+  ImageDoesNotExistError: "SNYK-CBI-0015",
+  ImageUpdateFailedError: "SNYK-CBI-0016",
+  PropertiesRetrievalFailedError: "SNYK-CBI-0017",
+  ImageCollectionRetrievalFailedError: "SNYK-CBI-0018",
 }
 
