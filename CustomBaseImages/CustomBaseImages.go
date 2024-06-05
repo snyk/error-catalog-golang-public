@@ -84,7 +84,7 @@ func NewProjectDoesNotExistError(detail string, options ...snyk_errors.Option) s
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cbi-0003",
     Title:      "Project does not exist",
-    StatusCode: 400,
+    StatusCode: 404,
     ErrorCode:  "SNYK-CBI-0003",
     Classification: "ACTIONABLE",
     Links: []string{},
@@ -444,6 +444,28 @@ func NewImageCollectionRetrievalFailedError(detail string, options ...snyk_error
       "https://status.snyk.io/",
     },
     Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCreateVersioningSchemaFailError displays errors with the following description:
+// The provided versioning schema is invalid and image could therefor not be created. Provide a properly formatted versioning schema and try again.
+func NewCreateVersioningSchemaFailError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cbi-0019",
+    Title:      "Unable to create versioning schema",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CBI-0019",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "warn",
     Detail: detail,
   }
 

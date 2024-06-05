@@ -239,6 +239,7 @@ type CustomBaseImagesCodes struct {
   ImageUpdateFailedError string
   PropertiesRetrievalFailedError string
   ImageCollectionRetrievalFailedError string
+  CreateVersioningSchemaFailError string
 }
 
 var Snyk = SnykCodes {
@@ -458,5 +459,6 @@ var CustomBaseImages = CustomBaseImagesCodes {
   ImageUpdateFailedError: "SNYK-CBI-0016",
   PropertiesRetrievalFailedError: "SNYK-CBI-0017",
   ImageCollectionRetrievalFailedError: "SNYK-CBI-0018",
+  CreateVersioningSchemaFailError: "SNYK-CBI-0019",
 }
 
