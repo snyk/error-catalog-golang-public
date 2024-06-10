@@ -93,6 +93,10 @@ type OpenSourceEcosystemsCodes struct {
   InvalidConfigurationError string
   PnpmOutOfSyncError string
   PnpmUnsupportedLockfileVersionError string
+  YarnPackageNotFoundError string
+  UnableToReachRegistryError string
+  OutdatedYarnLockFileError string
+  PermissionDeniedError string
   UnsupportedRequirementsFileError string
   TooManyManifestFilesError string
   FailedToApplyDependencyUpdatesError string
@@ -313,6 +317,10 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   InvalidConfigurationError: "SNYK-OS-NODEJS-0015",
   PnpmOutOfSyncError: "SNYK-OS-NODEJS-0016",
   PnpmUnsupportedLockfileVersionError: "SNYK-OS-NODEJS-0017",
+  YarnPackageNotFoundError: "SNYK-OS-NODEJS-0019",
+  UnableToReachRegistryError: "SNYK-OS-NODEJS-0020",
+  OutdatedYarnLockFileError: "SNYK-OS-NODEJS-0021",
+  PermissionDeniedError: "SNYK-OS-NODEJS-0022",
   UnsupportedRequirementsFileError: "SNYK-OS-PYTHON-0001",
   TooManyManifestFilesError: "SNYK-OS-PYTHON-0002",
   FailedToApplyDependencyUpdatesError: "SNYK-OS-PYTHON-0003",

@@ -1592,6 +1592,94 @@ func NewPnpmUnsupportedLockfileVersionError(detail string, options ...snyk_error
   return err
 }
 
+// NewYarnPackageNotFoundError displays errors with the following description:
+// Snyk could not find the package in the Yarn registry.
+func NewYarnPackageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0019",
+    Title:      "Yarn package not found",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-OS-NODEJS-0019",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewUnableToReachRegistryError displays errors with the following description:
+// Snyk could not reach the node package registry.
+func NewUnableToReachRegistryError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0020",
+    Title:      "Unable to reach package registry",
+    StatusCode: 503,
+    ErrorCode:  "SNYK-OS-NODEJS-0020",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewOutdatedYarnLockFileError displays errors with the following description:
+// The lock file is outdated. Update the lock file and try again.
+func NewOutdatedYarnLockFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0021",
+    Title:      "Lock file is outdated",
+    StatusCode: 409,
+    ErrorCode:  "SNYK-OS-NODEJS-0021",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPermissionDeniedError displays errors with the following description:
+// Snyk does not have sufficient permissions to access the repository, or the repository does not exist.
+func NewPermissionDeniedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-nodejs-0022",
+    Title:      "Unable to read from remote repository",
+    StatusCode: 401,
+    ErrorCode:  "SNYK-OS-NODEJS-0022",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedRequirementsFileError displays errors with the following description:
 // The provided requirements file is not supported by Snyk for Python.
 //
