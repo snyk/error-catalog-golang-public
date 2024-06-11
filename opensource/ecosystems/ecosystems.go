@@ -559,6 +559,37 @@ func NewOutdatedSDKVersionRequestedError(detail string, options ...snyk_errors.O
   return err
 }
 
+// NewProjectSkippedAndNotFoundError displays errors with the following description:
+// While attempting to build your solution for scanning, the `dotnet` SDK was unable to restore one or more projects referenced in your manifest files.
+// 
+// Please note that Snyk runs these builds on a **case-sensitive** filesystem, meaning that `<ProjectReference>../src/NS.Project.csproj</ProjectReference>` and `<ProjectReference>../src/ns.project.csproj</ProjectReference>` are not referring to the same thing.
+// 
+// This can present itself as a problem for customers that are using Mac or Windows build pipeline where file systems are not case-sensitive. In this case, verify you're referring to the right manifest files and check the Snyk import logs for more details.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/assembly-references#missing-references
+func NewProjectSkippedAndNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0009",
+    Title:      "Project failed to build due to missing type or namespace references",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0009",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/assembly-references#missing-references",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
