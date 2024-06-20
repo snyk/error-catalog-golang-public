@@ -210,7 +210,7 @@ func NewBrokeredConnectionNotSupportedError(detail string, options ...snyk_error
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0009",
-    Title:      "Missing environment variable",
+    Title:      "Brokered connections not currently supported",
     StatusCode: 500,
     ErrorCode:  "SNYK-OS-0009",
     Classification: "UNSUPPORTED",
