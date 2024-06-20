@@ -204,6 +204,28 @@ func NewMissingEnvironmentVariableError(detail string, options ...snyk_errors.Op
   return err
 }
 
+// NewBrokeredConnectionNotSupportedError displays errors with the following description:
+// The service encountered a permissions or credentials error most likely related to an import through a brokered connection for a scanner that does not yet support that.
+func NewBrokeredConnectionNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0009",
+    Title:      "Missing environment variable",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-0009",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //

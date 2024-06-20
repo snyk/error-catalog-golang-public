@@ -42,6 +42,7 @@ type OpenSourceEcosystemsCodes struct {
   UnprocessableFileError string
   CannotGetFileFromSourceError string
   MissingEnvironmentVariableError string
+  BrokeredConnectionNotSupportedError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -267,6 +268,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   UnprocessableFileError: "SNYK-OS-0006",
   CannotGetFileFromSourceError: "SNYK-OS-0007",
   MissingEnvironmentVariableError: "SNYK-OS-0008",
+  BrokeredConnectionNotSupportedError: "SNYK-OS-0009",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
