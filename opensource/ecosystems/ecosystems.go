@@ -226,6 +226,32 @@ func NewBrokeredConnectionNotSupportedError(detail string, options ...snyk_error
   return err
 }
 
+// NewGitCloneFailedError displays errors with the following description:
+// We encountered a fatal error from Git while trying to clone your code using your provided credentials. Please verify that:
+// 
+// * Your provided credentials are correct or not scoped too narrowly
+// * The branch you've asked us to clone exists
+// * The repository you've provided is accessible from the internet is you are not connected through a broker
+func NewGitCloneFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0010",
+    Title:      "Snyk failed to clone your repository",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //

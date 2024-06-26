@@ -43,6 +43,7 @@ type OpenSourceEcosystemsCodes struct {
   CannotGetFileFromSourceError string
   MissingEnvironmentVariableError string
   BrokeredConnectionNotSupportedError string
+  GitCloneFailedError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -269,6 +270,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   CannotGetFileFromSourceError: "SNYK-OS-0007",
   MissingEnvironmentVariableError: "SNYK-OS-0008",
   BrokeredConnectionNotSupportedError: "SNYK-OS-0009",
+  GitCloneFailedError: "SNYK-OS-0010",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
