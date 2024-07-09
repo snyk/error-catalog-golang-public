@@ -229,9 +229,11 @@ func NewBrokeredConnectionNotSupportedError(detail string, options ...snyk_error
 // NewGitCloneFailedError displays errors with the following description:
 // We encountered a fatal error from Git while trying to clone your code using your provided credentials. Please verify that:
 // 
-// * Your provided credentials are correct or not scoped too narrowly
-// * The branch you've asked us to clone exists
-// * The repository you've provided is accessible from the internet is you are not connected through a broker
+// * Your provided credentials are correct or not scoped too narrowly.
+// * The branch you've asked us to clone exists.
+// * The repository you've provided is accessible from the internet is you are not connected through a broker.
+// 
+// And try the operation again.
 func NewGitCloneFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
