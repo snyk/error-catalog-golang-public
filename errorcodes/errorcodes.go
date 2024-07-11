@@ -249,6 +249,24 @@ type CustomBaseImagesCodes struct {
   CreateVersioningSchemaFailError string
 }
 
+type IntegrationCodes struct {
+  IntegrationNotFoundError string
+}
+
+type TargetCodes struct {
+  TargetNotFoundError string
+  NoUniqueTargetFoundError string
+}
+
+type SCMCodes struct {
+  UnsupportedIntegrationTypeError string
+  RevisionNotResolvedError string
+  IntegrationAuthenticationFailedError string
+  IntegrationAuthorizationFailedError string
+  FilesLimitExceededError string
+  SizeLimitExceededError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -474,5 +492,23 @@ var CustomBaseImages = CustomBaseImagesCodes {
   PropertiesRetrievalFailedError: "SNYK-CBI-0017",
   ImageCollectionRetrievalFailedError: "SNYK-CBI-0018",
   CreateVersioningSchemaFailError: "SNYK-CBI-0019",
+}
+
+var Integration = IntegrationCodes {
+  IntegrationNotFoundError: "SNYK-INTEGRATION-0001",
+}
+
+var Target = TargetCodes {
+  TargetNotFoundError: "SNYK-TARGET-0001",
+  NoUniqueTargetFoundError: "SNYK-TARGET-0002",
+}
+
+var SCM = SCMCodes {
+  UnsupportedIntegrationTypeError: "SNYK-SCM-0001",
+  RevisionNotResolvedError: "SNYK-SCM-0002",
+  IntegrationAuthenticationFailedError: "SNYK-SCM-0003",
+  IntegrationAuthorizationFailedError: "SNYK-SCM-0004",
+  FilesLimitExceededError: "SNYK-SCM-0005",
+  SizeLimitExceededError: "SNYK-SCM-0006",
 }
 

@@ -4,6 +4,7 @@ code/code.go
 errorcodes/errorcodes.go
 errorcodes/errorcodes_test.go
 fix/fix.go
+integration/integration.go
 isolatedbuilds/isolatedbuilds.go
 openapi/openapi.go
 opensource/ecosystems/ecosystems.go
@@ -13,4 +14,6 @@ opensource/unmanaged/unmanaged.go
 prchecks/prchecks.go
 purl/vulnerabilities/vulnerabilities.go
 sbomexport/sbomexport.go
+scm/scm.go
 snyk/snyk.go
+target/target.go
