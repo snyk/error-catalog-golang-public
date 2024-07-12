@@ -456,3 +456,25 @@ func NewUnsupportedContainerVendorError(detail string, options ...snyk_errors.Op
   return err
 }
 
+// NewUnsupportedAlpineDistroError displays errors with the following description:
+// This Alpine distro is currently not supported.
+func NewUnsupportedAlpineDistroError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ossi-2048",
+    Title:      "Unsupported Alpine distro",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-OSSI-2048",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

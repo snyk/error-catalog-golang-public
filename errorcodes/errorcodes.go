@@ -133,6 +133,7 @@ type PurlVulnerabilityFetchingCodes struct {
   UnsupportedDebianDistroError string
   UndefinedContainerVendorError string
   UnsupportedContainerVendorError string
+  UnsupportedAlpineDistroError string
 }
 
 type IsolatedBuildsCodes struct {
@@ -378,6 +379,7 @@ var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
   UnsupportedDebianDistroError: "SNYK-OSSI-2045",
   UndefinedContainerVendorError: "SNYK-OSSI-2046",
   UnsupportedContainerVendorError: "SNYK-OSSI-2047",
+  UnsupportedAlpineDistroError: "SNYK-OSSI-2048",
 }
 
 var IsolatedBuilds = IsolatedBuildsCodes {
