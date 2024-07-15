@@ -23,6 +23,28 @@ import (
   "github.com/google/uuid"
 )
 
+// NewConfigEnvironmentFailedError displays errors with the following description:
+// The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.
+func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0001",
+    Title:      "Unable to set environment",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0001",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
