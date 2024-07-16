@@ -14,6 +14,7 @@ opensource/unmanaged/unmanaged.go
 prchecks/prchecks.go
 purl/vulnerabilities/vulnerabilities.go
 sbomexport/sbomexport.go
+sbomtest/sbomtest.go
 scm/scm.go
 snyk/snyk.go
 target/target.go

@@ -186,6 +186,19 @@ type SbomExportCodes struct {
   InvalidDepGraphError string
 }
 
+type SbomTestCodes struct {
+  InternalError string
+  OrgIDMismatchError string
+  NotFoundError string
+  FailedTestError string
+  PendingTestError string
+  FormatUnknownError string
+  UnprocessableInputError string
+  FormatNotSupportedError string
+  ConversionFailedError string
+  NoTestablePackagesError string
+}
+
 type FixCodes struct {
   FailedToGetPullRequestAttributesError string
   PullRequestTemplateNotFoundError string
@@ -431,6 +444,19 @@ var SbomExport = SbomExportCodes {
   MissingAuthTokenError: "SNYK-OS-9006",
   EmptyRequestBodyError: "SNYK-OS-9007",
   InvalidDepGraphError: "SNYK-OS-9008",
+}
+
+var SbomTest = SbomTestCodes {
+  InternalError: "SNYK-SBOM-0001",
+  OrgIDMismatchError: "SNYK-SBOM-0002",
+  NotFoundError: "SNYK-SBOM-0003",
+  FailedTestError: "SNYK-SBOM-0004",
+  PendingTestError: "SNYK-SBOM-0005",
+  FormatUnknownError: "SNYK-SBOM-0006",
+  UnprocessableInputError: "SNYK-SBOM-0007",
+  FormatNotSupportedError: "SNYK-SBOM-0008",
+  ConversionFailedError: "SNYK-SBOM-0009",
+  NoTestablePackagesError: "SNYK-SBOM-0010",
 }
 
 var Fix = FixCodes {
