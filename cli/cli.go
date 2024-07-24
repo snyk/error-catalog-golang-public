@@ -45,6 +45,30 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
   return err
 }
 
+// NewConfigEnvironmentConsistencyIssueError displays errors with the following description:
+// There are different ways of configuring the CLI, for example via Environment Variables or configuration file. 
+// If one parameter is configured multiple times, it is probably unintentional and might cause unexpected behaviour.
+// Review configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.
+func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0002",
+    Title:      "Possible inconsistent configuration detected",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0002",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
