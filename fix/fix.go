@@ -23,6 +23,77 @@ import (
   "github.com/google/uuid"
 )
 
+// NewFixScenarioNotSupportedError displays errors with the following description:
+// Snyk failed to open a fix PR as the scenario is not supported.
+func NewFixScenarioNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#pr-failures-0001",
+    Title:      "Fix scenario not supported",
+    StatusCode: 422,
+    ErrorCode:  "PR-FAILURES-0001",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewSCMRateLimitError displays errors with the following description:
+// SCM rate limit exceeded due to too many requests.
+func NewSCMRateLimitError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#pr-failures-0002",
+    Title:      "SCM rate limit",
+    StatusCode: 429,
+    ErrorCode:  "PR-FAILURES-0002",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewUnauthorisedAccessError displays errors with the following description:
+// Request failed due to unathorised access. Please read documentation around adding users and permitted roles.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-admin/groups-and-organizations/organizations/manage-users-in-organizations
+func NewUnauthorisedAccessError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#pr-failures-0003",
+    Title:      "Unauthorised access",
+    StatusCode: 403,
+    ErrorCode:  "PR-FAILURES-0003",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-admin/groups-and-organizations/organizations/manage-users-in-organizations",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewFailedToGetPullRequestAttributesError displays errors with the following description:
 // Snyk could not get the custom pull request template attributes, using the given variables and the fetched pr template.
 //

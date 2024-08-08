@@ -200,6 +200,9 @@ type SbomTestCodes struct {
 }
 
 type FixCodes struct {
+  FixScenarioNotSupportedError string
+  SCMRateLimitError string
+  UnauthorisedAccessError string
   FailedToGetPullRequestAttributesError string
   PullRequestTemplateNotFoundError string
   FailedToCompilePrTemplateError string
@@ -461,6 +464,9 @@ var SbomTest = SbomTestCodes {
 }
 
 var Fix = FixCodes {
+  FixScenarioNotSupportedError: "PR-FAILURES-0001",
+  SCMRateLimitError: "PR-FAILURES-0002",
+  UnauthorisedAccessError: "PR-FAILURES-0003",
   FailedToGetPullRequestAttributesError: "SNYK-PR-TEMPLATE-0001",
   PullRequestTemplateNotFoundError: "SNYK-PR-TEMPLATE-0002",
   FailedToCompilePrTemplateError: "SNYK-PR-TEMPLATE-0003",
