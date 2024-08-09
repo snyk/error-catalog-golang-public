@@ -94,6 +94,175 @@ func NewUnauthorisedAccessError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewUnsupportedEcosystemError displays errors with the following description:
+// The language or package manager is not supported. Please refer to the supported package managers in the documentation.
+//
+// Read more:
+// - https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms
+func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0001",
+    Title:      "Unsupported ecosystem",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-PACKAGES-0001",
+    Classification: "UNSUPPORTED",
+    Links: []string{
+      "https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewMetadataNotFoundError displays errors with the following description:
+// Package metadata not or found or missing.
+//
+// Read more:
+// - https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-private-dependencies-with-automatic-prs#private-packages-api
+func NewMetadataNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0003",
+    Title:      "Metadata not found",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-PACKAGES-0003",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-private-dependencies-with-automatic-prs#private-packages-api",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNoMatureVersionsFoundError displays errors with the following description:
+// Unable to provide a recommended version as no mature versions were found.
+func NewNoMatureVersionsFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0005",
+    Title:      "No mature versions found for package",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-PACKAGES-0005",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewVersionNotFoundError displays errors with the following description:
+// Unable to provide a recommended version for package using this policy.
+func NewVersionNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0006",
+    Title:      "No recommended version found",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-PACKAGES-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewAlreadyLatestVersionError displays errors with the following description:
+// No newer version found for this package, as it is already to latest version.
+func NewAlreadyLatestVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0007",
+    Title:      "Package is already at latest version",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-PACKAGES-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewDowngradeVersionUnsupportedError displays errors with the following description:
+// Unable to suggest a downgrade for a package version.
+func NewDowngradeVersionUnsupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0008",
+    Title:      "Version downgrade is not supported",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-PACKAGES-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewVersionParsingError displays errors with the following description:
+// Not a valid version for semver format.
+//
+// Read more:
+// - https://semver.org/
+func NewVersionParsingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-packages-0009",
+    Title:      "Invalid version",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-PACKAGES-0009",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://semver.org/",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewFailedToGetPullRequestAttributesError displays errors with the following description:
 // Snyk could not get the custom pull request template attributes, using the given variables and the fetched pr template.
 //

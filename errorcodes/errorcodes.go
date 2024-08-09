@@ -203,6 +203,13 @@ type FixCodes struct {
   FixScenarioNotSupportedError string
   SCMRateLimitError string
   UnauthorisedAccessError string
+  UnsupportedEcosystemError string
+  MetadataNotFoundError string
+  NoMatureVersionsFoundError string
+  VersionNotFoundError string
+  AlreadyLatestVersionError string
+  DowngradeVersionUnsupportedError string
+  VersionParsingError string
   FailedToGetPullRequestAttributesError string
   PullRequestTemplateNotFoundError string
   FailedToCompilePrTemplateError string
@@ -467,6 +474,13 @@ var Fix = FixCodes {
   FixScenarioNotSupportedError: "PR-FAILURES-0001",
   SCMRateLimitError: "PR-FAILURES-0002",
   UnauthorisedAccessError: "PR-FAILURES-0003",
+  UnsupportedEcosystemError: "SNYK-PACKAGES-0001",
+  MetadataNotFoundError: "SNYK-PACKAGES-0003",
+  NoMatureVersionsFoundError: "SNYK-PACKAGES-0005",
+  VersionNotFoundError: "SNYK-PACKAGES-0006",
+  AlreadyLatestVersionError: "SNYK-PACKAGES-0007",
+  DowngradeVersionUnsupportedError: "SNYK-PACKAGES-0008",
+  VersionParsingError: "SNYK-PACKAGES-0009",
   FailedToGetPullRequestAttributesError: "SNYK-PR-TEMPLATE-0001",
   PullRequestTemplateNotFoundError: "SNYK-PR-TEMPLATE-0002",
   FailedToCompilePrTemplateError: "SNYK-PR-TEMPLATE-0003",
