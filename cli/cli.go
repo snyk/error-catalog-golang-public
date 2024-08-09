@@ -25,6 +25,9 @@ import (
 
 // NewConfigEnvironmentFailedError displays errors with the following description:
 // The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/config-environment
 func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -33,7 +36,9 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
     StatusCode: 200,
     ErrorCode:  "SNYK-CLI-0001",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/config-environment",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -46,18 +51,23 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
 }
 
 // NewConfigEnvironmentConsistencyIssueError displays errors with the following description:
-// There are different ways of configuring the CLI, for example via Environment Variables or configuration file. 
+// You can configure the CLI in different ways, for example via Environment Variables or configuration file.
 // If one parameter is configured multiple times, it is probably unintentional and might cause unexpected behaviour.
 // Review configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/config-environment
 func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0002",
-    Title:      "Possible inconsistent configuration detected",
+    Title:      "Possible inconsistent configuration",
     StatusCode: 200,
     ErrorCode:  "SNYK-CLI-0002",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/config-environment",
+    },
     Level:  "error",
     Detail: detail,
   }
