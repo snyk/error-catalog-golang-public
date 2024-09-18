@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-// Package CustomBaseImages contains errors related to the namespace CustomBaseImages
+// Package custombaseimages contains errors related to the namespace CustomBaseImages
 // of the Error Catalog.
-package CustomBaseImages
+package custombaseimages
 
 import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
