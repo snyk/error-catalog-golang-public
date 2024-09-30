@@ -231,7 +231,7 @@ func NewBrokeredConnectionNotSupportedError(detail string, options ...snyk_error
 // 
 // * Your provided credentials are correct or not scoped too narrowly.
 // * The branch you've asked us to clone exists.
-// * The repository you've provided is accessible from the internet is you are not connected through a broker.
+// * The repository you've provided is accessible from the internet and you are not connected through a broker.
 // 
 // And try the operation again.
 func NewGitCloneFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
