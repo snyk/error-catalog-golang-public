@@ -11,6 +11,7 @@ opensource/ecosystems/ecosystems.go
 opensource/project/issues/issues.go
 opensource/project/snapshots/snapshots.go
 opensource/unmanaged/unmanaged.go
+policies/policies.go
 prchecks/prchecks.go
 purl/vulnerabilities/vulnerabilities.go
 sbomexport/sbomexport.go

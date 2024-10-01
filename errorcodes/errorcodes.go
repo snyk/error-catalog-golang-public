@@ -293,6 +293,10 @@ type SCMCodes struct {
   SizeLimitExceededError string
 }
 
+type PoliciesCodes struct {
+  InvalidPolicyApplyError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -562,5 +566,9 @@ var SCM = SCMCodes {
   IntegrationAuthorizationFailedError: "SNYK-SCM-0004",
   FilesLimitExceededError: "SNYK-SCM-0005",
   SizeLimitExceededError: "SNYK-SCM-0006",
+}
+
+var Policies = PoliciesCodes {
+  InvalidPolicyApplyError: "SNYK-POLICY-0001",
 }
 
