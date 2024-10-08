@@ -704,6 +704,8 @@ func NewGoModFileMissingError(detail string, options ...snyk_errors.Option) snyk
 //
 // Read more:
 // - https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso
+//
+// Deprecated: This error has been moved to a more generalized namespace to avoid repetition.  Use SNYK-OS-8004 instead.
 func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),

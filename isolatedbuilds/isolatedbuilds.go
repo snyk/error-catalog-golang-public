@@ -99,3 +99,35 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
+// NewSsoReAuthRequiredError displays errors with the following description:
+// Your code is cloned on an isolated environment using Git as it is required by Snyk to analyze its dependencies.
+// 
+// Your Organization has enabled or enforced SAML SSO after you authorized Snyk to access your code, and a re-authentication is therefore required.
+// 
+// The error you're seeing is usually reproducible by attempting to do a `git clone` of your repository with incorrectly configured credentials.
+// Verify your authentication configuration with your Git cloud provider and try again.
+//
+// Read more:
+// - https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso
+func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8004",
+    Title:      "OAuth re-authorization required",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-8004",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
