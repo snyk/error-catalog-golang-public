@@ -40,7 +40,7 @@ type jsonAPIError struct {
 	Code   string                 `json:"code,omitempty"`
 	Meta   map[string]interface{} `json:"meta,omitempty"`
 	Links  jsonAPILinks           `json:"links,omitempty"`
-	Source jsonAPIErrSource       `json:"source"`
+	Source jsonAPIErrSource       `json:"source,omitempty"`
 }
 
 type jsonAPILinks struct {

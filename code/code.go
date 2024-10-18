@@ -199,3 +199,125 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewRuleExtensionAlreadyExistsForGroupError displays errors with the following description:
+// A Rule extension with the same type and attributes already exists
+// for the given Group.
+// 
+// Either modify the existing Rule extension or create a new
+// Rule extension with a different type or attributes.
+func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0007",
+    Title:      "Rule extension already exists for the Group",
+    StatusCode: 409,
+    ErrorCode:  "SNYK-CODE-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewOrgRelationshipsMustBeUniqueError displays errors with the following description:
+// Each Org relationship to a Snyk Code Rule extention must be unique.
+// 
+// Make sure each Org in relationships has a different ID.
+func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0008",
+    Title:      "Organization relationships must be unique",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGroupRelationshipMustBeForAdminGroupError displays errors with the following description:
+// You cannot associate a Snyk Code Rule extension to any other Group.
+// 
+// Make sure the Group ID under relationships matches the Group ID in the request path.
+func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0009",
+    Title:      "Group relationship must match the Group in the requested URL",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0009",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewOrgOutsideAdminGroupError displays errors with the following description:
+// You cannot associate a Snyk Code Rule extension to an Org outside of the administrating Group.
+// 
+// Make sure each Org under relationships is within the Group in the requested URL.
+func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0010",
+    Title:      "Organization outside of the administrating Group",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewRuleExtensionsLimitReachedError displays errors with the following description:
+// You have hit the maximum number of published Snyk Code Rule extensions allowed for a Group.
+// 
+// To create a new Rule extension you will have to remove an existing one.
+func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0011",
+    Title:      "Rule extension limit reached",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0011",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

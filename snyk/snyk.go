@@ -216,7 +216,7 @@ func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Er
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-9999",
-    Title:      "Request not fulfilled due to server error ",
+    Title:      "Request not fulfilled due to server error",
     StatusCode: 500,
     ErrorCode:  "SNYK-9999",
     Classification: "UNEXPECTED",

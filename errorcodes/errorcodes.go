@@ -232,6 +232,11 @@ type CodeCodes struct {
   AnalysisFileNameLengthLimitExceededError string
   FeatureIsNotEnabledError string
   UnsupportedProjectError string
+  RuleExtensionAlreadyExistsForGroupError string
+  OrgRelationshipsMustBeUniqueError string
+  GroupRelationshipMustBeForAdminGroupError string
+  OrgOutsideAdminGroupError string
+  RuleExtensionsLimitReachedError string
 }
 
 type PRChecksCodes struct {
@@ -508,6 +513,11 @@ var Code = CodeCodes {
   AnalysisFileNameLengthLimitExceededError: "SNYK-CODE-0004",
   FeatureIsNotEnabledError: "SNYK-CODE-0005",
   UnsupportedProjectError: "SNYK-CODE-0006",
+  RuleExtensionAlreadyExistsForGroupError: "SNYK-CODE-0007",
+  OrgRelationshipsMustBeUniqueError: "SNYK-CODE-0008",
+  GroupRelationshipMustBeForAdminGroupError: "SNYK-CODE-0009",
+  OrgOutsideAdminGroupError: "SNYK-CODE-0010",
+  RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
 }
 
 var PRChecks = PRChecksCodes {
