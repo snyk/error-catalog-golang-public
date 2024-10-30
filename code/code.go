@@ -332,3 +332,28 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
   return err
 }
 
+// NewUnsupportedRuleNamesError displays errors with the following description:
+// One or more rule names provided are not supported by Snyk Code Rule extensions.
+// 
+// Remove the unsupported rule name(s) and then try again.
+func NewUnsupportedRuleNamesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0012",
+    Title:      "Unsupported rule names in request",
+    Description: "One or more rule names provided are not supported by Snyk Code Rule extensions.\n\nRemove the unsupported rule name(s) and then try again.",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
