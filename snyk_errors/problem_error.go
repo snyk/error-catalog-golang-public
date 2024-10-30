@@ -21,6 +21,7 @@ type Error struct {
 	Title          string
 	StatusCode     int
 	ErrorCode      string
+	Description    string
 	Level          string
 	Links          []string
 	Detail         string

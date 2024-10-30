@@ -33,6 +33,7 @@ func NewIntegrationNotFoundError(detail string, options ...snyk_errors.Option) s
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-integration-0001",
     Title:      "SCM integration not found",
+    Description: "Ensure your SCM integration exists and that it is correctly set up.",
     StatusCode: 404,
     ErrorCode:  "SNYK-INTEGRATION-0001",
     Classification: "ACTIONABLE",

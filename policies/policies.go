@@ -34,6 +34,7 @@ func NewInvalidPolicyApplyError(detail string, options ...snyk_errors.Option) sn
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-policy-0001",
     Title:      "Unable to apply a policy with an invalid configuration",
+    Description: "Snyk could not apply a policy whilst executing a test because the configuration for the policy was invalid.\nYou may be able to fix the policy and try again.",
     StatusCode: 422,
     ErrorCode:  "SNYK-POLICY-0001",
     Classification: "ACTIONABLE",
