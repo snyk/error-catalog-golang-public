@@ -35,7 +35,7 @@ import (
 // Ultimately, you should contact support@snyk.io if the issue persists
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360000910517-Failed-to-read-manifest-file
+// - https://support.snyk.io/s/article/Failed-to-read-manifest-file---Commit-Status
 func NewFailedToReadManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -46,7 +46,7 @@ func NewFailedToReadManifestError(detail string, options ...snyk_errors.Option) 
     ErrorCode:  "SNYK-PR-CHECK-0001",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360000910517-Failed-to-read-manifest-file",
+      "https://support.snyk.io/s/article/Failed-to-read-manifest-file---Commit-Status",
     },
     Level:  "error",
     Detail: detail,
@@ -70,7 +70,7 @@ func NewFailedToReadManifestError(detail string, options ...snyk_errors.Option) 
 // As during the original import, Snyk scans the project and locates the manifest file.
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360000910537-Manifest-not-found
+// - https://support.snyk.io/s/article/Manifest-not-found
 func NewManifestNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -81,7 +81,7 @@ func NewManifestNotFoundError(detail string, options ...snyk_errors.Option) snyk
     ErrorCode:  "SNYK-PR-CHECK-0002",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360000910537-Manifest-not-found",
+      "https://support.snyk.io/s/article/Manifest-not-found",
     },
     Level:  "error",
     Detail: detail,
@@ -127,7 +127,7 @@ func NewThirdPartyRateLimitError(detail string, options ...snyk_errors.Option) s
 // In some cases, it may be necessary to delete the node_modules folder and the package-lock.json and run npm install again to force a full reinstall. 
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project
+// - https://support.snyk.io/s/article/Out-of-sync-manifest--lockfile-in-the-project
 func NewOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -138,7 +138,7 @@ func NewOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors
     ErrorCode:  "SNYK-PR-CHECK-0004",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project",
+      "https://support.snyk.io/s/article/Out-of-sync-manifest--lockfile-in-the-project",
     },
     Level:  "error",
     Detail: detail,
@@ -186,7 +186,7 @@ func NewFailedDeterminingProjectTargetError(detail string, options ...snyk_error
 // Ultimately, you should contact support@snyk.io if the issue persists.
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360004358517-Unknown-PR-test-error
+// - https://support.snyk.io/s/article/Unknown-PR-test-error
 func NewFailedToCompleteTestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -197,7 +197,7 @@ func NewFailedToCompleteTestError(detail string, options ...snyk_errors.Option) 
     ErrorCode:  "SNYK-PR-CHECK-0006",
     Classification: "UNEXPECTED",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360004358517-Unknown-PR-test-error",
+      "https://support.snyk.io/s/article/Unknown-PR-test-error",
     },
     Level:  "error",
     Detail: detail,
@@ -214,9 +214,6 @@ func NewFailedToCompleteTestError(detail string, options ...snyk_errors.Option) 
 // In order for snyk test to run, we need the merge commit SHA from the GitHub. For some reason, we couldn’t get it.
 // 
 // Try closing and then reopening the pull request, or you can Skip the Pull Request Check if it is consistent.
-//
-// Read more:
-// - https://support.snyk.io/hc/en-us/articles/360005281837
 func NewFailedToFetchMergeCommitShaError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -226,9 +223,7 @@ func NewFailedToFetchMergeCommitShaError(detail string, options ...snyk_errors.O
     StatusCode: 500,
     ErrorCode:  "SNYK-PR-CHECK-0007",
     Classification: "UNEXPECTED",
-    Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360005281837",
-    },
+    Links: []string{},
     Level:  "error",
     Detail: detail,
   }
@@ -246,7 +241,7 @@ func NewFailedToFetchMergeCommitShaError(detail string, options ...snyk_errors.O
 // To resolve this, you might need to figure out all the merge conflicts on your SCM environment and resolve them to fully remediate these types of errors on Snyk. As a note, this cannot be modified/changed on Snyk's side.
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360005281098
+// - https://support.snyk.io/s/article/Merge-conflict-error
 func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -257,7 +252,7 @@ func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_er
     ErrorCode:  "SNYK-PR-CHECK-0008",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360005281098",
+      "https://support.snyk.io/s/article/Merge-conflict-error",
     },
     Level:  "error",
     Detail: detail,
@@ -276,7 +271,7 @@ func NewMergeConflictError(detail string, options ...snyk_errors.Option) snyk_er
 // Occasionally you might see a "Failed to detect issues" commit status which may block your PR. This means that we tried to run a test against your changes but unfortunately something went wrong / we encountered an internal problem. If this happens to you try recreating the pull request and if it still occurs reach out and let us know which user, organization and project and commit sha you experienced the issue with on support@snyk.io
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360000920678-Failed-to-detect-issues
+// - https://support.snyk.io/s/article/Failed-to-detect-issues
 func NewFailedToDetectIssuesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -287,7 +282,7 @@ func NewFailedToDetectIssuesError(detail string, options ...snyk_errors.Option) 
     ErrorCode:  "SNYK-PR-CHECK-0009",
     Classification: "UNEXPECTED",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360000920678-Failed-to-detect-issues",
+      "https://support.snyk.io/s/article/Failed-to-detect-issues",
     },
     Level:  "error",
     Detail: detail,

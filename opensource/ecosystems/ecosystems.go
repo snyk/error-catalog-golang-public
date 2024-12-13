@@ -73,7 +73,7 @@ func NewUnparseableLockFileError(detail string, options ...snyk_errors.Option) s
 // Dependency version could not be resolved.
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360001373178-Could-not-determine-version-for-dependencies
+// - https://support.snyk.io/s/article/Could-not-determine-version-for-dependencies
 func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -84,7 +84,7 @@ func NewUnknownDependencyVersionError(detail string, options ...snyk_errors.Opti
     ErrorCode:  "SNYK-OS-0003",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360001373178-Could-not-determine-version-for-dependencies",
+      "https://support.snyk.io/s/article/Could-not-determine-version-for-dependencies",
     },
     Level:  "warn",
     Detail: detail,
@@ -1690,7 +1690,7 @@ func NewInvalidConfigurationError(detail string, options ...snyk_errors.Option) 
 // In some cases, it may be necessary to delete the node_modules folder and the pnpm-lock.yaml and run pnpm install again to force a full reinstall. 
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project
+// - https://support.snyk.io/s/article/Out-of-sync-manifest--lockfile-in-the-project
 func NewPnpmOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -1701,7 +1701,7 @@ func NewPnpmOutOfSyncError(detail string, options ...snyk_errors.Option) snyk_er
     ErrorCode:  "SNYK-OS-NODEJS-0016",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/360000912457-Out-of-sync-manifest-lockfile-in-the-project",
+      "https://support.snyk.io/s/article/Out-of-sync-manifest--lockfile-in-the-project",
     },
     Level:  "error",
     Detail: detail,

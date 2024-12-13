@@ -152,9 +152,9 @@ func NewUnauthorisedError(detail string, options ...snyk_errors.Option) snyk_err
 // You have reached the maximum number of tests in your Snyk plan. This causes Snyk tests on PRs and CLI to fail. Deactivate Snyk Test on your Project or upgrade your Snyk plan.
 //
 // Read more:
-// - https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project
+// - https://support.snyk.io/s/article/Rate-limit-hit-while-testing-the-project
 // - https://docs.snyk.io/scan-using-snyk/working-with-snyk-in-your-environment/what-counts-as-a-test
-// - https://support.snyk.io/hc/en-us/articles/360001945297-Snyk-Test-of-PR-failing-due-to-test-limit
+// - https://support.snyk.io/s/article/Snyk-Test-of-PR-failing-due-to-test-limit
 func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -165,9 +165,9 @@ func NewTestLimitReachedError(detail string, options ...snyk_errors.Option) snyk
     ErrorCode:  "SNYK-0006",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://support.snyk.io/hc/en-us/articles/4409805538833-Rate-limit-hit-while-testing-the-project",
+      "https://support.snyk.io/s/article/Rate-limit-hit-while-testing-the-project",
       "https://docs.snyk.io/scan-using-snyk/working-with-snyk-in-your-environment/what-counts-as-a-test",
-      "https://support.snyk.io/hc/en-us/articles/360001945297-Snyk-Test-of-PR-failing-due-to-test-limit",
+      "https://support.snyk.io/s/article/Snyk-Test-of-PR-failing-due-to-test-limit",
     },
     Level:  "error",
     Detail: detail,
