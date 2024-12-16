@@ -2096,3 +2096,32 @@ func NewPipenvNoMatchingPythonDistributionError(detail string, options ...snyk_e
   return err
 }
 
+// NewPythonDependenciesSpaceLimitExceededError displays errors with the following description:
+// The total size of the downloaded Python dependencies in the manifest file exceeds the 10GB limit.
+// This often happens due to the large size of some of the Python dependencies and is usually the case for Python packages that require NVIDIA drivers like PyTorch. 
+//
+// Read more:
+// - https://docs.snyk.io/supported-languages-package-managers-and-frameworks/python/git-repositories-and-python#pip-and-git-repositories
+func NewPythonDependenciesSpaceLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0012",
+    Title:      "The 10 GB space limit for downloaded Python dependencies has been exceeded",
+    Description: "The total size of the downloaded Python dependencies in the manifest file exceeds the 10GB limit.\nThis often happens due to the large size of some of the Python dependencies and is usually the case for Python packages that require NVIDIA drivers like PyTorch. ",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0012",
+    Classification: "UNSUPPORTED",
+    Links: []string{
+      "https://docs.snyk.io/supported-languages-package-managers-and-frameworks/python/git-repositories-and-python#pip-and-git-repositories",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+

@@ -111,6 +111,7 @@ type OpenSourceEcosystemsCodes struct {
   InstallationFailureError string
   PipenvUnsupportedPythonVersionError string
   PipenvNoMatchingPythonDistributionError string
+  PythonDependenciesSpaceLimitExceededError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -393,6 +394,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   InstallationFailureError: "SNYK-OS-PYTHON-0009",
   PipenvUnsupportedPythonVersionError: "SNYK-OS-PYTHON-0010",
   PipenvNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0011",
+  PythonDependenciesSpaceLimitExceededError: "SNYK-OS-PYTHON-0012",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {
