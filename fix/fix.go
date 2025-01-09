@@ -101,7 +101,7 @@ func NewUnauthorisedAccessError(detail string, options ...snyk_errors.Option) sn
 // The language or package manager is not supported. Please refer to the supported package managers in the documentation.
 //
 // Read more:
-// - https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms
+// - https://docs.snyk.io/scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms
 func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -112,7 +112,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
     ErrorCode:  "SNYK-PACKAGES-0001",
     Classification: "UNSUPPORTED",
     Links: []string{
-      "https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms",
+      "https://docs.snyk.io/scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/upgrade-open-source-dependencies-with-automatic-prs#supported-languages-and-scms",
     },
     Level:  "error",
     Detail: detail,
