@@ -53,6 +53,7 @@ type OpenSourceEcosystemsCodes struct {
   NoTargetFrameworksFoundError string
   OutdatedSDKVersionRequestedError string
   ProjectSkippedAndNotFoundError string
+  NugetDependenciesSpaceLimitExceededError string
   PrivateModuleError string
   GoModFileMissingError string
   SsoReAuthRequiredError string
@@ -336,6 +337,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   NoTargetFrameworksFoundError: "SNYK-OS-DOTNET-0007",
   OutdatedSDKVersionRequestedError: "SNYK-OS-DOTNET-0008",
   ProjectSkippedAndNotFoundError: "SNYK-OS-DOTNET-0009",
+  NugetDependenciesSpaceLimitExceededError: "SNYK-OS-DOTNET-0010",
   PrivateModuleError: "SNYK-OS-GO-0001",
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",

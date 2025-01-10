@@ -659,6 +659,35 @@ func NewProjectSkippedAndNotFoundError(detail string, options ...snyk_errors.Opt
   return err
 }
 
+// NewNugetDependenciesSpaceLimitExceededError displays errors with the following description:
+// The total size of the downloaded Nuget dependencies in the manifest files exceeds the 10GB limit.
+// This often happens due to the large number or the large size of Nuget dependencies. 
+//
+// Read more:
+// - https://docs.snyk.io/supported-languages-package-managers-and-frameworks/.net/improved-.net-scanning#limitations-on-improved-.net-scanning-for-scm-integrations
+func NewNugetDependenciesSpaceLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0010",
+    Title:      "The 10 GB space limit for downloaded Nuget dependencies has been exceeded",
+    Description: "The total size of the downloaded Nuget dependencies in the manifest files exceeds the 10GB limit.\nThis often happens due to the large number or the large size of Nuget dependencies. ",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0010",
+    Classification: "UNSUPPORTED",
+    Links: []string{
+      "https://docs.snyk.io/supported-languages-package-managers-and-frameworks/.net/improved-.net-scanning#limitations-on-improved-.net-scanning-for-scm-integrations",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
