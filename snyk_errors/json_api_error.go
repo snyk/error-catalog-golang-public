@@ -51,6 +51,17 @@ type jsonAPIErrSource struct {
 	Pointer string `json:"pointer,omitempty"`
 }
 
+func FromJSONAPIErrorBytes(data []byte) ([]Error, error) {
+	var jsonDoc jsonAPIDoc
+
+	err := json.Unmarshal(data, &jsonDoc)
+	if err != nil {
+		return nil, err
+	}
+
+	return jsonDoc.MarshalFromJSONAPIError(), nil
+}
+
 func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
 	err := jsonAPIError{
 		ID:     e.ID,
@@ -76,6 +87,7 @@ func (e Error) MarshalToJSONAPIError(w io.Writer, instance string) error {
 		err.Meta["logs"] = string(j)
 	}
 
+	err.Meta["level"] = e.Level
 	err.Meta["classification"] = e.Classification
 
 	// Allow consumers to probe if this specific type of JsonApi response originates from an error catalog error.
@@ -96,18 +108,25 @@ func (j jsonAPIDoc) MarshalFromJSONAPIError() []Error {
 		status, _ := strconv.Atoi(jsonAPIErr.Status)
 
 		err := Error{
-			ID:             jsonAPIErr.ID,
-			Type:           jsonAPIErr.Links.About,
-			Title:          jsonAPIErr.Title,
-			StatusCode:     status,
-			ErrorCode:      jsonAPIErr.Code,
-			Detail:         jsonAPIErr.Detail,
-			Meta:           jsonAPIErr.Meta,
-			Classification: jsonAPIErr.Meta["classification"].(string),
+			ID:         jsonAPIErr.ID,
+			Type:       jsonAPIErr.Links.About,
+			Title:      jsonAPIErr.Title,
+			StatusCode: status,
+			ErrorCode:  jsonAPIErr.Code,
+			Detail:     jsonAPIErr.Detail,
+			Meta:       jsonAPIErr.Meta,
 		}
 
 		if err.Logs != nil {
 			err.Meta["logs"] = err.Logs
+		}
+
+		if level, ok := jsonAPIErr.Meta["level"].(string); ok {
+			err.Level = level
+		}
+
+		if class, ok := jsonAPIErr.Meta["classification"].(string); ok {
+			err.Classification = class
 		}
 
 		errors = append(errors, err)

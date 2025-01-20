@@ -16,19 +16,19 @@
 package snyk_errors
 
 type Error struct {
-	ID             string
-	Type           string
-	Title          string
-	StatusCode     int
-	ErrorCode      string
-	Description    string
-	Level          string
-	Links          []string
-	Detail         string
-	Meta           map[string]any
-	Cause          error
-	Classification string
-	Logs           []string
+	ID             string         `json:"id,omitempty"`
+	Type           string         `json:"type,omitempty"`
+	Title          string         `json:"title,omitempty"`
+	StatusCode     int            `json:"statusCode,omitempty"`
+	ErrorCode      string         `json:"errorCode,omitempty"`
+	Description    string         `json:"description,omitempty"`
+	Level          string         `json:"level,omitempty"`
+	Links          []string       `json:"links,omitempty"`
+	Detail         string         `json:"detail,omitempty"`
+	Meta           map[string]any `json:"meta,omitempty"`
+	Cause          error          `json:"cause,omitempty"`
+	Classification string         `json:"classification,omitempty"`
+	Logs           []string       `json:"logs,omitempty"`
 }
 
 func (e Error) Error() string {

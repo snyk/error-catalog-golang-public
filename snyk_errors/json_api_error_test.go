@@ -60,6 +60,7 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 						Code:   "error-code",
 						Meta: map[string]any{
 							"foo":                 "bar",
+							"level":               "level",
 							"classification":      "ACTIONABLE",
 							"isErrorCatalogError": true,
 						},
@@ -102,6 +103,7 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 						Code:   "error-code",
 						Meta: map[string]any{
 							"foo":                 "bar",
+							"level":               "level",
 							"classification":      "ACTIONABLE",
 							"isErrorCatalogError": true,
 						},
@@ -123,7 +125,7 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 				Title:          "title",
 				StatusCode:     1,
 				ErrorCode:      "error-code",
-				Level:          "level",
+				Level:          "warn",
 				Detail:         "detail",
 				Classification: "ACTIONABLE",
 				Logs:           []string{"a", "b"},
@@ -144,6 +146,7 @@ func TestMarshalToJSONAPIError(t *testing.T) {
 						Code:   "error-code",
 						Meta: map[string]any{
 							"foo":                 "bar",
+							"level":               "warn",
 							"classification":      "ACTIONABLE",
 							"isErrorCatalogError": true,
 							"logs":                "[\"a\",\"b\"]",
@@ -195,6 +198,7 @@ func TestMarshalFromJSONAPIError(t *testing.T) {
 		Type:           "type",
 		Title:          "title",
 		StatusCode:     1,
+		Level:          "level",
 		ErrorCode:      "error-code",
 		Detail:         "detail",
 		Classification: "ACTIONABLE",
@@ -211,4 +215,74 @@ func TestMarshalFromJSONAPIError(t *testing.T) {
 
 	first := actual.MarshalFromJSONAPIError()[0]
 	require.Equal(t, expected, first)
+}
+
+func TestFromJSONAPIErrorBytes(t *testing.T) {
+	testDoc := jsonAPIDoc{
+		JSONAPI: jsonAPIObject{},
+		Errors: []jsonAPIError{
+			{
+				ID:     "id",
+				Title:  "title",
+				Status: "1",
+				Code:   "SNYK-1234",
+				Detail: "detail",
+				Meta: map[string]any{
+					"foo":                 "bar",
+					"level":               "warn",
+					"classification":      "ACTIONABLE",
+					"isErrorCatalogError": true,
+				},
+			},
+			{
+				ID:     "id",
+				Title:  "title",
+				Status: "1",
+				Code:   "SNYK-1234",
+				Detail: "detail",
+				Meta: map[string]any{
+					"foo": "bar",
+				},
+			},
+		},
+	}
+
+	expected := []Error{
+		{
+			ID:             "id",
+			Title:          "title",
+			StatusCode:     1,
+			ErrorCode:      "SNYK-1234",
+			Detail:         "detail",
+			Level:          "warn",
+			Classification: "ACTIONABLE",
+			Meta: map[string]any{
+				"foo":                 "bar",
+				"level":               "warn",
+				"classification":      "ACTIONABLE",
+				"isErrorCatalogError": true,
+			},
+		},
+		{
+			ID:             "id",
+			Title:          "title",
+			StatusCode:     1,
+			ErrorCode:      "SNYK-1234",
+			Detail:         "detail",
+			Level:          "",
+			Classification: "",
+			Meta: map[string]any{
+				"foo": "bar",
+			},
+		},
+	}
+
+	data, err := json.Marshal(testDoc)
+	require.NoError(t, err)
+
+	errors, err := FromJSONAPIErrorBytes(data)
+	require.NoError(t, err)
+	require.NotNil(t, errors)
+
+	require.Equal(t, expected, errors)
 }
