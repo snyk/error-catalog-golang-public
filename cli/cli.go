@@ -23,6 +23,36 @@ import (
   "github.com/google/uuid"
 )
 
+// NewGeneralCLIFailureError displays errors with the following description:
+// The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewGeneralCLIFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0000",
+    Title:      "Unspecified Error",
+    Description: "The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0000",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands",
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConfigEnvironmentFailedError displays errors with the following description:
 // The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.
 //

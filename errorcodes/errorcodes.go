@@ -257,6 +257,7 @@ type PRChecksCodes struct {
 }
 
 type CLICodes struct {
+  GeneralCLIFailureError string
   ConfigEnvironmentFailedError string
   ConfigEnvironmentConsistencyIssueError string
   ConnectionTimeoutError string
@@ -541,6 +542,7 @@ var PRChecks = PRChecksCodes {
 }
 
 var CLI = CLICodes {
+  GeneralCLIFailureError: "SNYK-CLI-0000",
   ConfigEnvironmentFailedError: "SNYK-CLI-0001",
   ConfigEnvironmentConsistencyIssueError: "SNYK-CLI-0002",
   ConnectionTimeoutError: "SNYK-OS-7001",
