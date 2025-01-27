@@ -206,17 +206,17 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
 }
 
 // NewRuleExtensionAlreadyExistsForGroupError displays errors with the following description:
-// A Rule extension with the same type and attributes already exists
+// A Sast Rule extension with the same type and attributes already exists
 // for the given Group.
 // 
-// Either modify the existing Rule extension or create a new
-// Rule extension with a different type or attributes.
+// Either modify the existing Sast Rule extension or create a new
+// Sast Rule extension with a different type or attributes.
 func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0007",
-    Title:      "Rule extension already exists for the Group",
-    Description: "A Rule extension with the same type and attributes already exists\nfor the given Group.\n\nEither modify the existing Rule extension or create a new\nRule extension with a different type or attributes.",
+    Title:      "Sast Rule extension already exists for the Group",
+    Description: "A Sast Rule extension with the same type and attributes already exists\nfor the given Group.\n\nEither modify the existing Sast Rule extension or create a new\nSast Rule extension with a different type or attributes.",
     StatusCode: 409,
     ErrorCode:  "SNYK-CODE-0007",
     Classification: "ACTIONABLE",
@@ -233,7 +233,7 @@ func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_e
 }
 
 // NewOrgRelationshipsMustBeUniqueError displays errors with the following description:
-// Each Org relationship to a Snyk Code Rule extention must be unique.
+// Each Org relationship to a Snyk Sast Rule extension must be unique.
 // 
 // Make sure each Org in relationships has a different ID.
 func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -241,7 +241,7 @@ func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0008",
     Title:      "Organization relationships must be unique",
-    Description: "Each Org relationship to a Snyk Code Rule extention must be unique.\n\nMake sure each Org in relationships has a different ID.",
+    Description: "Each Org relationship to a Snyk Sast Rule extension must be unique.\n\nMake sure each Org in relationships has a different ID.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0008",
     Classification: "ACTIONABLE",
@@ -258,7 +258,7 @@ func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.
 }
 
 // NewGroupRelationshipMustBeForAdminGroupError displays errors with the following description:
-// You cannot associate a Snyk Code Rule extension to any other Group.
+// You cannot associate a Snyk Sast Rule extension to any other Group.
 // 
 // Make sure the Group ID under relationships matches the Group ID in the request path.
 func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -266,7 +266,7 @@ func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0009",
     Title:      "Group relationship must match the Group in the requested URL",
-    Description: "You cannot associate a Snyk Code Rule extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
+    Description: "You cannot associate a Snyk Sast Rule extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0009",
     Classification: "ACTIONABLE",
@@ -283,7 +283,7 @@ func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk
 }
 
 // NewOrgOutsideAdminGroupError displays errors with the following description:
-// You cannot associate a Snyk Code Rule extension to an Org outside of the administrating Group.
+// You cannot associate a Snyk Sast Rule extension to an Org outside of the administrating Group.
 // 
 // Make sure each Org under relationships is within the Group in the requested URL.
 func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -291,7 +291,7 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0010",
     Title:      "Organization outside of the administrating Group",
-    Description: "You cannot associate a Snyk Code Rule extension to an Org outside of the administrating Group.\n\nMake sure each Org under relationships is within the Group in the requested URL.",
+    Description: "You cannot associate a Snyk Sast Rule extension to an Org outside of the administrating Group.\n\nMake sure each Org under relationships is within the Group in the requested URL.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0010",
     Classification: "ACTIONABLE",
@@ -308,15 +308,15 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
 }
 
 // NewRuleExtensionsLimitReachedError displays errors with the following description:
-// You have hit the maximum number of published Snyk Code Rule extensions allowed for a Group.
+// You have hit the maximum number of published Snyk Sast Rule extensions allowed for a Group.
 // 
-// To create a new Rule extension you will have to remove an existing one.
+// To create a new Sast Rule extension you will have to remove an existing one.
 func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0011",
-    Title:      "Rule extension limit reached",
-    Description: "You have hit the maximum number of published Snyk Code Rule extensions allowed for a Group.\n\nTo create a new Rule extension you will have to remove an existing one.",
+    Title:      "Sast Rule extension limit reached",
+    Description: "You have hit the maximum number of published Snyk Sast Rule extensions allowed for a Group.\n\nTo create a new Sast Rule extension you will have to remove an existing one.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0011",
     Classification: "ACTIONABLE",
@@ -332,17 +332,17 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
   return err
 }
 
-// NewUnsupportedRuleNamesError displays errors with the following description:
-// One or more rule names provided are not supported by Snyk Code Rule extensions.
+// NewUnsupportedOrgError displays errors with the following description:
+// The Snyk Sast Rule extensions feature is not enabled for this organization ID.
 // 
-// Remove the unsupported rule name(s) and then try again.
-func NewUnsupportedRuleNamesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// Please reach out to the account team to get access.
+func NewUnsupportedOrgError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0012",
-    Title:      "Unsupported rule names in request",
-    Description: "One or more rule names provided are not supported by Snyk Code Rule extensions.\n\nRemove the unsupported rule name(s) and then try again.",
-    StatusCode: 400,
+    Title:      "The Snyk Sast Rule extensions feature is not enabled for this OrgID",
+    Description: "The Snyk Sast Rule extensions feature is not enabled for this organization ID.\n\nPlease reach out to the account team to get access.",
+    StatusCode: 421,
     ErrorCode:  "SNYK-CODE-0012",
     Classification: "ACTIONABLE",
     Links: []string{},
