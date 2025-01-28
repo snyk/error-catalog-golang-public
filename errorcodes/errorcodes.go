@@ -240,6 +240,7 @@ type CodeCodes struct {
   OrgOutsideAdminGroupError string
   RuleExtensionsLimitReachedError string
   UnsupportedOrgError string
+  RuleExtensionsDecryptionTimeoutError string
 }
 
 type PRChecksCodes struct {
@@ -525,6 +526,7 @@ var Code = CodeCodes {
   OrgOutsideAdminGroupError: "SNYK-CODE-0010",
   RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
   UnsupportedOrgError: "SNYK-CODE-0012",
+  RuleExtensionsDecryptionTimeoutError: "SNYK-CODE-0013",
 }
 
 var PRChecks = PRChecksCodes {

@@ -333,17 +333,44 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
 }
 
 // NewUnsupportedOrgError displays errors with the following description:
-// The Snyk Sast Rule extensions feature is not enabled for this organization ID.
+// The Snyk Sast Rule extensions feature is not enabled for this Organization ID.
 // 
 // Please reach out to the account team to get access.
 func NewUnsupportedOrgError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0012",
-    Title:      "The Snyk Sast Rule extensions feature is not enabled for this OrgID",
-    Description: "The Snyk Sast Rule extensions feature is not enabled for this organization ID.\n\nPlease reach out to the account team to get access.",
+    Title:      "Sast Rule extensions feature is not enabled for this Organization ID",
+    Description: "The Snyk Sast Rule extensions feature is not enabled for this Organization ID.\n\nPlease reach out to the account team to get access.",
     StatusCode: 421,
     ErrorCode:  "SNYK-CODE-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewRuleExtensionsDecryptionTimeoutError displays errors with the following description:
+// Decrypting the Sast Rule extensions for the requested Organization ID process timed out.
+// You have created too many published rules for the Sast Rule extensions beta. 
+// 
+// Please remove one or more to try again.
+// If the issue persists, please open a customer support ticket.
+func NewRuleExtensionsDecryptionTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0013",
+    Title:      "Decryption time out for the requested Sast Rule extensions",
+    Description: "Decrypting the Sast Rule extensions for the requested Organization ID process timed out.\nYou have created too many published rules for the Sast Rule extensions beta. \n\nPlease remove one or more to try again.\nIf the issue persists, please open a customer support ticket.",
+    StatusCode: 408,
+    ErrorCode:  "SNYK-CODE-0013",
     Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
