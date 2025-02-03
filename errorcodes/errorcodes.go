@@ -30,6 +30,8 @@ type SnykCodes struct {
   UnauthorisedError string
   TestLimitReachedError string
   TagsForOrganizationWithoutGroupError string
+  BadGatewayError string
+  ServiceUnavailableError string
   ServerError string
 }
 
@@ -261,6 +263,14 @@ type CLICodes struct {
   GeneralCLIFailureError string
   ConfigEnvironmentFailedError string
   ConfigEnvironmentConsistencyIssueError string
+  EmptyFlagOptionIssueError string
+  InvalidFlagOptionIssueError string
+  GetVulnsFromResourceFailedError string
+  AuthConfigIssueError string
+  CommandArgsIssueError string
+  NoSupportedFilesFoundFailureError string
+  TooManyVulnerablePathsFailureError string
+  ValidationFailureError string
   ConnectionTimeoutError string
 }
 
@@ -316,6 +326,8 @@ var Snyk = SnykCodes {
   UnauthorisedError: "SNYK-0005",
   TestLimitReachedError: "SNYK-0006",
   TagsForOrganizationWithoutGroupError: "SNYK-0007",
+  BadGatewayError: "SNYK-0008",
+  ServiceUnavailableError: "SNYK-0009",
   ServerError: "SNYK-9999",
 }
 
@@ -547,6 +559,14 @@ var CLI = CLICodes {
   GeneralCLIFailureError: "SNYK-CLI-0000",
   ConfigEnvironmentFailedError: "SNYK-CLI-0001",
   ConfigEnvironmentConsistencyIssueError: "SNYK-CLI-0002",
+  EmptyFlagOptionIssueError: "SNYK-CLI-0003",
+  InvalidFlagOptionIssueError: "SNYK-CLI-0004",
+  GetVulnsFromResourceFailedError: "SNYK-CLI-0005",
+  AuthConfigIssueError: "SNYK-CLI-0006",
+  CommandArgsIssueError: "SNYK-CLI-0007",
+  NoSupportedFilesFoundFailureError: "SNYK-CLI-0008",
+  TooManyVulnerablePathsFailureError: "SNYK-CLI-0009",
+  ValidationFailureError: "SNYK-CLI-0010",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 

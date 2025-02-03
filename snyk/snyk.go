@@ -214,6 +214,62 @@ func NewTagsForOrganizationWithoutGroupError(detail string, options ...snyk_erro
   return err
 }
 
+// NewBadGatewayError displays errors with the following description:
+// Due to a server gateway error, the server cannot process the request. Check Snyk status and try again.
+//
+// Read more:
+// - https://status.snyk.io/
+func NewBadGatewayError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0008",
+    Title:      "Unable to fulfill the request",
+    Description: "Due to a server gateway error, the server cannot process the request. Check Snyk status and try again.",
+    StatusCode: 502,
+    ErrorCode:  "SNYK-0008",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://status.snyk.io/",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewServiceUnavailableError displays errors with the following description:
+// Due to service availability issues, Snyk cannot process the request. This issue is unexpected, and the service will recover shortly. If the error still occurs, contact Snyk Support.
+//
+// Read more:
+// - https://status.snyk.io/
+func NewServiceUnavailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0009",
+    Title:      "Unable to fulfill the request",
+    Description: "Due to service availability issues, Snyk cannot process the request. This issue is unexpected, and the service will recover shortly. If the error still occurs, contact Snyk Support.",
+    StatusCode: 503,
+    ErrorCode:  "SNYK-0009",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://status.snyk.io/",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewServerError displays errors with the following description:
 // The server cannot process the request due to an unexpected error. Check Snyk status, then try again.
 //
@@ -223,7 +279,7 @@ func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Er
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-9999",
-    Title:      "Request not fulfilled due to server error",
+    Title:      "Unable to process request",
     Description: "The server cannot process the request due to an unexpected error. Check Snyk status, then try again.",
     StatusCode: 500,
     ErrorCode:  "SNYK-9999",

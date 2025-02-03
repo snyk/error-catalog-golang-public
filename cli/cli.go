@@ -111,6 +111,228 @@ func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_er
   return err
 }
 
+// NewEmptyFlagOptionIssueError displays errors with the following description:
+// A specified flag is missing an option value. Provide a correct option value and try again.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
+func NewEmptyFlagOptionIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0003",
+    Title:      "Empty flag option",
+    Description: "A specified flag is missing an option value. Provide a correct option value and try again.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0003",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary",
+    },
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInvalidFlagOptionIssueError displays errors with the following description:
+// A specified flag option or combination is invalid. Provide a valid flag option or combination and try again.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
+func NewInvalidFlagOptionIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0004",
+    Title:      "Invalid flag option",
+    Description: "A specified flag option or combination is invalid. Provide a valid flag option or combination and try again.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0004",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary",
+    },
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGetVulnsFromResourceFailedError displays errors with the following description:
+// If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/.For further assistance, run `snyk help` or see the Snyk docs.
+func NewGetVulnsFromResourceFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0005",
+    Title:      "Unable to get vulnerabilities from resource",
+    Description: "If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/.For further assistance, run `snyk help` or see the Snyk docs.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0005",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewAuthConfigIssueError displays errors with the following description:
+// When running your command, Snyk requires an authenticated account. You must include your API token as an environment value, or use `snyk auth` to authenticate.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/authenticate-to-use-the-cli
+// - https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli
+func NewAuthConfigIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0006",
+    Title:      "Missing AUTH token",
+    Description: "When running your command, Snyk requires an authenticated account. You must include your API token as an environment value, or use `snyk auth` to authenticate.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/authenticate-to-use-the-cli",
+      "https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli",
+    },
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCommandArgsIssueError displays errors with the following description:
+// The specified CLI command includes missing or misconfigured arguments. Provide the correct arguments and try again.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
+func NewCommandArgsIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0007",
+    Title:      "Incomplete command arguments",
+    Description: "The specified CLI command includes missing or misconfigured arguments. Provide the correct arguments and try again.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary",
+    },
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNoSupportedFilesFoundFailureError displays errors with the following description:
+// Snyk could not detect any supported target files. Ensure the files you are importing are supported, that you are in the right directory, and try again.
+//
+// Read more:
+// - https://docs.snyk.io/supported-languages-package-managers-and-frameworks
+func NewNoSupportedFilesFoundFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0008",
+    Title:      "No supported files found",
+    Description: "Snyk could not detect any supported target files. Ensure the files you are importing are supported, that you are in the right directory, and try again.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-CLI-0008",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/supported-languages-package-managers-and-frameworks",
+    },
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTooManyVulnerablePathsFailureError displays errors with the following description:
+// There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated subdependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary#options-for-multiple-commands
+// - https://docs.snyk.io/snyk-cli/commands/test#prune-repeated-subdependencies-p
+// - https://docs.snyk.io/snyk-cli/commands/test#detection-depth-less-than-depth-greater-than
+// - https://docs.snyk.io/snyk-cli/commands/test#exclude-less-than-name-greater-than-less-than-name-greater-than-...greater-than
+func NewTooManyVulnerablePathsFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0009",
+    Title:      "Too many vulnerable paths to Project",
+    Description: "There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated subdependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.",
+    StatusCode: 413,
+    ErrorCode:  "SNYK-CLI-0009",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary#options-for-multiple-commands",
+      "https://docs.snyk.io/snyk-cli/commands/test#prune-repeated-subdependencies-p",
+      "https://docs.snyk.io/snyk-cli/commands/test#detection-depth-less-than-depth-greater-than",
+      "https://docs.snyk.io/snyk-cli/commands/test#exclude-less-than-name-greater-than-less-than-name-greater-than-...greater-than",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewValidationFailureError displays errors with the following description:
+// CLI was unable to validate the required parameter. Provide the correct parameter and try again. If the error still occurs, consider debugging or contact Snyk Support.
+func NewValidationFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0010",
+    Title:      "CLI validation failure",
+    Description: "CLI was unable to validate the required parameter. Provide the correct parameter and try again. If the error still occurs, consider debugging or contact Snyk Support.",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CLI-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
