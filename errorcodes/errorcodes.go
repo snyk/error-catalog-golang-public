@@ -65,6 +65,7 @@ type OpenSourceEcosystemsCodes struct {
   UnableToAccessPrivateDepsError string
   UnableToUseCredentialsError string
   ToolchainNotAvailableError string
+  GolangSpaceLimitExceededError string
   MissingRequirementFromPomError string
   UnableToResolveValueForPropertyError string
   UnableToResolveVersionForPropertyError string
@@ -361,6 +362,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   UnableToAccessPrivateDepsError: "SNYK-OS-GO-0007",
   UnableToUseCredentialsError: "SNYK-OS-GO-0008",
   ToolchainNotAvailableError: "SNYK-OS-GO-0009",
+  GolangSpaceLimitExceededError: "SNYK-OS-GO-0010",
   MissingRequirementFromPomError: "SNYK-OS-MAVEN-0001",
   UnableToResolveValueForPropertyError: "SNYK-OS-MAVEN-0002",
   UnableToResolveVersionForPropertyError: "SNYK-OS-MAVEN-0003",
