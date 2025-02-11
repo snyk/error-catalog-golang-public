@@ -111,12 +111,12 @@ func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_er
   return err
 }
 
-// NewEmptyFlagOptionIssueError displays errors with the following description:
+// NewEmptyFlagOptionError displays errors with the following description:
 // A specified flag is missing an option value. Provide a correct option value and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
-func NewEmptyFlagOptionIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewEmptyFlagOptionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0003",
@@ -139,12 +139,12 @@ func NewEmptyFlagOptionIssueError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
-// NewInvalidFlagOptionIssueError displays errors with the following description:
+// NewInvalidFlagOptionError displays errors with the following description:
 // A specified flag option or combination is invalid. Provide a valid flag option or combination and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
-func NewInvalidFlagOptionIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewInvalidFlagOptionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0004",
@@ -190,13 +190,13 @@ func NewGetVulnsFromResourceFailedError(detail string, options ...snyk_errors.Op
   return err
 }
 
-// NewAuthConfigIssueError displays errors with the following description:
+// NewAuthConfigError displays errors with the following description:
 // When running your command, Snyk requires an authenticated account. You must include your API token as an environment value, or use `snyk auth` to authenticate.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/authenticate-to-use-the-cli
 // - https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli
-func NewAuthConfigIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewAuthConfigError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0006",
@@ -220,12 +220,12 @@ func NewAuthConfigIssueError(detail string, options ...snyk_errors.Option) snyk_
   return err
 }
 
-// NewCommandArgsIssueError displays errors with the following description:
+// NewCommandArgsError displays errors with the following description:
 // The specified CLI command includes missing or misconfigured arguments. Provide the correct arguments and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary
-func NewCommandArgsIssueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewCommandArgsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0007",
@@ -248,12 +248,12 @@ func NewCommandArgsIssueError(detail string, options ...snyk_errors.Option) snyk
   return err
 }
 
-// NewNoSupportedFilesFoundFailureError displays errors with the following description:
+// NewNoSupportedFilesFoundError displays errors with the following description:
 // Snyk could not detect any supported target files. Ensure the files you are importing are supported, that you are in the right directory, and try again.
 //
 // Read more:
 // - https://docs.snyk.io/supported-languages-package-managers-and-frameworks
-func NewNoSupportedFilesFoundFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewNoSupportedFilesFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0008",
@@ -276,7 +276,7 @@ func NewNoSupportedFilesFoundFailureError(detail string, options ...snyk_errors.
   return err
 }
 
-// NewTooManyVulnerablePathsFailureError displays errors with the following description:
+// NewTooManyVulnerablePathsError displays errors with the following description:
 // There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated subdependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
 //
 // Read more:
@@ -284,7 +284,7 @@ func NewNoSupportedFilesFoundFailureError(detail string, options ...snyk_errors.
 // - https://docs.snyk.io/snyk-cli/commands/test#prune-repeated-subdependencies-p
 // - https://docs.snyk.io/snyk-cli/commands/test#detection-depth-less-than-depth-greater-than
 // - https://docs.snyk.io/snyk-cli/commands/test#exclude-less-than-name-greater-than-less-than-name-greater-than-...greater-than
-func NewTooManyVulnerablePathsFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewTooManyVulnerablePathsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0009",
@@ -322,6 +322,90 @@ func NewValidationFailureError(detail string, options ...snyk_errors.Option) sny
     ErrorCode:  "SNYK-CLI-0010",
     Classification: "ACTIONABLE",
     Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGeneralIACFailureError displays errors with the following description:
+// CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/iac
+func NewGeneralIACFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0011",
+    Title:      "IAC failue",
+    Description: "CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0011",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/iac",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGeneralSASTFailureError displays errors with the following description:
+// CLI was unable to execute your SAST command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/code
+func NewGeneralSASTFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0012",
+    Title:      "SAST failure",
+    Description: "CLI was unable to execute your SAST command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0012",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/code",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGeneralSCAFailureError displays errors with the following description:
+// CLI was unable to execute your SCA command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/test
+func NewGeneralSCAFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0013",
+    Title:      "SCA failure",
+    Description: "CLI was unable to execute your SCA command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0013",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/test",
+    },
     Level:  "error",
     Detail: detail,
   }

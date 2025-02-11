@@ -264,14 +264,17 @@ type CLICodes struct {
   GeneralCLIFailureError string
   ConfigEnvironmentFailedError string
   ConfigEnvironmentConsistencyIssueError string
-  EmptyFlagOptionIssueError string
-  InvalidFlagOptionIssueError string
+  EmptyFlagOptionError string
+  InvalidFlagOptionError string
   GetVulnsFromResourceFailedError string
-  AuthConfigIssueError string
-  CommandArgsIssueError string
-  NoSupportedFilesFoundFailureError string
-  TooManyVulnerablePathsFailureError string
+  AuthConfigError string
+  CommandArgsError string
+  NoSupportedFilesFoundError string
+  TooManyVulnerablePathsError string
   ValidationFailureError string
+  GeneralIACFailureError string
+  GeneralSASTFailureError string
+  GeneralSCAFailureError string
   ConnectionTimeoutError string
 }
 
@@ -561,14 +564,17 @@ var CLI = CLICodes {
   GeneralCLIFailureError: "SNYK-CLI-0000",
   ConfigEnvironmentFailedError: "SNYK-CLI-0001",
   ConfigEnvironmentConsistencyIssueError: "SNYK-CLI-0002",
-  EmptyFlagOptionIssueError: "SNYK-CLI-0003",
-  InvalidFlagOptionIssueError: "SNYK-CLI-0004",
+  EmptyFlagOptionError: "SNYK-CLI-0003",
+  InvalidFlagOptionError: "SNYK-CLI-0004",
   GetVulnsFromResourceFailedError: "SNYK-CLI-0005",
-  AuthConfigIssueError: "SNYK-CLI-0006",
-  CommandArgsIssueError: "SNYK-CLI-0007",
-  NoSupportedFilesFoundFailureError: "SNYK-CLI-0008",
-  TooManyVulnerablePathsFailureError: "SNYK-CLI-0009",
+  AuthConfigError: "SNYK-CLI-0006",
+  CommandArgsError: "SNYK-CLI-0007",
+  NoSupportedFilesFoundError: "SNYK-CLI-0008",
+  TooManyVulnerablePathsError: "SNYK-CLI-0009",
   ValidationFailureError: "SNYK-CLI-0010",
+  GeneralIACFailureError: "SNYK-CLI-0011",
+  GeneralSASTFailureError: "SNYK-CLI-0012",
+  GeneralSCAFailureError: "SNYK-CLI-0013",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
