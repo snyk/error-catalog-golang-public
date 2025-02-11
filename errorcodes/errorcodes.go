@@ -272,9 +272,9 @@ type CLICodes struct {
   NoSupportedFilesFoundError string
   TooManyVulnerablePathsError string
   ValidationFailureError string
+  GeneralSCAFailureError string
   GeneralIACFailureError string
   GeneralSASTFailureError string
-  GeneralSCAFailureError string
   ConnectionTimeoutError string
 }
 
@@ -572,9 +572,9 @@ var CLI = CLICodes {
   NoSupportedFilesFoundError: "SNYK-CLI-0008",
   TooManyVulnerablePathsError: "SNYK-CLI-0009",
   ValidationFailureError: "SNYK-CLI-0010",
-  GeneralIACFailureError: "SNYK-CLI-0011",
-  GeneralSASTFailureError: "SNYK-CLI-0012",
-  GeneralSCAFailureError: "SNYK-CLI-0013",
+  GeneralSCAFailureError: "SNYK-CLI-0011",
+  GeneralIACFailureError: "SNYK-CLI-0012",
+  GeneralSASTFailureError: "SNYK-CLI-0013",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
