@@ -129,7 +129,7 @@ func NewUnsupportedEcosystemError(detail string, options ...snyk_errors.Option) 
 // Package metadata not or found or missing.
 //
 // Read more:
-// - https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-private-dependencies-with-automatic-prs#private-packages-api
+// - https://docs.snyk.io/supported-languages-package-managers-and-frameworks#package-managers-and-frameworks
 func NewMetadataNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -140,7 +140,7 @@ func NewMetadataNotFoundError(detail string, options ...snyk_errors.Option) snyk
     ErrorCode:  "SNYK-PACKAGES-0003",
     Classification: "ACTIONABLE",
     Links: []string{
-      "https://docs.snyk.io/scan-using-snyk/pull-requests/snyk-fix-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs/upgrade-private-dependencies-with-automatic-prs#private-packages-api",
+      "https://docs.snyk.io/supported-languages-package-managers-and-frameworks#package-managers-and-frameworks",
     },
     Level:  "error",
     Detail: detail,
