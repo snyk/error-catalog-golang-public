@@ -173,6 +173,7 @@ type OpenAPICodes struct {
   RequestEntityTooLargeError string
   UnauthorizedError string
   UnsupportedMediaTypeError string
+  ConflictError string
 }
 
 type OpenSourceUnmanagedCodes struct {
@@ -473,6 +474,7 @@ var OpenAPI = OpenAPICodes {
   RequestEntityTooLargeError: "SNYK-OPENAPI-0006",
   UnauthorizedError: "SNYK-OPENAPI-0007",
   UnsupportedMediaTypeError: "SNYK-OPENAPI-0008",
+  ConflictError: "SNYK-OPENAPI-0009",
 }
 
 var OpenSourceUnmanaged = OpenSourceUnmanagedCodes {

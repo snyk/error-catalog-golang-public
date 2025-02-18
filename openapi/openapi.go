@@ -217,3 +217,26 @@ func NewUnsupportedMediaTypeError(detail string, options ...snyk_errors.Option) 
   return err
 }
 
+// NewConflictError displays errors with the following description:
+// The request could not be completed due to a conflict with the current state of the target resource. Review the request, then try again.
+func NewConflictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-openapi-0009",
+    Title:      "Conflict",
+    Description: "The request could not be completed due to a conflict with the current state of the target resource. Review the request, then try again.",
+    StatusCode: 409,
+    ErrorCode:  "SNYK-OPENAPI-0009",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
