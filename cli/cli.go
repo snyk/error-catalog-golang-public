@@ -83,7 +83,7 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
 
 // NewConfigEnvironmentConsistencyIssueError displays errors with the following description:
 // You can configure the CLI in different ways, for example via Environment Variables or configuration file.
-// If one parameter is configured multiple times, it is probably unintentional and might cause unexpected behaviour.
+// If one parameter is configured multiple times, it is probably unintentional and might cause unexpected behavior.
 // Review configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.
 //
 // Read more:
@@ -93,7 +93,7 @@ func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_er
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0002",
     Title:      "Possible inconsistent configuration",
-    Description: "You can configure the CLI in different ways, for example via Environment Variables or configuration file.\nIf one parameter is configured multiple times, it is probably unintentional and might cause unexpected behaviour.\nReview configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.",
+    Description: "You can configure the CLI in different ways, for example via Environment Variables or configuration file.\nIf one parameter is configured multiple times, it is probably unintentional and might cause unexpected behavior.\nReview configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.",
     StatusCode: 200,
     ErrorCode:  "SNYK-CLI-0002",
     Classification: "ACTIONABLE",
@@ -277,7 +277,7 @@ func NewNoSupportedFilesFoundError(detail string, options ...snyk_errors.Option)
 }
 
 // NewTooManyVulnerablePathsError displays errors with the following description:
-// There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated subdependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
+// There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary#options-for-multiple-commands
@@ -289,7 +289,7 @@ func NewTooManyVulnerablePathsError(detail string, options ...snyk_errors.Option
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0009",
     Title:      "Too many vulnerable paths to Project",
-    Description: "There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated subdependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.",
+    Description: "There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.",
     StatusCode: 413,
     ErrorCode:  "SNYK-CLI-0009",
     Classification: "ACTIONABLE",
@@ -370,7 +370,7 @@ func NewGeneralIACFailureError(detail string, options ...snyk_errors.Option) sny
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0012",
-    Title:      "IAC failue",
+    Title:      "IAC failure",
     Description: "CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
     StatusCode: 200,
     ErrorCode:  "SNYK-CLI-0012",
