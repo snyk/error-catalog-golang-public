@@ -135,3 +135,32 @@ func NewSsoReAuthRequiredError(detail string, options ...snyk_errors.Option) sny
   return err
 }
 
+// NewProjectTooBigError displays errors with the following description:
+// The project cannot be built or processed due to requiring more memory than available. 
+// For node projects, please try again after removing requirement to generate a lockfile when opening a fix PR.
+//
+// Read more:
+// - https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#howtonotrequestalockfiletobegenerated
+func NewProjectTooBigError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8005",
+    Title:      "Project too large to be processed",
+    Description: "The project cannot be built or processed due to requiring more memory than available. \nFor node projects, please try again after removing requirement to generate a lockfile when opening a fix PR.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-8005",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/scan-applications/supported-languages-and-frameworks/supported-languages-frameworks-and-feature-availability-overview#howtonotrequestalockfiletobegenerated",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
