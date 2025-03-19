@@ -422,6 +422,7 @@ func NewGeneralSASTFailureError(detail string, options ...snyk_errors.Option) sn
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewConnectionTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -433,6 +434,7 @@ func NewConnectionTimeoutError(detail string, options ...snyk_errors.Option) sny
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,

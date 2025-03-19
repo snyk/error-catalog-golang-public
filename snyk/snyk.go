@@ -102,6 +102,7 @@ func NewBadRequestError(detail string, options ...snyk_errors.Option) snyk_error
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -113,6 +114,7 @@ func NewTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.E
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
@@ -219,6 +221,7 @@ func NewTagsForOrganizationWithoutGroupError(detail string, options ...snyk_erro
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewBadGatewayError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -230,6 +233,7 @@ func NewBadGatewayError(detail string, options ...snyk_errors.Option) snyk_error
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
@@ -247,6 +251,7 @@ func NewBadGatewayError(detail string, options ...snyk_errors.Option) snyk_error
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewServiceUnavailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -258,6 +263,7 @@ func NewServiceUnavailableError(detail string, options ...snyk_errors.Option) sn
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
@@ -275,6 +281,7 @@ func NewServiceUnavailableError(detail string, options ...snyk_errors.Option) sn
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -286,6 +293,7 @@ func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Er
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,

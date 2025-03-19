@@ -365,6 +365,7 @@ func NewImageNotFoundError(detail string, options ...snyk_errors.Option) snyk_er
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewImageDoesNotExistError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -376,6 +377,7 @@ func NewImageDoesNotExistError(detail string, options ...snyk_errors.Option) sny
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "warn",
     Detail: detail,
@@ -393,6 +395,7 @@ func NewImageDoesNotExistError(detail string, options ...snyk_errors.Option) sny
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewImageUpdateFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -404,6 +407,7 @@ func NewImageUpdateFailedError(detail string, options ...snyk_errors.Option) sny
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
@@ -421,6 +425,7 @@ func NewImageUpdateFailedError(detail string, options ...snyk_errors.Option) sny
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewPropertiesRetrievalFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -432,6 +437,7 @@ func NewPropertiesRetrievalFailedError(detail string, options ...snyk_errors.Opt
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
@@ -449,6 +455,7 @@ func NewPropertiesRetrievalFailedError(detail string, options ...snyk_errors.Opt
 //
 // Read more:
 // - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
 func NewImageCollectionRetrievalFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -460,6 +467,7 @@ func NewImageCollectionRetrievalFailedError(detail string, options ...snyk_error
     Classification: "UNEXPECTED",
     Links: []string{
       "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
     },
     Level:  "error",
     Detail: detail,
