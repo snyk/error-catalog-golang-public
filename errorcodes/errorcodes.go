@@ -246,6 +246,7 @@ type CodeCodes struct {
   RuleExtensionsLimitReachedError string
   UnsupportedOrgError string
   RuleExtensionsDecryptionTimeoutError string
+  RulesRelationshipsMustBeUniqueError string
 }
 
 type PRChecksCodes struct {
@@ -548,6 +549,7 @@ var Code = CodeCodes {
   RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
   UnsupportedOrgError: "SNYK-CODE-0012",
   RuleExtensionsDecryptionTimeoutError: "SNYK-CODE-0013",
+  RulesRelationshipsMustBeUniqueError: "SNYK-CODE-0014",
 }
 
 var PRChecks = PRChecksCodes {

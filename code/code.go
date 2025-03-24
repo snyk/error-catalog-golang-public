@@ -384,3 +384,28 @@ func NewRuleExtensionsDecryptionTimeoutError(detail string, options ...snyk_erro
   return err
 }
 
+// NewRulesRelationshipsMustBeUniqueError displays errors with the following description:
+// Each Rule relationship to a Snyk Sast Rule extension must be unique.
+// 
+// Make sure each Rule in relationships has a different name.
+func NewRulesRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0014",
+    Title:      "Rules relationships must be unique",
+    Description: "Each Rule relationship to a Snyk Sast Rule extension must be unique.\n\nMake sure each Rule in relationships has a different name.",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0014",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
