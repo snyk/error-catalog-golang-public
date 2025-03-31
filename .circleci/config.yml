@@ -5,12 +5,6 @@ orbs:
   snyk: snyk/snyk@1.7.0
 
 jobs:
-  scan:
-    docker:
-      - image: cimg/go:1.21.0-node
-    steps:
-      - checkout
-      - snyk/install
   security-scans:
     resource_class: small
     docker:
@@ -31,5 +25,4 @@ workflows:
           channel: cli-alerts
       - security-scans:
           context: devex_cli
-      - scan:
-          context: hammerhead-snyk-orb-snyk-creds
+
