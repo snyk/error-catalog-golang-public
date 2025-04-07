@@ -2185,3 +2185,26 @@ func NewPythonDependenciesSpaceLimitExceededError(detail string, options ...snyk
   return err
 }
 
+// NewCyclicDependencyDetectedError displays errors with the following description:
+// Cyclic dependency detected in lockfile.
+func NewCyclicDependencyDetectedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-ruby-0001",
+    Title:      "Cyclic dependency detected in lockfile",
+    Description: "Cyclic dependency detected in lockfile.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-RUBY-0001",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
