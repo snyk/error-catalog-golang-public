@@ -357,33 +357,6 @@ func NewUnsupportedOrgError(detail string, options ...snyk_errors.Option) snyk_e
   return err
 }
 
-// NewRuleExtensionsDecryptionTimeoutError displays errors with the following description:
-// Decrypting the Sast Rule extensions for the requested Organization ID process timed out.
-// You have created too many published rules for the Sast Rule extensions beta. 
-// 
-// Please remove one or more to try again.
-// If the issue persists, please open a customer support ticket.
-func NewRuleExtensionsDecryptionTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0013",
-    Title:      "Decryption time out for the requested Sast Rule extensions",
-    Description: "Decrypting the Sast Rule extensions for the requested Organization ID process timed out.\nYou have created too many published rules for the Sast Rule extensions beta. \n\nPlease remove one or more to try again.\nIf the issue persists, please open a customer support ticket.",
-    StatusCode: 408,
-    ErrorCode:  "SNYK-CODE-0013",
-    Classification: "ACTIONABLE",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
 // NewRulesRelationshipsMustBeUniqueError displays errors with the following description:
 // Each Rule relationship to a Snyk Sast Rule extension must be unique.
 // 
