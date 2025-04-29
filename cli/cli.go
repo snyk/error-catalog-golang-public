@@ -417,6 +417,29 @@ func NewGeneralSASTFailureError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewFeatureUnderDevelopmentError displays errors with the following description:
+// This feature is under development and is not yet available for public use.
+func NewFeatureUnderDevelopmentError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0014",
+    Title:      "Feature under development",
+    Description: "This feature is under development and is not yet available for public use.",
+    StatusCode: 200,
+    ErrorCode:  "SNYK-CLI-0014",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "fatal",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

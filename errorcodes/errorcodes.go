@@ -278,6 +278,7 @@ type CLICodes struct {
   GeneralSCAFailureError string
   GeneralIACFailureError string
   GeneralSASTFailureError string
+  FeatureUnderDevelopmentError string
   ConnectionTimeoutError string
 }
 
@@ -581,6 +582,7 @@ var CLI = CLICodes {
   GeneralSCAFailureError: "SNYK-CLI-0011",
   GeneralIACFailureError: "SNYK-CLI-0012",
   GeneralSASTFailureError: "SNYK-CLI-0013",
+  FeatureUnderDevelopmentError: "SNYK-CLI-0014",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
