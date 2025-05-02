@@ -148,6 +148,7 @@ type IsolatedBuildsCodes struct {
   UnsupportedEcosystemError string
   SsoReAuthRequiredError string
   ProjectTooBigError string
+  DefaultImageNotFoundError string
 }
 
 type OpenSourceProjectSnapshotsCodes struct {
@@ -452,6 +453,7 @@ var IsolatedBuilds = IsolatedBuildsCodes {
   UnsupportedEcosystemError: "SNYK-OS-8003",
   SsoReAuthRequiredError: "SNYK-OS-8004",
   ProjectTooBigError: "SNYK-OS-8005",
+  DefaultImageNotFoundError: "SNYK-OS-8006",
 }
 
 var OpenSourceProjectSnapshots = OpenSourceProjectSnapshotsCodes {

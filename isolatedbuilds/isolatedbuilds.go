@@ -164,3 +164,26 @@ func NewProjectTooBigError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewDefaultImageNotFoundError displays errors with the following description:
+// Unable to find the default image. Please try again, and contact Snyk support if the error persists.
+func NewDefaultImageNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-8006",
+    Title:      "No default image found in repository",
+    Description: "Unable to find the default image. Please try again, and contact Snyk support if the error persists.",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-8006",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
