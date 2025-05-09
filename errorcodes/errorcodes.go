@@ -66,6 +66,14 @@ type OpenSourceEcosystemsCodes struct {
   UnableToUseCredentialsError string
   ToolchainNotAvailableError string
   GolangSpaceLimitExceededError string
+  GolangNoSecureProtocolFoundError string
+  GolangConnectionResetByPeerError string
+  GolangInvalidZipFileError string
+  GolangVersionMismatchError string
+  GolangInvalidGoVersionError string
+  GolangDialTcpTimeoutError string
+  GolangHostKeyVerificationFailedError string
+  GolangMissingModuleDeclarationError string
   MissingRequirementFromPomError string
   UnableToResolveValueForPropertyError string
   UnableToResolveVersionForPropertyError string
@@ -371,6 +379,14 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   UnableToUseCredentialsError: "SNYK-OS-GO-0008",
   ToolchainNotAvailableError: "SNYK-OS-GO-0009",
   GolangSpaceLimitExceededError: "SNYK-OS-GO-0010",
+  GolangNoSecureProtocolFoundError: "SNYK-OS-GO-0011",
+  GolangConnectionResetByPeerError: "SNYK-OS-GO-0012",
+  GolangInvalidZipFileError: "SNYK-OS-GO-0013",
+  GolangVersionMismatchError: "SNYK-OS-GO-0014",
+  GolangInvalidGoVersionError: "SNYK-OS-GO-0015",
+  GolangDialTcpTimeoutError: "SNYK-OS-GO-0016",
+  GolangHostKeyVerificationFailedError: "SNYK-OS-GO-0017",
+  GolangMissingModuleDeclarationError: "SNYK-OS-GO-0018",
   MissingRequirementFromPomError: "SNYK-OS-MAVEN-0001",
   UnableToResolveValueForPropertyError: "SNYK-OS-MAVEN-0002",
   UnableToResolveVersionForPropertyError: "SNYK-OS-MAVEN-0003",

@@ -994,6 +994,240 @@ func NewGolangSpaceLimitExceededError(detail string, options ...snyk_errors.Opti
   return err
 }
 
+// NewGolangNoSecureProtocolFoundError displays errors with the following description:
+// The Go toolchain could not find a secure protocol (HTTPS) to access the repository.
+// 
+// This error typically occurs when the repository URL is not configured to use a secure protocol, or the necessary credentials for accessing the repository securely are not provided.
+// 
+// Ensure that the repository URL uses a secure protocol (https://) and verify that the necessary authentication credentials (such as HTTPS credentials) are correctly configured and accessible by the Go toolchain.
+//  
+// Note: SSH is not supported.
+func NewGolangNoSecureProtocolFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0011",
+    Title:      "No secure protocol found for repository",
+    Description: "The Go toolchain could not find a secure protocol (HTTPS) to access the repository.\n\nThis error typically occurs when the repository URL is not configured to use a secure protocol, or the necessary credentials for accessing the repository securely are not provided.\n\nEnsure that the repository URL uses a secure protocol (https://) and verify that the necessary authentication credentials (such as HTTPS credentials) are correctly configured and accessible by the Go toolchain.\n \nNote: SSH is not supported.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0011",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangConnectionResetByPeerError displays errors with the following description:
+// The Go toolchain encountered a connection reset error while trying to access the repository.
+// 
+// This error typically occurs when the connection to the repository is unexpectedly closed by the remote server. This can be due to network issues, server configuration, or other transient problems.
+// 
+// Try to reimport the project, if that does not work, please reach out to Snyk support.
+func NewGolangConnectionResetByPeerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0012",
+    Title:      "Connection reset by peer",
+    Description: "The Go toolchain encountered a connection reset error while trying to access the repository.\n\nThis error typically occurs when the connection to the repository is unexpectedly closed by the remote server. This can be due to network issues, server configuration, or other transient problems.\n\nTry to reimport the project, if that does not work, please reach out to Snyk support.",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-GO-0012",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangInvalidZipFileError displays errors with the following description:
+// The Go toolchain encountered an error while trying to download and extract a Go package version. The downloaded file is not a valid zip file.
+// 
+// This error typically occurs when there is an issue with the downloaded file, such as corruption or an incomplete download.
+// 
+// If the package that fails is a private package that's hosted in a private network, make sure the network is up and running and retry the import. If the issue persists, verify the integrity of the downloaded file and check for any issues with the source of the download.
+// 
+// If the issue persists, please reach out to Snyk support.
+func NewGolangInvalidZipFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0013",
+    Title:      "Invalid zip file",
+    Description: "The Go toolchain encountered an error while trying to download and extract a Go package version. The downloaded file is not a valid zip file.\n\nThis error typically occurs when there is an issue with the downloaded file, such as corruption or an incomplete download.\n\nIf the package that fails is a private package that's hosted in a private network, make sure the network is up and running and retry the import. If the issue persists, verify the integrity of the downloaded file and check for any issues with the source of the download.\n\nIf the issue persists, please reach out to Snyk support.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0013",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangVersionMismatchError displays errors with the following description:
+// The Go toolchain encountered a version mismatch error while trying to process the module.
+// 
+// This usually happens when the version of Go that was used in the go.mod file is not yet supported by Snyk.
+// 
+// We usually try and add support shortly after a new ecosystem version has been released.
+// 
+// If the Go version used in the go.mod file is supported based on our Golang documentation, please reach out to Snyk support.
+//
+// Read more:
+// - https://docs.snyk.io/supported-languages-package-managers-and-frameworks/go/go-for-open-source#go-for-snyk-open-source-support
+func NewGolangVersionMismatchError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0014",
+    Title:      "Go version mismatch",
+    Description: "The Go toolchain encountered a version mismatch error while trying to process the module.\n\nThis usually happens when the version of Go that was used in the go.mod file is not yet supported by Snyk.\n\nWe usually try and add support shortly after a new ecosystem version has been released.\n\nIf the Go version used in the go.mod file is supported based on our Golang documentation, please reach out to Snyk support.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0014",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/supported-languages-package-managers-and-frameworks/go/go-for-open-source#go-for-snyk-open-source-support",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangInvalidGoVersionError displays errors with the following description:
+// The Go toolchain encountered an error while parsing the go.mod file. The specified Go version '__GOLANG_VERSION__' is invalid and must match the format 1.23.4.
+// 
+// This error typically occurs when the Go version in the go.mod file is not correctly formatted.
+// 
+// Ensure that the Go version specified in the go.mod file matches the required format (e.g., 1.23.4). Update the go.mod file with the correct Go version and try again.
+func NewGolangInvalidGoVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0015",
+    Title:      "Invalid Go version in go.mod",
+    Description: "The Go toolchain encountered an error while parsing the go.mod file. The specified Go version '__GOLANG_VERSION__' is invalid and must match the format 1.23.4.\n\nThis error typically occurs when the Go version in the go.mod file is not correctly formatted.\n\nEnsure that the Go version specified in the go.mod file matches the required format (e.g., 1.23.4). Update the go.mod file with the correct Go version and try again.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0015",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangDialTcpTimeoutError displays errors with the following description:
+// The Go toolchain encountered a timeout error while trying to fetch a module/package.
+// 
+// This error typically occurs when the connection to the server hosting the module/package times out. This can be due to network issues, server configuration, or the server being unreachable.
+// 
+// Ensure that the server hosting the module is reachable and that there are no network issues. If the issue persists, check if there are any restrictions or firewalls blocking access to the server.
+func NewGolangDialTcpTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0016",
+    Title:      "Dial TCP timeout",
+    Description: "The Go toolchain encountered a timeout error while trying to fetch a module/package.\n\nThis error typically occurs when the connection to the server hosting the module/package times out. This can be due to network issues, server configuration, or the server being unreachable.\n\nEnsure that the server hosting the module is reachable and that there are no network issues. If the issue persists, check if there are any restrictions or firewalls blocking access to the server.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0016",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangHostKeyVerificationFailedError displays errors with the following description:
+// The Go toolchain encountered an error while trying to fetch a module/package. The host key verification failed, which means the key used to connect to the remote repository could not be verified.
+// 
+// This error typically occurs when the key is not recognized or is incorrect. It can also happen if the remote repository's host key has changed.
+// 
+// Ensure that the key used to connect to the remote repository is correct and properly configured. You may need to update the known_hosts file to include the correct host key for the remote repository. Verify your repository access configuration and try again. 
+//
+// Read more:
+// - https://docs.github.com/en/authentication/troubleshooting-ssh/error-host-key-verification-failed
+func NewGolangHostKeyVerificationFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0017",
+    Title:      "Host key verification failed",
+    Description: "The Go toolchain encountered an error while trying to fetch a module/package. The host key verification failed, which means the key used to connect to the remote repository could not be verified.\n\nThis error typically occurs when the key is not recognized or is incorrect. It can also happen if the remote repository's host key has changed.\n\nEnsure that the key used to connect to the remote repository is correct and properly configured. You may need to update the known_hosts file to include the correct host key for the remote repository. Verify your repository access configuration and try again. ",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0017",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.github.com/en/authentication/troubleshooting-ssh/error-host-key-verification-failed",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGolangMissingModuleDeclarationError displays errors with the following description:
+// The Go toolchain encountered an error while reading the go.mod file. The error indicates that the module declaration is missing.
+// 
+// This error typically occurs when the go.mod file does not specify the module path. To resolve this issue, you need to add a module declaration to the go.mod file.
+// 
+// To specify the module path, run the following command: go mod edit -module=example.com/mod
+// 
+// Update the go.mod file with the correct module path and try again.
+func NewGolangMissingModuleDeclarationError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0018",
+    Title:      "Missing module declaration in go.mod",
+    Description: "The Go toolchain encountered an error while reading the go.mod file. The error indicates that the module declaration is missing.\n\nThis error typically occurs when the go.mod file does not specify the module path. To resolve this issue, you need to add a module declaration to the go.mod file.\n\nTo specify the module path, run the following command: go mod edit -module=example.com/mod\n\nUpdate the go.mod file with the correct module path and try again.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0018",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewMissingRequirementFromPomError displays errors with the following description:
 // The required property is missing from the pom object.
 func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
