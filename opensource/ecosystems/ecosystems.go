@@ -1084,7 +1084,7 @@ func NewGolangInvalidZipFileError(detail string, options ...snyk_errors.Option) 
 // 
 // This usually happens when the version of Go that was used in the go.mod file is not yet supported by Snyk.
 // 
-// We usually try and add support shortly after a new ecosystem version has been released.
+// We usually try and add support for new Golang versions shortly after a new one was released.
 // 
 // If the Go version used in the go.mod file is supported based on our Golang documentation, please reach out to Snyk support.
 //
@@ -1095,7 +1095,7 @@ func NewGolangVersionMismatchError(detail string, options ...snyk_errors.Option)
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0014",
     Title:      "Go version mismatch",
-    Description: "The Go toolchain encountered a version mismatch error while trying to process the module.\n\nThis usually happens when the version of Go that was used in the go.mod file is not yet supported by Snyk.\n\nWe usually try and add support shortly after a new ecosystem version has been released.\n\nIf the Go version used in the go.mod file is supported based on our Golang documentation, please reach out to Snyk support.",
+    Description: "The Go toolchain encountered a version mismatch error while trying to process the module.\n\nThis usually happens when the version of Go that was used in the go.mod file is not yet supported by Snyk.\n\nWe usually try and add support for new Golang versions shortly after a new one was released.\n\nIf the Go version used in the go.mod file is supported based on our Golang documentation, please reach out to Snyk support.",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-GO-0014",
     Classification: "ACTIONABLE",
