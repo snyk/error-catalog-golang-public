@@ -74,6 +74,7 @@ type OpenSourceEcosystemsCodes struct {
   GolangDialTcpTimeoutError string
   GolangHostKeyVerificationFailedError string
   GolangMissingModuleDeclarationError string
+  GolangModuleVersionConstraintNotMetError string
   MissingRequirementFromPomError string
   UnableToResolveValueForPropertyError string
   UnableToResolveVersionForPropertyError string
@@ -387,6 +388,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   GolangDialTcpTimeoutError: "SNYK-OS-GO-0016",
   GolangHostKeyVerificationFailedError: "SNYK-OS-GO-0017",
   GolangMissingModuleDeclarationError: "SNYK-OS-GO-0018",
+  GolangModuleVersionConstraintNotMetError: "SNYK-OS-GO-0019",
   MissingRequirementFromPomError: "SNYK-OS-MAVEN-0001",
   UnableToResolveValueForPropertyError: "SNYK-OS-MAVEN-0002",
   UnableToResolveVersionForPropertyError: "SNYK-OS-MAVEN-0003",

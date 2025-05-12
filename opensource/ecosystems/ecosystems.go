@@ -1228,6 +1228,33 @@ func NewGolangMissingModuleDeclarationError(detail string, options ...snyk_error
   return err
 }
 
+// NewGolangModuleVersionConstraintNotMetError displays errors with the following description:
+// The Go toolchain encountered a version constraint violation while resolving dependencies.
+// 
+// This error typically occurs when a module or dependency specifies a version requirement that is not satisfied by the current Go version in use. For example, a module may require "go >= 1.22.0", but your environment is running "go 1.21.0".
+// 
+// To resolve this, ensure your Go toolchain version meets the module's specified constraint. This might involve upgrading or downgrading your Go version from Settings -> Snyk Open Source -> Edit settings for Go, or finding an alternative version of the module that is compatible with your current Go environment.
+func NewGolangModuleVersionConstraintNotMetError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-go-0019",
+    Title:      "Go module version constraint not met",
+    Description: "The Go toolchain encountered a version constraint violation while resolving dependencies.\n\nThis error typically occurs when a module or dependency specifies a version requirement that is not satisfied by the current Go version in use. For example, a module may require \"go >= 1.22.0\", but your environment is running \"go 1.21.0\".\n\nTo resolve this, ensure your Go toolchain version meets the module's specified constraint. This might involve upgrading or downgrading your Go version from Settings -> Snyk Open Source -> Edit settings for Go, or finding an alternative version of the module that is compatible with your current Go environment.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-GO-0019",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewMissingRequirementFromPomError displays errors with the following description:
 // The required property is missing from the pom object.
 func NewMissingRequirementFromPomError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
