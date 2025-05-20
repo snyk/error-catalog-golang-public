@@ -1,3 +1,4 @@
+aibom/aibom.go
 cli/cli.go
 code/code.go
 custombaseimages/custombaseimages.go

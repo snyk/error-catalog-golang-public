@@ -289,6 +289,7 @@ type CLICodes struct {
   GeneralIACFailureError string
   GeneralSASTFailureError string
   FeatureUnderDevelopmentError string
+  CommandIsExperimentalError string
   ConnectionTimeoutError string
 }
 
@@ -334,6 +335,12 @@ type SCMCodes struct {
 
 type PoliciesCodes struct {
   InvalidPolicyApplyError string
+}
+
+type AiBomCodes struct {
+  InternalError string
+  ForbiddenError string
+  NoSupportedFilesError string
 }
 
 var Snyk = SnykCodes {
@@ -603,6 +610,7 @@ var CLI = CLICodes {
   GeneralIACFailureError: "SNYK-CLI-0012",
   GeneralSASTFailureError: "SNYK-CLI-0013",
   FeatureUnderDevelopmentError: "SNYK-CLI-0014",
+  CommandIsExperimentalError: "SNYK-CLI-0015",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
@@ -648,5 +656,11 @@ var SCM = SCMCodes {
 
 var Policies = PoliciesCodes {
   InvalidPolicyApplyError: "SNYK-POLICY-0001",
+}
+
+var AiBom = AiBomCodes {
+  InternalError: "SNYK-AI-BOM-0001",
+  ForbiddenError: "SNYK-AI-BOM-0002",
+  NoSupportedFilesError: "SNYK-AI-BOM-0003",
 }
 
