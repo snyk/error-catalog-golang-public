@@ -47,13 +47,13 @@ func NewInternalError(detail string, options ...snyk_errors.Option) snyk_errors.
 }
 
 // NewForbiddenError displays errors with the following description:
-// You or your Organization do not have permission to use the AI-BOM feature.Check your user permissions or contact Snyk support.
+// You or your Organization do not have permission to use the AI-BOM feature. Check your user permissions or contact Snyk support.
 func NewForbiddenError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ai-bom-0002",
     Title:      "Forbidden",
-    Description: "You or your Organization do not have permission to use the AI-BOM feature.Check your user permissions or contact Snyk support.",
+    Description: "You or your Organization do not have permission to use the AI-BOM feature. Check your user permissions or contact Snyk support.",
     StatusCode: 403,
     ErrorCode:  "SNYK-AI-BOM-0002",
     Classification: "ACTIONABLE",
