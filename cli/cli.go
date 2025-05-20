@@ -441,13 +441,13 @@ func NewFeatureUnderDevelopmentError(detail string, options ...snyk_errors.Optio
 }
 
 // NewCommandIsExperimentalError displays errors with the following description:
-// This CLI command is experimental, which means it can change and break at any time.To run this command you must specify the --experimental flag as acknowledgement.
+// This CLI command is experimental, which means it can change and break at any time. To run this command you must specify the --experimental flag as acknowledgement.
 func NewCommandIsExperimentalError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0015",
     Title:      "Command is experimental",
-    Description: "This CLI command is experimental, which means it can change and break at any time.To run this command you must specify the --experimental flag as acknowledgement.",
+    Description: "This CLI command is experimental, which means it can change and break at any time. To run this command you must specify the --experimental flag as acknowledgement.",
     StatusCode: 200,
     ErrorCode:  "SNYK-CLI-0015",
     Classification: "ACTIONABLE",

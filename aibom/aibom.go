@@ -70,13 +70,13 @@ func NewForbiddenError(detail string, options ...snyk_errors.Option) snyk_errors
 }
 
 // NewNoSupportedFilesError displays errors with the following description:
-// Snyk was unable to find any supported files for the aibom command.Ensure the directory you are scanning contains supported files.
+// Snyk was unable to find any supported files for the aibom command. Ensure the directory you are scanning contains supported files.
 func NewNoSupportedFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-ai-bom-0003",
     Title:      "No supported files",
-    Description: "Snyk was unable to find any supported files for the aibom command.Ensure the directory you are scanning contains supported files.",
+    Description: "Snyk was unable to find any supported files for the aibom command. Ensure the directory you are scanning contains supported files.",
     StatusCode: 422,
     ErrorCode:  "SNYK-AI-BOM-0003",
     Classification: "ACTIONABLE",
