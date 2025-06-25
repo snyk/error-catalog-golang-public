@@ -255,8 +255,6 @@ type CodeCodes struct {
   GroupRelationshipMustBeForAdminGroupError string
   OrgOutsideAdminGroupError string
   RuleExtensionsLimitReachedError string
-  UnsupportedOrgError string
-  RulesRelationshipsMustBeUniqueError string
 }
 
 type PRChecksCodes struct {
@@ -576,8 +574,6 @@ var Code = CodeCodes {
   GroupRelationshipMustBeForAdminGroupError: "SNYK-CODE-0009",
   OrgOutsideAdminGroupError: "SNYK-CODE-0010",
   RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
-  UnsupportedOrgError: "SNYK-CODE-0012",
-  RulesRelationshipsMustBeUniqueError: "SNYK-CODE-0014",
 }
 
 var PRChecks = PRChecksCodes {
