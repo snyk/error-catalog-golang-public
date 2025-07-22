@@ -688,6 +688,47 @@ func NewNugetDependenciesSpaceLimitExceededError(detail string, options ...snyk_
   return err
 }
 
+// NewRestoreFailedError displays errors with the following description:
+// This error occurs when running `dotnet restore <path-to-csproj>` fails to generate a 
+// manifest of the resolved dependencies. Snyk needs to run this command in order to adequately determine the dependency tree for your project. 
+// If this command fails, Snyk cannot continue.
+// 
+// Steps to determine why this happened:
+// 
+// * Checkout a clean version of your project in a temporary folder
+// * Run `dotnet restore <path-to-csproj> ` on your project, and confirm this step fails.
+// 
+// If this step is successful locally, it is possible that Snyk is running another version of the .NET SDK. To tell Snyk which version of the .NET SDK to use, consider using the [global.json](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json) solution provided by Microsoft.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/
+// - https://learn.microsoft.com/en-us/dotnet/core/tools/global-json
+// - https://github.com/snyk/snyk-nuget-plugin/blob/885486aa656c28d3db465c8d22710770d5cc6773/lib/nuget-parser/cli/dotnet.ts#L50
+func NewRestoreFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0011",
+    Title:      "The dotnet CLI is unable to download and install all the required dependencies",
+    Description: "This error occurs when running `dotnet restore <path-to-csproj>` fails to generate a \nmanifest of the resolved dependencies. Snyk needs to run this command in order to adequately determine the dependency tree for your project. \nIf this command fails, Snyk cannot continue.\n\nSteps to determine why this happened:\n\n* Checkout a clean version of your project in a temporary folder\n* Run `dotnet restore <path-to-csproj> ` on your project, and confirm this step fails.\n\nIf this step is successful locally, it is possible that Snyk is running another version of the .NET SDK. To tell Snyk which version of the .NET SDK to use, consider using the [global.json](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json) solution provided by Microsoft.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0011",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/",
+      "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+      "https://github.com/snyk/snyk-nuget-plugin/blob/885486aa656c28d3db465c8d22710770d5cc6773/lib/nuget-parser/cli/dotnet.ts#L50",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //
