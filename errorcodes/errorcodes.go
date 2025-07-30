@@ -657,8 +657,8 @@ var Policies = PoliciesCodes {
 }
 
 var AiBom = AiBomCodes {
-  InternalError: "SNYK-AI-BOM-0001",
-  ForbiddenError: "SNYK-AI-BOM-0002",
-  NoSupportedFilesError: "SNYK-AI-BOM-0003",
+  InternalError: "SNYK-AIBOM-0001",
+  ForbiddenError: "SNYK-AIBOM-0002",
+  NoSupportedFilesError: "SNYK-AIBOM-0003",
 }
 
