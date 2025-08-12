@@ -463,6 +463,29 @@ func NewCommandIsExperimentalError(detail string, options ...snyk_errors.Option)
   return err
 }
 
+// NewFeatureNotEnabledError displays errors with the following description:
+// This feature is disabled for your current organization. You can enable it in the settings or switch to an organization where it's already enabled.
+func NewFeatureNotEnabledError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0016",
+    Title:      "Feature not enabled",
+    Description: "This feature is disabled for your current organization. You can enable it in the settings or switch to an organization where it's already enabled.",
+    StatusCode: 403,
+    ErrorCode:  "SNYK-CLI-0016",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

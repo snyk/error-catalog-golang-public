@@ -56,3 +56,13 @@ func TestErrorLogs(t *testing.T) {
 
 	assert.ElementsMatch(t, logs, err.Logs)
 }
+
+func TestErrorLinks(t *testing.T) {
+	var links = []string{"http://snyk.io", "http://api.snyk.io"}
+
+	var err Error
+
+	WithLinks(links)(&err)
+
+	assert.ElementsMatch(t, err.Links, links)
+}

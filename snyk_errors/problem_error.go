@@ -64,3 +64,9 @@ func WithLogs(logs []string) Option {
 		e.Logs = logs
 	}
 }
+
+func WithLinks(links []string) Option {
+	return func(e *Error) {
+		e.Links = append(e.Links, links...)
+	}
+}
