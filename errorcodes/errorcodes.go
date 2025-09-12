@@ -127,6 +127,7 @@ type OpenSourceEcosystemsCodes struct {
   PipenvNoMatchingPythonDistributionError string
   PythonDependenciesSpaceLimitExceededError string
   CyclicDependencyDetectedError string
+  ReachabilitySettingDisabledError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -448,6 +449,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   PipenvNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0011",
   PythonDependenciesSpaceLimitExceededError: "SNYK-OS-PYTHON-0012",
   CyclicDependencyDetectedError: "SNYK-OS-RUBY-0001",
+  ReachabilitySettingDisabledError: "SNYK-OS-SETTINGS-0001",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {

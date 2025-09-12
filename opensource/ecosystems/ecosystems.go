@@ -2510,3 +2510,31 @@ func NewCyclicDependencyDetectedError(detail string, options ...snyk_errors.Opti
   return err
 }
 
+// NewReachabilitySettingDisabledError displays errors with the following description:
+// The reachability settings are not enabled for your Organization. You can enable them from the Setttings page or you can switch to an Organization where the reachability settings are already enabled.
+//
+// Read more:
+// - https://docs.snyk.io/manage-risk/prioritize-issues-for-fixing/reachability-analysis
+func NewReachabilitySettingDisabledError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-settings-0001",
+    Title:      "Reachability settings not enabled",
+    Description: "The reachability settings are not enabled for your Organization. You can enable them from the Setttings page or you can switch to an Organization where the reachability settings are already enabled.",
+    StatusCode: 403,
+    ErrorCode:  "SNYK-OS-SETTINGS-0001",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/manage-risk/prioritize-issues-for-fixing/reachability-analysis",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
