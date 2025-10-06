@@ -35,7 +35,7 @@ func NewGeneralCLIFailureError(detail string, options ...snyk_errors.Option) sny
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0000",
     Title:      "Unspecified Error",
     Description: "The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0000",
     Classification: "UNEXPECTED",
     Links: []string{
@@ -64,7 +64,7 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0001",
     Title:      "Unable to set environment",
     Description: "The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0001",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -94,7 +94,7 @@ func NewConfigEnvironmentConsistencyIssueError(detail string, options ...snyk_er
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0002",
     Title:      "Possible inconsistent configuration",
     Description: "You can configure the CLI in different ways, for example via Environment Variables or configuration file.\nIf one parameter is configured multiple times, it is probably unintentional and might cause unexpected behavior.\nReview configured environment variables and ensure that everything is intentional. If so, you can skip this check by using --no-check.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0002",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -122,7 +122,7 @@ func NewEmptyFlagOptionError(detail string, options ...snyk_errors.Option) snyk_
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0003",
     Title:      "Empty flag option",
     Description: "A specified flag is missing an option value. Provide a correct option value and try again.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0003",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -150,7 +150,7 @@ func NewInvalidFlagOptionError(detail string, options ...snyk_errors.Option) sny
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0004",
     Title:      "Invalid flag option",
     Description: "A specified flag option or combination is invalid. Provide a valid flag option or combination and try again.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0004",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -175,7 +175,7 @@ func NewGetVulnsFromResourceFailedError(detail string, options ...snyk_errors.Op
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0005",
     Title:      "Unable to get vulnerabilities from resource",
     Description: "If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/.For further assistance, run `snyk help` or see the Snyk docs.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0005",
     Classification: "UNEXPECTED",
     Links: []string{},
@@ -202,7 +202,7 @@ func NewAuthConfigError(detail string, options ...snyk_errors.Option) snyk_error
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0006",
     Title:      "Missing AUTH token",
     Description: "When running your command, Snyk requires an authenticated account. You must include your API token as an environment value, or use `snyk auth` to authenticate.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0006",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -231,7 +231,7 @@ func NewCommandArgsError(detail string, options ...snyk_errors.Option) snyk_erro
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0007",
     Title:      "Incomplete command arguments",
     Description: "The specified CLI command includes missing or misconfigured arguments. Provide the correct arguments and try again.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0007",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -259,7 +259,7 @@ func NewNoSupportedFilesFoundError(detail string, options ...snyk_errors.Option)
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0008",
     Title:      "No supported files found",
     Description: "Snyk could not detect any supported target files. Ensure the files you are importing are supported, that you are in the right directory, and try again.",
-    StatusCode: 422,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0008",
     Classification: "ACTIONABLE",
     Links: []string{
@@ -344,7 +344,7 @@ func NewGeneralSCAFailureError(detail string, options ...snyk_errors.Option) sny
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0011",
     Title:      "SCA failure",
     Description: "CLI was unable to execute your SCA command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0011",
     Classification: "UNEXPECTED",
     Links: []string{
@@ -372,7 +372,7 @@ func NewGeneralIACFailureError(detail string, options ...snyk_errors.Option) sny
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0012",
     Title:      "IAC failure",
     Description: "CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0012",
     Classification: "UNEXPECTED",
     Links: []string{
@@ -400,7 +400,7 @@ func NewGeneralSASTFailureError(detail string, options ...snyk_errors.Option) sn
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0013",
     Title:      "SAST failure",
     Description: "CLI was unable to execute your SAST command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0013",
     Classification: "UNEXPECTED",
     Links: []string{
@@ -425,7 +425,7 @@ func NewFeatureUnderDevelopmentError(detail string, options ...snyk_errors.Optio
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0014",
     Title:      "Feature under development",
     Description: "This feature is under development and is not yet available for public use.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0014",
     Classification: "UNSUPPORTED",
     Links: []string{},
@@ -448,7 +448,7 @@ func NewCommandIsExperimentalError(detail string, options ...snyk_errors.Option)
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0015",
     Title:      "Command is experimental",
     Description: "This CLI command is experimental, which means it can change and break at any time. To run this command you must specify the --experimental flag as acknowledgement.",
-    StatusCode: 200,
+    StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0015",
     Classification: "ACTIONABLE",
     Links: []string{},
@@ -475,6 +475,214 @@ func NewFeatureNotEnabledError(detail string, options ...snyk_errors.Option) sny
     ErrorCode:  "SNYK-CLI-0016",
     Classification: "ACTIONABLE",
     Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewDNSResolutionError displays errors with the following description:
+// Unable to resolve the hostname to an IP address. Troubleshooting steps.
+// 1) Test DNS resolution: nslookup api.<instance>.snyk.io.
+// 2) Try different DNS servers: Change DNS to 8.8.8.8 or 1.1.1.1.
+// 3) Check corporate proxy/firewall DNS blocking.
+// 4) Verify hostname spelling in your Snyk configuration.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+// - https://status.snyk.io/
+func NewDNSResolutionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0017",
+    Title:      "DNS resolution failed",
+    Description: "Unable to resolve the hostname to an IP address. Troubleshooting steps.\n1) Test DNS resolution: nslookup api.<instance>.snyk.io.\n2) Try different DNS servers: Change DNS to 8.8.8.8 or 1.1.1.1.\n3) Check corporate proxy/firewall DNS blocking.\n4) Verify hostname spelling in your Snyk configuration.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0017",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+      "https://status.snyk.io/",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNetworkTimeoutError displays errors with the following description:
+// The network request timed out. Troubleshooting steps.
+// 1) Test connectivity: ping api.<instance>.snyk.io.
+// 2) Check corporate proxy timeout settings.
+// 3) Try different network: Mobile hotspot or different WiFi.
+// 4) Check if firewall is blocking or throttling connections.
+//
+// Read more:
+// - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewNetworkTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0018",
+    Title:      "Network request timeout",
+    Description: "The network request timed out. Troubleshooting steps.\n1) Test connectivity: ping api.<instance>.snyk.io.\n2) Check corporate proxy timeout settings.\n3) Try different network: Mobile hotspot or different WiFi.\n4) Check if firewall is blocking or throttling connections.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0018",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewNetworkUnreachableError displays errors with the following description:
+// Unable to reach the target network or host. Troubleshooting steps.
+// 1) Test Snyk connectivity: ping api.<instance>.snyk.io.
+// 2) Check corporate firewall blocks Snyk domains.
+// 3) Check if VPN routing is blocking Snyk domains.
+// 4) Try mobile hotspot to isolate network issues.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+// - https://status.snyk.io/
+func NewNetworkUnreachableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0019",
+    Title:      "Network unreachable",
+    Description: "Unable to reach the target network or host. Troubleshooting steps.\n1) Test Snyk connectivity: ping api.<instance>.snyk.io.\n2) Check corporate firewall blocks Snyk domains.\n3) Check if VPN routing is blocking Snyk domains.\n4) Try mobile hotspot to isolate network issues.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0019",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+      "https://status.snyk.io/",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTLSCertificateError displays errors with the following description:
+// There was an issue with the TLS/SSL certificate during the secure connection. Troubleshooting steps.
+// 1) Check system time: Ensure your system clock is correct (certificates are time-sensitive).
+// 2) Update system certificates: Windows Update or macOS Software Update.
+// 3) Corporate firewall: Check if corporate firewall intercepts SSL traffic.
+// 4) Custom certificates: Set NODE_EXTRA_CA_CERTS environment variable to path of your CA certificate file.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+// - https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli
+func NewTLSCertificateError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0020",
+    Title:      "TLS certificate error",
+    Description: "There was an issue with the TLS/SSL certificate during the secure connection. Troubleshooting steps.\n1) Check system time: Ensure your system clock is correct (certificates are time-sensitive).\n2) Update system certificates: Windows Update or macOS Software Update.\n3) Corporate firewall: Check if corporate firewall intercepts SSL traffic.\n4) Custom certificates: Set NODE_EXTRA_CA_CERTS environment variable to path of your CA certificate file.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0020",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+      "https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewConnectionRefusedError displays errors with the following description:
+// The connection to the server was refused. Troubleshooting steps.
+// 1) Check Snyk status: Visit status.snyk.io for service outages.
+// 2) Test connectivity: ping api.<instance>.snyk.io.
+// 3) Check corporate proxy blocks HTTPS connections to Snyk.
+// 4) Try mobile hotspot or different network.
+//
+// Read more:
+// - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewConnectionRefusedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0021",
+    Title:      "Connection refused",
+    Description: "The connection to the server was refused. Troubleshooting steps.\n1) Check Snyk status: Visit status.snyk.io for service outages.\n2) Test connectivity: ping api.<instance>.snyk.io.\n3) Check corporate proxy blocks HTTPS connections to Snyk.\n4) Try mobile hotspot or different network.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0021",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGenericNetworkError displays errors with the following description:
+// An unexpected network error occurred during communication. Troubleshooting steps.
+// 1) Test connectivity: ping api.<instance>.snyk.io.
+// 2) Check proxy settings: HTTP_PROXY and HTTPS_PROXY environment variables.
+// 3) Run with verbose logging: snyk command --debug.
+// 4) Try mobile hotspot to isolate network issues.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+// - https://status.snyk.io/
+func NewGenericNetworkError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0022",
+    Title:      "Network communication error",
+    Description: "An unexpected network error occurred during communication. Troubleshooting steps.\n1) Test connectivity: ping api.<instance>.snyk.io.\n2) Check proxy settings: HTTP_PROXY and HTTPS_PROXY environment variables.\n3) Run with verbose logging: snyk command --debug.\n4) Try mobile hotspot to isolate network issues.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0022",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+      "https://status.snyk.io/",
+    },
     Level:  "error",
     Detail: detail,
   }

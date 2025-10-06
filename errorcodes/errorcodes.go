@@ -291,6 +291,12 @@ type CLICodes struct {
   FeatureUnderDevelopmentError string
   CommandIsExperimentalError string
   FeatureNotEnabledError string
+  DNSResolutionError string
+  NetworkTimeoutError string
+  NetworkUnreachableError string
+  TLSCertificateError string
+  ConnectionRefusedError string
+  GenericNetworkError string
   ConnectionTimeoutError string
 }
 
@@ -613,6 +619,12 @@ var CLI = CLICodes {
   FeatureUnderDevelopmentError: "SNYK-CLI-0014",
   CommandIsExperimentalError: "SNYK-CLI-0015",
   FeatureNotEnabledError: "SNYK-CLI-0016",
+  DNSResolutionError: "SNYK-CLI-0017",
+  NetworkTimeoutError: "SNYK-CLI-0018",
+  NetworkUnreachableError: "SNYK-CLI-0019",
+  TLSCertificateError: "SNYK-CLI-0020",
+  ConnectionRefusedError: "SNYK-CLI-0021",
+  GenericNetworkError: "SNYK-CLI-0022",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
