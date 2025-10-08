@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewTooManyRequestsError displays errors with the following description:
 // The request rate limit has been exceeded. Wait a few minutes, then try again.
 func NewTooManyRequestsError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -305,4 +304,3 @@ func NewServerError(detail string, options ...snyk_errors.Option) snyk_errors.Er
 
   return err
 }
-

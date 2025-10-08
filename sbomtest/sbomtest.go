@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInternalError displays errors with the following description:
 // An unexpected error occurred. Review the request, then try again. If the error persists, contact Snyk Support.
 func NewInternalError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -276,4 +275,3 @@ func NewNoTestablePackagesError(detail string, options ...snyk_errors.Option) sn
 
   return err
 }
-

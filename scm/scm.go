@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewUnsupportedIntegrationTypeError displays errors with the following description:
 // The integration you provided does not support SCM repository access.
 //
@@ -169,4 +168,3 @@ func NewSizeLimitExceededError(detail string, options ...snyk_errors.Option) sny
 
   return err
 }
-

@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInvalidRequestError displays errors with the following description:
 // Check the body of your request and try again.
 func NewInvalidRequestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -137,4 +136,3 @@ func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_e
 
   return err
 }
-

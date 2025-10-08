@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewFailedToReadManifestError displays errors with the following description:
 // Snyk failed to read 1 or more manifest files.
 // Sometimes things go wrong: a flaky connection, 3rd party services go down and Snyk is unable to read the files needed in order to test your project. 
@@ -344,4 +343,3 @@ func NewFailedToGenerateCommitStatusError(detail string, options ...snyk_errors.
 
   return err
 }
-

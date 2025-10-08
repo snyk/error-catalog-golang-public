@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewTargetNotFoundError displays errors with the following description:
 // Snyk was unable to resolve the imported target. Ensure that Snyk created the target and try again.
 //
@@ -78,4 +77,3 @@ func NewNoUniqueTargetFoundError(detail string, options ...snyk_errors.Option) s
 
   return err
 }
-

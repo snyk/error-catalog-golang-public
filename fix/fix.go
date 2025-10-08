@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewFixScenarioNotSupportedError displays errors with the following description:
 // Snyk failed to open a fix PR as the scenario is not supported.
 func NewFixScenarioNotSupportedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -603,4 +602,3 @@ func NewFailedToRenderDefaultTemplateError(detail string, options ...snyk_errors
 
   return err
 }
-

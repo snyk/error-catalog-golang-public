@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInternalError displays errors with the following description:
 // An unexpected error occurred in the AIBOM request. Review the request while providing the debug command flag `-d`. If the error persists, contact Snyk Support.
 func NewInternalError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -91,4 +90,3 @@ func NewNoSupportedFilesError(detail string, options ...snyk_errors.Option) snyk
 
   return err
 }
-

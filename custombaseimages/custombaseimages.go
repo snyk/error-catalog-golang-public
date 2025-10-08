@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewVersioningSchemaDoesNotSupportTagError displays errors with the following description:
 // The versioning schema used does not support the given tag. Update the versioning schema to include the tag.
 // 
@@ -502,4 +501,3 @@ func NewCreateVersioningSchemaFailError(detail string, options ...snyk_errors.Op
 
   return err
 }
-

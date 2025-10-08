@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInternalServerError displays errors with the following description:
 // An unexpected error occurred during the SBOM generation. Review the request, then try again. If the error persists, contact Snyk Support.
 func NewInternalServerError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -234,4 +233,3 @@ func NewInvalidDepGraphError(detail string, options ...snyk_errors.Option) snyk_
 
   return err
 }
-

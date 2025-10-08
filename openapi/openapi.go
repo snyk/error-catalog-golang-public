@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewBadRequestError displays errors with the following description:
 // The server cannot process the request due to invalid or corrupt data. Review the request, then try again.
 //
@@ -239,4 +238,3 @@ func NewConflictError(detail string, options ...snyk_errors.Option) snyk_errors.
 
   return err
 }
-

@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewIntegrationNotFoundError displays errors with the following description:
 // Ensure your SCM integration exists and that it is correctly set up.
 //
@@ -50,4 +49,3 @@ func NewIntegrationNotFoundError(detail string, options ...snyk_errors.Option) s
 
   return err
 }
-

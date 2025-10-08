@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewUnparseableManifestError displays errors with the following description:
 // The provided manifest file could not be parsed as it has invalid syntax or does not match the expected schema. Review the manifest file, then try again.
 func NewUnparseableManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -2537,4 +2536,3 @@ func NewReachabilitySettingDisabledError(detail string, options ...snyk_errors.O
 
   return err
 }
-

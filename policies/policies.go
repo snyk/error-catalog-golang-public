@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInvalidPolicyApplyError displays errors with the following description:
 // Snyk could not apply a policy whilst executing a test because the configuration for the policy was invalid.
 // You may be able to fix the policy and try again.
@@ -51,4 +50,3 @@ func NewInvalidPolicyApplyError(detail string, options ...snyk_errors.Option) sn
 
   return err
 }
-

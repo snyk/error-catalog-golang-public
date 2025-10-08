@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewMavenSearchServiceUnavailableError displays errors with the following description:
 // The upstream Maven search service is not available.
 //
@@ -80,4 +79,3 @@ func NewSha1NotFoundError(detail string, options ...snyk_errors.Option) snyk_err
 
   return err
 }
-

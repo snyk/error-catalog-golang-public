@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewOrganizationNotWhitelistedError displays errors with the following description:
 // You likely don’t have access to the features in Beta. To get access, you can request access to features in Beta through your account manager or team.
 func NewOrganizationNotWhitelistedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -497,4 +496,3 @@ func NewUnsupportedAlpineDistroError(detail string, options ...snyk_errors.Optio
 
   return err
 }
-

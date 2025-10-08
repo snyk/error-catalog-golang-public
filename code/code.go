@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewAnalysisFileCountLimitExceededError displays errors with the following description:
 // This error occurs when the analysis target has a supported file count that exceeds current system limits.
 // 
@@ -331,4 +330,3 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
 
   return err
 }
-

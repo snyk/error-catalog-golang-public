@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewGeneralCLIFailureError displays errors with the following description:
 // The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
 //
@@ -723,4 +722,3 @@ func NewConnectionTimeoutError(detail string, options ...snyk_errors.Option) sny
 
   return err
 }
-

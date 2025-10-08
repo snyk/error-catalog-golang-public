@@ -22,7 +22,6 @@ import (
   "github.com/snyk/error-catalog-golang-public/snyk_errors"
   "github.com/google/uuid"
 )
-
 // NewInvalidRequestError displays errors with the following description:
 // The provided request payload is not valid for the selected ecosystem. Please review the API documentation.
 //
@@ -186,4 +185,3 @@ func NewDefaultImageNotFoundError(detail string, options ...snyk_errors.Option) 
 
   return err
 }
-
