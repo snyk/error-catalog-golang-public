@@ -330,3 +330,105 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
 
   return err
 }
+
+// NewTestRuleExtensionAlreadyPublishedForGroupError displays errors with the following description:
+// The Rule Extension under test conflicts with an already published SAST Rule Extension.
+// 
+// A test cannot be performed if a SAST Rule Extension with the same fully qualified name
+// and type is already published for the Group. Either delete the already published SAST Rule Extension
+// or perform a test with a different fully qualified name or type.
+func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0012",
+    Title:      "SAST Rule Extension already published for the Group",
+    Description: "The Rule Extension under test conflicts with an already published SAST Rule Extension.\n\nA test cannot be performed if a SAST Rule Extension with the same fully qualified name\nand type is already published for the Group. Either delete the already published SAST Rule Extension\nor perform a test with a different fully qualified name or type.",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-CODE-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTestIDNotFoundError displays errors with the following description:
+// The requested Test ID for testing SAST Rule Extension was not found.
+// 
+// Make sure to provide a valid Test ID.
+func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0013",
+    Title:      "Requested test ID not found",
+    Description: "The requested Test ID for testing SAST Rule Extension was not found.\n\nMake sure to provide a valid Test ID.",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-CODE-0013",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTestResultsExpiredError displays errors with the following description:
+// The results for testing SAST Rule Extensions have expired and are no longer available.
+// 
+// Please trigger a new test.
+func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0014",
+    Title:      "Test results have expired",
+    Description: "The results for testing SAST Rule Extensions have expired and are no longer available.\n\nPlease trigger a new test.",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-CODE-0014",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewTestIDNotAssociatedWithGroupError displays errors with the following description:
+// There is no SAST Rule Extension impact test associated with the given Test ID for the group.
+// 
+// Please verify you are using the correct Group ID associated with the test.
+func NewTestIDNotAssociatedWithGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0015",
+    Title:      "Test ID not associated with group",
+    Description: "There is no SAST Rule Extension impact test associated with the given Test ID for the group.\n\nPlease verify you are using the correct Group ID associated with the test.",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-CODE-0015",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

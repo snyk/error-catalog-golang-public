@@ -257,6 +257,10 @@ type CodeCodes struct {
   GroupRelationshipMustBeForAdminGroupError string
   OrgOutsideAdminGroupError string
   RuleExtensionsLimitReachedError string
+  TestRuleExtensionAlreadyPublishedForGroupError string
+  TestIDNotFoundError string
+  TestResultsExpiredError string
+  TestIDNotAssociatedWithGroupError string
 }
 
 type PRChecksCodes struct {
@@ -585,6 +589,10 @@ var Code = CodeCodes {
   GroupRelationshipMustBeForAdminGroupError: "SNYK-CODE-0009",
   OrgOutsideAdminGroupError: "SNYK-CODE-0010",
   RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
+  TestRuleExtensionAlreadyPublishedForGroupError: "SNYK-CODE-0012",
+  TestIDNotFoundError: "SNYK-CODE-0013",
+  TestResultsExpiredError: "SNYK-CODE-0014",
+  TestIDNotAssociatedWithGroupError: "SNYK-CODE-0015",
 }
 
 var PRChecks = PRChecksCodes {
