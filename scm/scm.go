@@ -168,3 +168,26 @@ func NewSizeLimitExceededError(detail string, options ...snyk_errors.Option) sny
 
   return err
 }
+
+// NewResourceNotFoundError displays errors with the following description:
+// Snyk was unable to resolve the SCM resource you provided. Provide a valid resource path and revision.
+func NewResourceNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-scm-0010",
+    Title:      "Specified resource cannot be found",
+    Description: "Snyk was unable to resolve the SCM resource you provided. Provide a valid resource path and revision.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-SCM-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

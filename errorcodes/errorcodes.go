@@ -342,6 +342,7 @@ type SCMCodes struct {
   IntegrationAuthorizationFailedError string
   FilesLimitExceededError string
   SizeLimitExceededError string
+  ResourceNotFoundError string
 }
 
 type PoliciesCodes struct {
@@ -674,6 +675,7 @@ var SCM = SCMCodes {
   IntegrationAuthorizationFailedError: "SNYK-SCM-0004",
   FilesLimitExceededError: "SNYK-SCM-0005",
   SizeLimitExceededError: "SNYK-SCM-0006",
+  ResourceNotFoundError: "SNYK-SCM-0010",
 }
 
 var Policies = PoliciesCodes {
