@@ -263,6 +263,29 @@ func NewGitCloneFailedError(detail string, options ...snyk_errors.Option) snyk_e
   return err
 }
 
+// NewUnsupportedPlatformError displays errors with the following description:
+// The specified platform is not supported.
+func NewUnsupportedPlatformError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0011",
+    Title:      "Unsupported platform",
+    Description: "The specified platform is not supported.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-0011",
+    Classification: "UNSUPPORTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //
@@ -2496,6 +2519,56 @@ func NewCyclicDependencyDetectedError(detail string, options ...snyk_errors.Opti
     Description: "Cyclic dependency detected in lockfile.",
     StatusCode: 422,
     ErrorCode:  "SNYK-OS-RUBY-0001",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGemNotFoundError displays errors with the following description:
+// A gem listed in the Gemfile cannot be found in the RubyGems repository or locally.
+// Make sure all gems included in the Gemfile are publicly available or properly configured in your gem sources.
+// Verify that the gem name and version are correct, and check that you have access to any private gem repositories.
+func NewGemNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-ruby-0002",
+    Title:      "Gem not found",
+    Description: "A gem listed in the Gemfile cannot be found in the RubyGems repository or locally.\nMake sure all gems included in the Gemfile are publicly available or properly configured in your gem sources.\nVerify that the gem name and version are correct, and check that you have access to any private gem repositories.",
+    StatusCode: 404,
+    ErrorCode:  "SNYK-OS-RUBY-0002",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewGemVersionConflictError displays errors with the following description:
+// Bundler was unable to resolve compatible versions for the gems specified in the Gemfile.
+// This occurs when multiple gems have conflicting version requirements that cannot be satisfied simultaneously.
+// Review your Gemfile and Gemfile.lock to identify conflicting dependencies, and consider updating gem versions or constraints to resolve the conflict.
+func NewGemVersionConflictError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-ruby-0003",
+    Title:      "Gem version conflict",
+    Description: "Bundler was unable to resolve compatible versions for the gems specified in the Gemfile.\nThis occurs when multiple gems have conflicting version requirements that cannot be satisfied simultaneously.\nReview your Gemfile and Gemfile.lock to identify conflicting dependencies, and consider updating gem versions or constraints to resolve the conflict.",
+    StatusCode: 409,
+    ErrorCode:  "SNYK-OS-RUBY-0003",
     Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",

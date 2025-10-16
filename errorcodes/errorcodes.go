@@ -46,6 +46,7 @@ type OpenSourceEcosystemsCodes struct {
   MissingEnvironmentVariableError string
   BrokeredConnectionNotSupportedError string
   GitCloneFailedError string
+  UnsupportedPlatformError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -127,6 +128,8 @@ type OpenSourceEcosystemsCodes struct {
   PipenvNoMatchingPythonDistributionError string
   PythonDependenciesSpaceLimitExceededError string
   CyclicDependencyDetectedError string
+  GemNotFoundError string
+  GemVersionConflictError string
   ReachabilitySettingDisabledError string
 }
 
@@ -379,6 +382,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   MissingEnvironmentVariableError: "SNYK-OS-0008",
   BrokeredConnectionNotSupportedError: "SNYK-OS-0009",
   GitCloneFailedError: "SNYK-OS-0010",
+  UnsupportedPlatformError: "SNYK-OS-0011",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
@@ -460,6 +464,8 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   PipenvNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0011",
   PythonDependenciesSpaceLimitExceededError: "SNYK-OS-PYTHON-0012",
   CyclicDependencyDetectedError: "SNYK-OS-RUBY-0001",
+  GemNotFoundError: "SNYK-OS-RUBY-0002",
+  GemVersionConflictError: "SNYK-OS-RUBY-0003",
   ReachabilitySettingDisabledError: "SNYK-OS-SETTINGS-0001",
 }
 
