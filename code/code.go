@@ -205,17 +205,13 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
 }
 
 // NewRuleExtensionAlreadyExistsForGroupError displays errors with the following description:
-// A SAST Rule extension with the same type and attributes already exists
-// for the given Group.
-// 
-// Either modify the existing SAST Rule extension or create a new
-// SAST Rule extension with a different type or attributes.
+// A published SAST Rule extension with the same fully qualified name already exists for the given Group.
 func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0007",
     Title:      "SAST Rule extension already exists for the Group",
-    Description: "A SAST Rule extension with the same type and attributes already exists\nfor the given Group.\n\nEither modify the existing SAST Rule extension or create a new\nSAST Rule extension with a different type or attributes.",
+    Description: "A published SAST Rule extension with the same fully qualified name already exists for the given Group.",
     StatusCode: 409,
     ErrorCode:  "SNYK-CODE-0007",
     Classification: "ACTIONABLE",
