@@ -403,28 +403,3 @@ func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) sn
 
   return err
 }
-
-// NewTestIDNotAssociatedWithGroupError displays errors with the following description:
-// There is no SAST Rule Extension impact test associated with the given Test ID for the group.
-// 
-// Please verify you are using the correct Group ID associated with the test.
-func NewTestIDNotAssociatedWithGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0015",
-    Title:      "Test ID not associated with group",
-    Description: "There is no SAST Rule Extension impact test associated with the given Test ID for the group.\n\nPlease verify you are using the correct Group ID associated with the test.",
-    StatusCode: 404,
-    ErrorCode:  "SNYK-CODE-0015",
-    Classification: "ACTIONABLE",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
