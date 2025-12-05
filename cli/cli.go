@@ -23,7 +23,7 @@ import (
   "github.com/google/uuid"
 )
 // NewGeneralCLIFailureError displays errors with the following description:
-// The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+// The encountered error only provides basic information, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/commands
@@ -33,7 +33,7 @@ func NewGeneralCLIFailureError(detail string, options ...snyk_errors.Option) sny
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0000",
     Title:      "Unspecified Error",
-    Description: "The encountered error only provides basic information, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    Description: "The encountered error only provides basic information, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0000",
     Classification: "UNEXPECTED",
@@ -53,7 +53,7 @@ func NewGeneralCLIFailureError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewConfigEnvironmentFailedError displays errors with the following description:
-// The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.
+// The specified environment cannot be used. As a result, the configuration remains unchanged. Provide the correct specifications for the environment and try again.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/commands/config-environment
@@ -62,7 +62,7 @@ func NewConfigEnvironmentFailedError(detail string, options ...snyk_errors.Optio
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0001",
     Title:      "Unable to set environment",
-    Description: "The specified environment cannot be used. As a result, the configuration remains unchanged.Provide the correct specifications for the environment and try again.",
+    Description: "The specified environment cannot be used. As a result, the configuration remains unchanged. Provide the correct specifications for the environment and try again.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0001",
     Classification: "ACTIONABLE",
@@ -167,13 +167,13 @@ func NewInvalidFlagOptionError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewGetVulnsFromResourceFailedError displays errors with the following description:
-// If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/.For further assistance, run `snyk help` or see the Snyk docs.
+// If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/. For further assistance, run `snyk help` or see the Snyk docs.
 func NewGetVulnsFromResourceFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0005",
     Title:      "Unable to get vulnerabilities from resource",
-    Description: "If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/.For further assistance, run `snyk help` or see the Snyk docs.",
+    Description: "If you are testing an npm package, check the version and package name and try running `snyk test` again. If you are testing a repository, try testing it at https://snyk.io/test/. For further assistance, run `snyk help` or see the Snyk docs.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0005",
     Classification: "UNEXPECTED",
@@ -276,7 +276,7 @@ func NewNoSupportedFilesFoundError(detail string, options ...snyk_errors.Option)
 }
 
 // NewTooManyVulnerablePathsError displays errors with the following description:
-// There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
+// There are too many vulnerable paths to process the project. If your command supports it, consider the following: pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/cli-commands-and-options-summary#options-for-multiple-commands
@@ -288,7 +288,7 @@ func NewTooManyVulnerablePathsError(detail string, options ...snyk_errors.Option
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0009",
     Title:      "Too many vulnerable paths to Project",
-    Description: "There are too many vulnerable paths to process the project. If your command supports it, consider the following:pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.",
+    Description: "There are too many vulnerable paths to process the project. If your command supports it, consider the following: pruning repeated sub-dependencies (`snyk test -p`); excluding directories (`snyk test --all-projects --exclude=dir1,file2`); setting a detection depth (`snyk test --all-projects --detection-depth=3`). If the error still occurs, consider debugging or contact Snyk Support.",
     StatusCode: 413,
     ErrorCode:  "SNYK-CLI-0009",
     Classification: "ACTIONABLE",
@@ -333,7 +333,7 @@ func NewValidationFailureError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewGeneralSCAFailureError displays errors with the following description:
-// CLI was unable to execute your SCA command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+// CLI was unable to execute your SCA command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/commands/test
@@ -342,7 +342,7 @@ func NewGeneralSCAFailureError(detail string, options ...snyk_errors.Option) sny
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0011",
     Title:      "SCA failure",
-    Description: "CLI was unable to execute your SCA command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    Description: "CLI was unable to execute your SCA command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0011",
     Classification: "UNEXPECTED",
@@ -361,7 +361,7 @@ func NewGeneralSCAFailureError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewGeneralIACFailureError displays errors with the following description:
-// CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+// CLI was unable to execute your IAC command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/commands/iac
@@ -370,7 +370,7 @@ func NewGeneralIACFailureError(detail string, options ...snyk_errors.Option) sny
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0012",
     Title:      "IAC failure",
-    Description: "CLI was unable to execute your IAC command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    Description: "CLI was unable to execute your IAC command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0012",
     Classification: "UNEXPECTED",
@@ -389,7 +389,7 @@ func NewGeneralIACFailureError(detail string, options ...snyk_errors.Option) sny
 }
 
 // NewGeneralSASTFailureError displays errors with the following description:
-// CLI was unable to execute your SAST command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.
+// CLI was unable to execute your SAST command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
 //
 // Read more:
 // - https://docs.snyk.io/snyk-cli/commands/code
@@ -398,7 +398,7 @@ func NewGeneralSASTFailureError(detail string, options ...snyk_errors.Option) sn
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0013",
     Title:      "SAST failure",
-    Description: "CLI was unable to execute your SAST command, please take a look at the given details.If they do not help to resolve the issue, consider debugging or consulting support.",
+    Description: "CLI was unable to execute your SAST command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0013",
     Classification: "UNEXPECTED",

@@ -275,6 +275,29 @@ func NewServiceUnavailableError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewRequirementsNotMetError displays errors with the following description:
+// The environment is missing requirements to execute the application successfully.
+func NewRequirementsNotMetError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0010",
+    Title:      "Missing runtime requirements",
+    Description: "The environment is missing requirements to execute the application successfully.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-0010",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewServerError displays errors with the following description:
 // The server cannot process the request due to an unexpected error. Check Snyk status, then try again.
 //

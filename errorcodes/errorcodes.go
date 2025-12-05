@@ -32,6 +32,7 @@ type SnykCodes struct {
   TagsForOrganizationWithoutGroupError string
   BadGatewayError string
   ServiceUnavailableError string
+  RequirementsNotMetError string
   ServerError string
 }
 
@@ -367,6 +368,7 @@ var Snyk = SnykCodes {
   TagsForOrganizationWithoutGroupError: "SNYK-0007",
   BadGatewayError: "SNYK-0008",
   ServiceUnavailableError: "SNYK-0009",
+  RequirementsNotMetError: "SNYK-0010",
   ServerError: "SNYK-9999",
 }
 
