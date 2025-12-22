@@ -33,6 +33,7 @@ type SnykCodes struct {
   BadGatewayError string
   ServiceUnavailableError string
   RequirementsNotMetError string
+  MaintenanceWindowError string
   ServerError string
 }
 
@@ -369,6 +370,7 @@ var Snyk = SnykCodes {
   BadGatewayError: "SNYK-0008",
   ServiceUnavailableError: "SNYK-0009",
   RequirementsNotMetError: "SNYK-0010",
+  MaintenanceWindowError: "SNYK-0099",
   ServerError: "SNYK-9999",
 }
 

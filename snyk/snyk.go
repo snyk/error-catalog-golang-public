@@ -298,6 +298,36 @@ func NewRequirementsNotMetError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewMaintenanceWindowError displays errors with the following description:
+// We are currently unavailable due to a maintenance window. For additional information please visit our status pages. Thank you for your patience.
+//
+// Read more:
+// - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
+func NewMaintenanceWindowError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-0099",
+    Title:      "Unavailable due to maintenance",
+    Description: "We are currently unavailable due to a maintenance window. For additional information please visit our status pages. Thank you for your patience.",
+    StatusCode: 503,
+    ErrorCode:  "SNYK-0099",
+    Classification: "UNSUPPORTED",
+    Links: []string{
+      "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewServerError displays errors with the following description:
 // The server cannot process the request due to an unexpected error. Check Snyk status, then try again.
 //
