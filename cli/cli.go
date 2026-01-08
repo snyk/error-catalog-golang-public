@@ -694,6 +694,34 @@ func NewGenericNetworkError(detail string, options ...snyk_errors.Option) snyk_e
   return err
 }
 
+// NewGeneralSecretsFailureError displays errors with the following description:
+// CLI was unable to execute your Secrets command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/commands/secrets
+func NewGeneralSecretsFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0023",
+    Title:      "Secrets failure",
+    Description: "CLI was unable to execute your Secrets command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0023",
+    Classification: "UNEXPECTED",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/commands/secrets",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

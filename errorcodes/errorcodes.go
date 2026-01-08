@@ -305,6 +305,7 @@ type CLICodes struct {
   TLSCertificateError string
   ConnectionRefusedError string
   GenericNetworkError string
+  GeneralSecretsFailureError string
   ConnectionTimeoutError string
 }
 
@@ -642,6 +643,7 @@ var CLI = CLICodes {
   TLSCertificateError: "SNYK-CLI-0020",
   ConnectionRefusedError: "SNYK-CLI-0021",
   GenericNetworkError: "SNYK-CLI-0022",
+  GeneralSecretsFailureError: "SNYK-CLI-0023",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
