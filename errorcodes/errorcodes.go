@@ -360,6 +360,20 @@ type AiBomCodes struct {
   NoSupportedFilesError string
 }
 
+type UploadRevisionCodes struct {
+  UploadRevisionNotFoundError string
+  UploadRevisionSealedError string
+  FileTooLargeError string
+  TotalFilesSizeLimitExceededError string
+  FileCountLimitExceededError string
+  FilePathTooLongError string
+  PopulateRequestLimitExceededError string
+  TotalUploadRevisionFileCountLimitExceededError string
+  TotalUploadRevisionSizeLimitExceededError string
+  UploadRevisionIdMismatchError string
+  MultipartFieldNameMissingError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -696,5 +710,19 @@ var AiBom = AiBomCodes {
   InternalError: "SNYK-AIBOM-0001",
   ForbiddenError: "SNYK-AIBOM-0002",
   NoSupportedFilesError: "SNYK-AIBOM-0003",
+}
+
+var UploadRevision = UploadRevisionCodes {
+  UploadRevisionNotFoundError: "SNYK-UPLOAD-REVISION-0001",
+  UploadRevisionSealedError: "SNYK-UPLOAD-REVISION-0002",
+  FileTooLargeError: "SNYK-UPLOAD-REVISION-0003",
+  TotalFilesSizeLimitExceededError: "SNYK-UPLOAD-REVISION-0004",
+  FileCountLimitExceededError: "SNYK-UPLOAD-REVISION-0005",
+  FilePathTooLongError: "SNYK-UPLOAD-REVISION-0006",
+  PopulateRequestLimitExceededError: "SNYK-UPLOAD-REVISION-0007",
+  TotalUploadRevisionFileCountLimitExceededError: "SNYK-UPLOAD-REVISION-0008",
+  TotalUploadRevisionSizeLimitExceededError: "SNYK-UPLOAD-REVISION-0009",
+  UploadRevisionIdMismatchError: "SNYK-UPLOAD-REVISION-0010",
+  MultipartFieldNameMissingError: "SNYK-UPLOAD-REVISION-0011",
 }
 

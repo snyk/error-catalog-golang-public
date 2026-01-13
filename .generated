@@ -20,3 +20,4 @@ sbomtest/sbomtest.go
 scm/scm.go
 snyk/snyk.go
 target/target.go
+uploadrevision/uploadrevision.go
