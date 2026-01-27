@@ -274,3 +274,26 @@ func NewMultipartFieldNameMissingError(detail string, options ...snyk_errors.Opt
 
   return err
 }
+
+// NewUploadRevisionUnsealedError displays errors with the following description:
+// The upload revision cannot be consumed before it is sealed. Seal the revision or create a new one and retry the operation.
+func NewUploadRevisionUnsealedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-upload-revision-0012",
+    Title:      "Upload revision is unsealed",
+    Description: "The upload revision cannot be consumed before it is sealed. Seal the revision or create a new one and retry the operation.",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-UPLOAD-REVISION-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

@@ -372,6 +372,7 @@ type UploadRevisionCodes struct {
   TotalUploadRevisionSizeLimitExceededError string
   UploadRevisionIdMismatchError string
   MultipartFieldNameMissingError string
+  UploadRevisionUnsealedError string
 }
 
 var Snyk = SnykCodes {
@@ -724,5 +725,6 @@ var UploadRevision = UploadRevisionCodes {
   TotalUploadRevisionSizeLimitExceededError: "SNYK-UPLOAD-REVISION-0009",
   UploadRevisionIdMismatchError: "SNYK-UPLOAD-REVISION-0010",
   MultipartFieldNameMissingError: "SNYK-UPLOAD-REVISION-0011",
+  UploadRevisionUnsealedError: "SNYK-UPLOAD-REVISION-0012",
 }
 
