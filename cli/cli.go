@@ -722,6 +722,30 @@ func NewGeneralSecretsFailureError(detail string, options ...snyk_errors.Option)
   return err
 }
 
+// NewDataRenderingError displays errors with the following description:
+// Rendering the data to at least one of the required outputs failed. Please review the error details provided.
+// If the details do not help resolve the issue, consider debugging or contacting support.
+func NewDataRenderingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0024",
+    Title:      "Data rendering failed",
+    Description: "Rendering the data to at least one of the required outputs failed. Please review the error details provided.\nIf the details do not help resolve the issue, consider debugging or contacting support.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0024",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
