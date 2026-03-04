@@ -696,9 +696,6 @@ func NewGenericNetworkError(detail string, options ...snyk_errors.Option) snyk_e
 
 // NewGeneralSecretsFailureError displays errors with the following description:
 // CLI was unable to execute your Secrets command, please take a look at the given details. If they do not help to resolve the issue, consider debugging or consulting support.
-//
-// Read more:
-// - https://docs.snyk.io/snyk-cli/commands/secrets
 func NewGeneralSecretsFailureError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -708,9 +705,7 @@ func NewGeneralSecretsFailureError(detail string, options ...snyk_errors.Option)
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0023",
     Classification: "UNEXPECTED",
-    Links: []string{
-      "https://docs.snyk.io/snyk-cli/commands/secrets",
-    },
+    Links: []string{},
     Level:  "error",
     Detail: detail,
   }
