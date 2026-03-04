@@ -751,6 +751,145 @@ func NewRestoreFailedError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewCpmVersionOverrideError displays errors with the following description:
+// Your `dotnet restore` command failed with NuGet error **NU1008**.
+// 
+// This occurs because a `PackageReference` in your project file directly defines a package version when Central Package Management (CPM) is enabled. To resolve this, remove the `Version` attribute from the `PackageReference`. Define the package version instead as a `PackageVersion` entry in your `Directory.Packages.props` file. For project-specific exceptions, use `VersionOverride`.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1008
+// - https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management
+func NewCpmVersionOverrideError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0012",
+    Title:      "Package version defined incorrectly",
+    Description: "Your `dotnet restore` command failed with NuGet error **NU1008**.\n\nThis occurs because a `PackageReference` in your project file directly defines a package version when Central Package Management (CPM) is enabled. To resolve this, remove the `Version` attribute from the `PackageReference`. Define the package version instead as a `PackageVersion` entry in your `Directory.Packages.props` file. For project-specific exceptions, use `VersionOverride`.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1008",
+      "https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCpmMissingPackageVersionError displays errors with the following description:
+// The `dotnet restore` command failed with NuGet error NU1010.
+// 
+// Central Package Management (CPM) cannot find a matching `PackageVersion` for a `PackageReference` in your `Directory.Packages.props` file. To resolve this, add the necessary `PackageVersion` entry for the package to `Directory.Packages.props`. For example:
+// 
+// ```xml
+// <PackageVersion Include="Example.Package" Version="1.0.0" />
+// ```
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1010
+// - https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management
+func NewCpmMissingPackageVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0013",
+    Title:      "Missing package version in CPM",
+    Description: "The `dotnet restore` command failed with NuGet error NU1010.\n\nCentral Package Management (CPM) cannot find a matching `PackageVersion` for a `PackageReference` in your `Directory.Packages.props` file. To resolve this, add the necessary `PackageVersion` entry for the package to `Directory.Packages.props`. For example:\n\n```xml\n<PackageVersion Include=\"Example.Package\" Version=\"1.0.0\" />\n```",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0013",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1010",
+      "https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewCpmDisabledOrMissingVersionError displays errors with the following description:
+// The `dotnet restore` command failed with NuGet error NU1015.
+// 
+// This occurs because a `PackageReference` lacks a version and Central Package Management (CPM) is not active.
+// 
+// To resolve this, perform one of the following actions:
+// 
+// 1. Enable Central Package Management: In `Directory.Packages.props`, set `ManagePackageVersionsCentrally` to `true`. Ensure your project can access the file.
+// 2. Add an explicit `Version` attribute to the `PackageReference` in your project file.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1015
+// - https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management
+func NewCpmDisabledOrMissingVersionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0014",
+    Title:      "Missing package version in CPM and CPM not active",
+    Description: "The `dotnet restore` command failed with NuGet error NU1015.\n\nThis occurs because a `PackageReference` lacks a version and Central Package Management (CPM) is not active.\n\nTo resolve this, perform one of the following actions:\n\n1. Enable Central Package Management: In `Directory.Packages.props`, set `ManagePackageVersionsCentrally` to `true`. Ensure your project can access the file.\n2. Add an explicit `Version` attribute to the `PackageReference` in your project file.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0014",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1015",
+      "https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewIncompatibleTargetFrameworkError displays errors with the following description:
+// Your project failed to restore dependencies with NuGet error NU1202 because a dependency does not support the current `TargetFramework`. This means the dependency lacks assets for your project's framework.
+// 
+// To resolve this, perform one of the following actions:
+// 
+// 1. Change your project's `TargetFramework` to one the dependency supports.
+// 2. Update the dependency to a version that supports your current `TargetFramework`.
+// 3. If the dependency is a project reference, add the required `TargetFramework` to that project.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202
+func NewIncompatibleTargetFrameworkError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0015",
+    Title:      "Dependency target framework not supported",
+    Description: "Your project failed to restore dependencies with NuGet error NU1202 because a dependency does not support the current `TargetFramework`. This means the dependency lacks assets for your project's framework.\n\nTo resolve this, perform one of the following actions:\n\n1. Change your project's `TargetFramework` to one the dependency supports.\n2. Update the dependency to a version that supports your current `TargetFramework`.\n3. If the dependency is a project reference, add the required `TargetFramework` to that project.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0015",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //

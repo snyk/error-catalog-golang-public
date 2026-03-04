@@ -60,6 +60,10 @@ type OpenSourceEcosystemsCodes struct {
   ProjectSkippedAndNotFoundError string
   NugetDependenciesSpaceLimitExceededError string
   RestoreFailedError string
+  CpmVersionOverrideError string
+  CpmMissingPackageVersionError string
+  CpmDisabledOrMissingVersionError string
+  IncompatibleTargetFrameworkError string
   PrivateModuleError string
   GoModFileMissingError string
   SsoReAuthRequiredError string
@@ -414,6 +418,10 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   ProjectSkippedAndNotFoundError: "SNYK-OS-DOTNET-0009",
   NugetDependenciesSpaceLimitExceededError: "SNYK-OS-DOTNET-0010",
   RestoreFailedError: "SNYK-OS-DOTNET-0011",
+  CpmVersionOverrideError: "SNYK-OS-DOTNET-0012",
+  CpmMissingPackageVersionError: "SNYK-OS-DOTNET-0013",
+  CpmDisabledOrMissingVersionError: "SNYK-OS-DOTNET-0014",
+  IncompatibleTargetFrameworkError: "SNYK-OS-DOTNET-0015",
   PrivateModuleError: "SNYK-OS-GO-0001",
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",
