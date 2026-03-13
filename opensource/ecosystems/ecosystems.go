@@ -286,6 +286,30 @@ func NewUnsupportedPlatformError(detail string, options ...snyk_errors.Option) s
   return err
 }
 
+// NewEmptyManifestError displays errors with the following description:
+// Could not find any packages to analyze in the provided manifest file.
+// Ensure the manifest file exists and includes valid dependency definitions.
+func NewEmptyManifestError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0012",
+    Title:      "Empty manifest file",
+    Description: "Could not find any packages to analyze in the provided manifest file.\nEnsure the manifest file exists and includes valid dependency definitions.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-0012",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //
@@ -2637,6 +2661,54 @@ func NewPythonDependenciesSpaceLimitExceededError(detail string, options ...snyk
     Links: []string{
       "https://docs.snyk.io/supported-languages-package-managers-and-frameworks/python/git-repositories-and-python#pip-and-git-repositories",
     },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPythonRequiredPackagesMissingError displays errors with the following description:
+// One or more required Python packages could not be resolved or were missing during dependency analysis.
+// Verify that all required dependencies are declared in your manifest file and that they can be installed successfully using your package manager.
+func NewPythonRequiredPackagesMissingError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0013",
+    Title:      "Missing required packages",
+    Description: "One or more required Python packages could not be resolved or were missing during dependency analysis.\nVerify that all required dependencies are declared in your manifest file and that they can be installed successfully using your package manager.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-PYTHON-0013",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewPythonFailedToWriteTempFilesError displays errors with the following description:
+// The plugin failed to create or write temporary files required during dependency analysis.
+// Ensure the process has permission to write to the system temporary directory and that sufficient disk space is available.
+func NewPythonFailedToWriteTempFilesError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-python-0014",
+    Title:      "Failed to write temp files",
+    Description: "The plugin failed to create or write temporary files required during dependency analysis.\nEnsure the process has permission to write to the system temporary directory and that sufficient disk space is available.",
+    StatusCode: 500,
+    ErrorCode:  "SNYK-OS-PYTHON-0014",
+    Classification: "UNEXPECTED",
+    Links: []string{},
     Level:  "error",
     Detail: detail,
   }

@@ -49,6 +49,7 @@ type OpenSourceEcosystemsCodes struct {
   BrokeredConnectionNotSupportedError string
   GitCloneFailedError string
   UnsupportedPlatformError string
+  EmptyManifestError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -133,6 +134,8 @@ type OpenSourceEcosystemsCodes struct {
   PipenvUnsupportedPythonVersionError string
   PipenvNoMatchingPythonDistributionError string
   PythonDependenciesSpaceLimitExceededError string
+  PythonRequiredPackagesMissingError string
+  PythonFailedToWriteTempFilesError string
   CyclicDependencyDetectedError string
   GemNotFoundError string
   GemVersionConflictError string
@@ -407,6 +410,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   BrokeredConnectionNotSupportedError: "SNYK-OS-0009",
   GitCloneFailedError: "SNYK-OS-0010",
   UnsupportedPlatformError: "SNYK-OS-0011",
+  EmptyManifestError: "SNYK-OS-0012",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",
@@ -491,6 +495,8 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   PipenvUnsupportedPythonVersionError: "SNYK-OS-PYTHON-0010",
   PipenvNoMatchingPythonDistributionError: "SNYK-OS-PYTHON-0011",
   PythonDependenciesSpaceLimitExceededError: "SNYK-OS-PYTHON-0012",
+  PythonRequiredPackagesMissingError: "SNYK-OS-PYTHON-0013",
+  PythonFailedToWriteTempFilesError: "SNYK-OS-PYTHON-0014",
   CyclicDependencyDetectedError: "SNYK-OS-RUBY-0001",
   GemNotFoundError: "SNYK-OS-RUBY-0002",
   GemVersionConflictError: "SNYK-OS-RUBY-0003",
