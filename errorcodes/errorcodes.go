@@ -140,6 +140,7 @@ type OpenSourceEcosystemsCodes struct {
   GemNotFoundError string
   GemVersionConflictError string
   ReachabilitySettingDisabledError string
+  UvNoProjectRootError string
 }
 
 type PurlVulnerabilityFetchingCodes struct {
@@ -501,6 +502,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   GemNotFoundError: "SNYK-OS-RUBY-0002",
   GemVersionConflictError: "SNYK-OS-RUBY-0003",
   ReachabilitySettingDisabledError: "SNYK-OS-SETTINGS-0001",
+  UvNoProjectRootError: "SNYK-OS-UV-0001",
 }
 
 var PurlVulnerabilityFetching = PurlVulnerabilityFetchingCodes {

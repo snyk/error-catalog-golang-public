@@ -2820,3 +2820,26 @@ func NewReachabilitySettingDisabledError(detail string, options ...snyk_errors.O
 
   return err
 }
+
+// NewUvNoProjectRootError displays errors with the following description:
+// The project being scanned has no root package. To scan workspace members, use the --all-projects flag.
+func NewUvNoProjectRootError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-uv-0001",
+    Title:      "No root project found",
+    Description: "The project being scanned has no root package. To scan workspace members, use the --all-projects flag.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-UV-0001",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
