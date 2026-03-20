@@ -1884,6 +1884,37 @@ func NewCannotReachConfiguredRepositoryError(detail string, options ...snyk_erro
   return err
 }
 
+// NewFailedToBuildMavenProjectError displays errors with the following description:
+// Snyk cannot build the Maven dependency tree because Maven failed to process your pom.xml. 
+// This often happens due to invalid configurations, unresolved dependencies, or build failures.
+// Examine your Maven output to identify specific errors and verify your pom.xml for correct configurations.
+// For common troubleshooting steps, visit Troubleshoot Maven issues.
+//
+// Read more:
+// - https://docs.snyk.io/supported-languages/supported-languages-list/java-and-kotlin/git-repositories-with-maven-and-gradle#maven
+func NewFailedToBuildMavenProjectError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-maven-0018",
+    Title:      "Cannot build Maven dependency tree",
+    Description: "Snyk cannot build the Maven dependency tree because Maven failed to process your pom.xml. \nThis often happens due to invalid configurations, unresolved dependencies, or build failures.\nExamine your Maven output to identify specific errors and verify your pom.xml for correct configurations.\nFor common troubleshooting steps, visit Troubleshoot Maven issues.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-MAVEN-0018",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/supported-languages/supported-languages-list/java-and-kotlin/git-repositories-with-maven-and-gradle#maven",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewNoRepoFoundForTheNPMPackageError displays errors with the following description:
 // No repository found for the NPM package.
 func NewNoRepoFoundForTheNPMPackageError(detail string, options ...snyk_errors.Option) snyk_errors.Error {

@@ -101,6 +101,7 @@ type OpenSourceEcosystemsCodes struct {
   SourceNotSupportedError string
   TimeoutWhenProcessingTheDepTreeError string
   CannotReachConfiguredRepositoryError string
+  FailedToBuildMavenProjectError string
   NoRepoFoundForTheNPMPackageError string
   CouldNotParseNPMRegistryURLError string
   CouldNotFindBrokerURLError string
@@ -463,6 +464,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   SourceNotSupportedError: "SNYK-OS-MAVEN-0015",
   TimeoutWhenProcessingTheDepTreeError: "SNYK-OS-MAVEN-0016",
   CannotReachConfiguredRepositoryError: "SNYK-OS-MAVEN-0017",
+  FailedToBuildMavenProjectError: "SNYK-OS-MAVEN-0018",
   NoRepoFoundForTheNPMPackageError: "SNYK-OS-NODEJS-0001",
   CouldNotParseNPMRegistryURLError: "SNYK-OS-NODEJS-0002",
   CouldNotFindBrokerURLError: "SNYK-OS-NODEJS-0003",
