@@ -742,7 +742,7 @@ func NewDataRenderingError(detail string, options ...snyk_errors.Option) snyk_er
 }
 
 // NewTerminatedBySignalError displays errors with the following description:
-// Snyk CLI stopped before completing the operation. This occurs if you cancel the command with Ctrl+C, your system runs slow on memory, or another program terminates Snyk. 
+// Snyk CLI stopped before completing the operation. This occurs if you cancel the command with Ctrl+C, your system runs low on memory, or another program terminates Snyk. 
 // Run the command again. If the problem persists, ensure that your system has enough memory and resources for Snyk CLI operations. 
 // For additional troubleshooting, refer to Debugging the Snyk CLI.
 //
@@ -753,7 +753,7 @@ func NewTerminatedBySignalError(detail string, options ...snyk_errors.Option) sn
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0025",
     Title:      "Snyk CLI operation interrupted",
-    Description: "Snyk CLI stopped before completing the operation. This occurs if you cancel the command with Ctrl+C, your system runs slow on memory, or another program terminates Snyk. \nRun the command again. If the problem persists, ensure that your system has enough memory and resources for Snyk CLI operations. \nFor additional troubleshooting, refer to Debugging the Snyk CLI.",
+    Description: "Snyk CLI stopped before completing the operation. This occurs if you cancel the command with Ctrl+C, your system runs low on memory, or another program terminates Snyk. \nRun the command again. If the problem persists, ensure that your system has enough memory and resources for Snyk CLI operations. \nFor additional troubleshooting, refer to Debugging the Snyk CLI.",
     StatusCode: 0,
     ErrorCode:  "SNYK-CLI-0025",
     Classification: "ACTIONABLE",
