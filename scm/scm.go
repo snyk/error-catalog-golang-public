@@ -120,15 +120,13 @@ func NewIntegrationAuthorizationFailedError(detail string, options ...snyk_error
 }
 
 // NewFilesLimitExceededError displays errors with the following description:
-// Snyk was unable to retrieve the repository because the overall file count exceeds the limit of 40000.
-// 
-// To reduce the file count, use a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.
+// Snyk was unable to retrieve the repository because the stored file count exceeds the limit of 4,500,000.
 func NewFilesLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-scm-0005",
     Title:      "Too many files",
-    Description: "Snyk was unable to retrieve the repository because the overall file count exceeds the limit of 40000.\n\nTo reduce the file count, use a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.",
+    Description: "Snyk was unable to retrieve the repository because the stored file count exceeds the limit of 4,500,000.",
     StatusCode: 500,
     ErrorCode:  "SNYK-SCM-0005",
     Classification: "UNSUPPORTED",
@@ -145,15 +143,13 @@ func NewFilesLimitExceededError(detail string, options ...snyk_errors.Option) sn
 }
 
 // NewSizeLimitExceededError displays errors with the following description:
-// Snyk was unable to retrieve the repository because the size of the repository exceeds 15 GB.
-// 
-// To reduce the overall size of the repository, use a a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.
+// Snyk was unable to retrieve the repository because the stored size exceeds 70 GB.
 func NewSizeLimitExceededError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-scm-0006",
     Title:      "Repository size too large",
-    Description: "Snyk was unable to retrieve the repository because the size of the repository exceeds 15 GB.\n\nTo reduce the overall size of the repository, use a a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.",
+    Description: "Snyk was unable to retrieve the repository because the stored size exceeds 70 GB.",
     StatusCode: 500,
     ErrorCode:  "SNYK-SCM-0006",
     Classification: "UNSUPPORTED",
