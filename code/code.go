@@ -205,13 +205,13 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
 }
 
 // NewRuleExtensionAlreadyExistsForGroupError displays errors with the following description:
-// A published SAST Rule extension with the same fully qualified name already exists for the given Group.
+// A published Rule Extension with the same fully qualified name already exists for the given Group.
 func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0007",
-    Title:      "SAST Rule extension already exists for the Group",
-    Description: "A published SAST Rule extension with the same fully qualified name already exists for the given Group.",
+    Title:      "Rule Extension already exists for the Group",
+    Description: "A published Rule Extension with the same fully qualified name already exists for the given Group.",
     StatusCode: 409,
     ErrorCode:  "SNYK-CODE-0007",
     Classification: "ACTIONABLE",
@@ -228,7 +228,7 @@ func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_e
 }
 
 // NewOrgRelationshipsMustBeUniqueError displays errors with the following description:
-// Each Org relationship to a Snyk SAST Rule extension must be unique.
+// Each Org relationship to a Snyk Rule Extension must be unique.
 // 
 // Make sure each Org in relationships has a different ID.
 func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -236,7 +236,7 @@ func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0008",
     Title:      "Organization relationships must be unique",
-    Description: "Each Org relationship to a Snyk SAST Rule extension must be unique.\n\nMake sure each Org in relationships has a different ID.",
+    Description: "Each Org relationship to a Snyk Rule Extension must be unique.\n\nMake sure each Org in relationships has a different ID.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0008",
     Classification: "ACTIONABLE",
@@ -253,7 +253,7 @@ func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.
 }
 
 // NewGroupRelationshipMustBeForAdminGroupError displays errors with the following description:
-// You cannot associate a Snyk SAST Rule extension to any other Group.
+// You cannot associate a Snyk Rule Extension to any other Group.
 // 
 // Make sure the Group ID under relationships matches the Group ID in the request path.
 func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -261,7 +261,7 @@ func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0009",
     Title:      "Group relationship must match the Group in the requested URL",
-    Description: "You cannot associate a Snyk SAST Rule extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
+    Description: "You cannot associate a Snyk Rule Extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0009",
     Classification: "ACTIONABLE",
@@ -278,7 +278,7 @@ func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk
 }
 
 // NewOrgOutsideAdminGroupError displays errors with the following description:
-// You cannot use the SAST Rule extensions feature with an Org outside of the administrating Group.
+// You cannot use the Rule Extensions feature with an Org outside of the administrating Group.
 // 
 // Make sure each Org in the request is within the requested Group.
 func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -286,7 +286,7 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0010",
     Title:      "Organization outside of the administrating Group",
-    Description: "You cannot use the SAST Rule extensions feature with an Org outside of the administrating Group.\n\nMake sure each Org in the request is within the requested Group.",
+    Description: "You cannot use the Rule Extensions feature with an Org outside of the administrating Group.\n\nMake sure each Org in the request is within the requested Group.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0010",
     Classification: "ACTIONABLE",
@@ -303,15 +303,15 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
 }
 
 // NewRuleExtensionsLimitReachedError displays errors with the following description:
-// You have hit the maximum number of published Snyk SAST Rule extensions allowed for a Group.
+// You have hit the maximum number of published Snyk Rule Extensions allowed for a Group.
 // 
-// To create a new SAST Rule extension you will have to remove an existing one.
+// To create a new Rule Extension you will have to remove an existing one.
 func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0011",
-    Title:      "SAST Rule extension limit reached",
-    Description: "You have hit the maximum number of published Snyk SAST Rule extensions allowed for a Group.\n\nTo create a new SAST Rule extension you will have to remove an existing one.",
+    Title:      "Rule Extension limit reached",
+    Description: "You have hit the maximum number of published Snyk Rule Extensions allowed for a Group.\n\nTo create a new Rule Extension you will have to remove an existing one.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0011",
     Classification: "ACTIONABLE",
@@ -328,17 +328,17 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
 }
 
 // NewTestRuleExtensionAlreadyPublishedForGroupError displays errors with the following description:
-// The Rule Extension under test conflicts with an already published SAST Rule Extension.
+// The Rule Extension under test conflicts with an already published Rule Extension.
 // 
-// A test cannot be performed if a SAST Rule Extension with the same fully qualified name
-// and type is already published for the Group. Either delete the already published SAST Rule Extension
+// A test cannot be performed if a Rule Extension with the same fully qualified name
+// and type is already published for the Group. Either delete the already published Rule Extension
 // or perform a test with a different fully qualified name or type.
 func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0012",
-    Title:      "SAST Rule Extension already published for the Group",
-    Description: "The Rule Extension under test conflicts with an already published SAST Rule Extension.\n\nA test cannot be performed if a SAST Rule Extension with the same fully qualified name\nand type is already published for the Group. Either delete the already published SAST Rule Extension\nor perform a test with a different fully qualified name or type.",
+    Title:      "Rule Extension already published for the Group",
+    Description: "The Rule Extension under test conflicts with an already published Rule Extension.\n\nA test cannot be performed if a Rule Extension with the same fully qualified name\nand type is already published for the Group. Either delete the already published Rule Extension\nor perform a test with a different fully qualified name or type.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0012",
     Classification: "ACTIONABLE",
@@ -355,7 +355,7 @@ func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ..
 }
 
 // NewTestIDNotFoundError displays errors with the following description:
-// The requested Test ID for testing SAST Rule Extension was not found.
+// The requested Test ID for testing a Rule Extension was not found.
 // 
 // Make sure to provide a valid Test ID.
 func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -363,7 +363,7 @@ func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_e
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0013",
     Title:      "Requested test ID not found",
-    Description: "The requested Test ID for testing SAST Rule Extension was not found.\n\nMake sure to provide a valid Test ID.",
+    Description: "The requested Test ID for testing a Rule Extension was not found.\n\nMake sure to provide a valid Test ID.",
     StatusCode: 404,
     ErrorCode:  "SNYK-CODE-0013",
     Classification: "ACTIONABLE",
@@ -380,7 +380,7 @@ func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_e
 }
 
 // NewTestResultsExpiredError displays errors with the following description:
-// The results for testing SAST Rule Extensions have expired and are no longer available.
+// The results for testing Rule Extensions have expired and are no longer available.
 // 
 // Please trigger a new test.
 func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
@@ -388,7 +388,7 @@ func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) sn
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0014",
     Title:      "Test results have expired",
-    Description: "The results for testing SAST Rule Extensions have expired and are no longer available.\n\nPlease trigger a new test.",
+    Description: "The results for testing Rule Extensions have expired and are no longer available.\n\nPlease trigger a new test.",
     StatusCode: 404,
     ErrorCode:  "SNYK-CODE-0014",
     Classification: "ACTIONABLE",
