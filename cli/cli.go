@@ -771,6 +771,38 @@ func NewTerminatedBySignalError(detail string, options ...snyk_errors.Option) sn
   return err
 }
 
+// NewCommandTimeoutError displays errors with the following description:
+// The command timed out because it did not complete within the allowed time. This happens with large workloads, slow network connections, or heavy server load. 
+// To resolve this issue, increase the timeout limit, divide your workload into smaller parts, or run the command again. 
+// For details on Snyk CLI configuration, see Snyk CLI documentation.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewCommandTimeoutError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0026",
+    Title:      "Command timed out",
+    Description: "The command timed out because it did not complete within the allowed time. This happens with large workloads, slow network connections, or heavy server load. \nTo resolve this issue, increase the timeout limit, divide your workload into smaller parts, or run the command again. \nFor details on Snyk CLI configuration, see Snyk CLI documentation.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0026",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli",
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

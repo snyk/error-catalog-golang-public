@@ -317,6 +317,7 @@ type CLICodes struct {
   GeneralSecretsFailureError string
   DataRenderingError string
   TerminatedBySignalError string
+  CommandTimeoutError string
   ConnectionTimeoutError string
 }
 
@@ -681,6 +682,7 @@ var CLI = CLICodes {
   GeneralSecretsFailureError: "SNYK-CLI-0023",
   DataRenderingError: "SNYK-CLI-0024",
   TerminatedBySignalError: "SNYK-CLI-0025",
+  CommandTimeoutError: "SNYK-CLI-0026",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
