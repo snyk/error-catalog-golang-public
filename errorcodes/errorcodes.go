@@ -50,6 +50,7 @@ type OpenSourceEcosystemsCodes struct {
   GitCloneFailedError string
   UnsupportedPlatformError string
   EmptyManifestError string
+  SnykAppRequiredForBrokeredConnectionError string
   UnsupportedManifestFileError string
   UnsupportedTargetFrameworkError string
   MissingStaticMainFunctionError string
@@ -415,6 +416,7 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   GitCloneFailedError: "SNYK-OS-0010",
   UnsupportedPlatformError: "SNYK-OS-0011",
   EmptyManifestError: "SNYK-OS-0012",
+  SnykAppRequiredForBrokeredConnectionError: "SNYK-OS-0013",
   UnsupportedManifestFileError: "SNYK-OS-DOTNET-0001",
   UnsupportedTargetFrameworkError: "SNYK-OS-DOTNET-0002",
   MissingStaticMainFunctionError: "SNYK-OS-DOTNET-0003",

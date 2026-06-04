@@ -310,6 +310,35 @@ func NewEmptyManifestError(detail string, options ...snyk_errors.Option) snyk_er
   return err
 }
 
+// NewSnykAppRequiredForBrokeredConnectionError displays errors with the following description:
+// To process brokered repositories and package registries, the brokered SCA Snyk app must be installed.
+// To do this, navigate to your Group Settings and enable "Universal Broker for Snyk Open Source".
+//
+// Read more:
+// - https://docs.snyk.io/platform-administration/snyk-broker/universal-broker/basic-steps-to-install-and-configure-universal-broker#integrate-your-connection-with-an-organization-that-uses-universal-broker
+func NewSnykAppRequiredForBrokeredConnectionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-0013",
+    Title:      "Universal Broker for Snyk Open Source not enabled",
+    Description: "To process brokered repositories and package registries, the brokered SCA Snyk app must be installed.\nTo do this, navigate to your Group Settings and enable \"Universal Broker for Snyk Open Source\".",
+    StatusCode: 400,
+    ErrorCode:  "SNYK-OS-0013",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/platform-administration/snyk-broker/universal-broker/basic-steps-to-install-and-configure-universal-broker#integrate-your-connection-with-an-organization-that-uses-universal-broker",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewUnsupportedManifestFileError displays errors with the following description:
 // The provided manifest file is not supported by Snyk for .NET.
 //
