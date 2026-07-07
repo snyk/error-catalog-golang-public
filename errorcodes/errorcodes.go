@@ -268,8 +268,7 @@ type CodeCodes struct {
   FeatureIsNotEnabledError string
   UnsupportedProjectError string
   RuleExtensionAlreadyExistsForGroupError string
-  OrgRelationshipsMustBeUniqueError string
-  GroupRelationshipMustBeForAdminGroupError string
+  GroupAssignmentMustBeForAdminGroupError string
   OrgOutsideAdminGroupError string
   RuleExtensionsLimitReachedError string
   TestRuleExtensionAlreadyPublishedForGroupError string
@@ -634,8 +633,7 @@ var Code = CodeCodes {
   FeatureIsNotEnabledError: "SNYK-CODE-0005",
   UnsupportedProjectError: "SNYK-CODE-0006",
   RuleExtensionAlreadyExistsForGroupError: "SNYK-CODE-0007",
-  OrgRelationshipsMustBeUniqueError: "SNYK-CODE-0008",
-  GroupRelationshipMustBeForAdminGroupError: "SNYK-CODE-0009",
+  GroupAssignmentMustBeForAdminGroupError: "SNYK-CODE-0009",
   OrgOutsideAdminGroupError: "SNYK-CODE-0010",
   RuleExtensionsLimitReachedError: "SNYK-CODE-0011",
   TestRuleExtensionAlreadyPublishedForGroupError: "SNYK-CODE-0012",

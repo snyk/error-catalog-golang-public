@@ -227,41 +227,16 @@ func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_e
   return err
 }
 
-// NewOrgRelationshipsMustBeUniqueError displays errors with the following description:
-// Each Org relationship to a Snyk Rule Extension must be unique.
-// 
-// Make sure each Org in relationships has a different ID.
-func NewOrgRelationshipsMustBeUniqueError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
-  err := snyk_errors.Error{
-    ID:         uuid.NewString(),
-    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0008",
-    Title:      "Organization relationships must be unique",
-    Description: "Each Org relationship to a Snyk Rule Extension must be unique.\n\nMake sure each Org in relationships has a different ID.",
-    StatusCode: 400,
-    ErrorCode:  "SNYK-CODE-0008",
-    Classification: "ACTIONABLE",
-    Links: []string{},
-    Level:  "error",
-    Detail: detail,
-  }
-
-  for _, option := range options {
-    option(&err)
-  }
-
-  return err
-}
-
-// NewGroupRelationshipMustBeForAdminGroupError displays errors with the following description:
-// You cannot associate a Snyk Rule Extension to any other Group.
+// NewGroupAssignmentMustBeForAdminGroupError displays errors with the following description:
+// You cannot assign a Snyk Rule Extension to any other Group.
 // 
 // Make sure the Group ID under relationships matches the Group ID in the request path.
-func NewGroupRelationshipMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+func NewGroupAssignmentMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0009",
-    Title:      "Group relationship must match the Group in the requested URL",
-    Description: "You cannot associate a Snyk Rule Extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
+    Title:      "Group assignment must match the Group in the requested URL",
+    Description: "You cannot assign a Snyk Rule Extension to any other Group.\n\nMake sure the Group ID under relationships matches the Group ID in the request path.",
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0009",
     Classification: "ACTIONABLE",

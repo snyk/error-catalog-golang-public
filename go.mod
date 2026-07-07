@@ -1,6 +1,6 @@
 module github.com/snyk/error-catalog-golang-public
 
-go 1.20
+go 1.25
 
 require (
 	github.com/google/uuid v1.3.1
