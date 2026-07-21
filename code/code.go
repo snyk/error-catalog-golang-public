@@ -206,6 +206,10 @@ func NewUnsupportedProjectError(detail string, options ...snyk_errors.Option) sn
 
 // NewRuleExtensionAlreadyExistsForGroupError displays errors with the following description:
 // A published Rule Extension with the same fully qualified name already exists for the given Group.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#how-do-i-publish-my-draft-rule-extensions
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -215,7 +219,10 @@ func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_e
     StatusCode: 409,
     ErrorCode:  "SNYK-CODE-0007",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#how-do-i-publish-my-draft-rule-extensions",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -231,6 +238,10 @@ func NewRuleExtensionAlreadyExistsForGroupError(detail string, options ...snyk_e
 // You cannot assign a Snyk Rule Extension to any other Group.
 // 
 // Make sure the Group ID under relationships matches the Group ID in the request path.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#can-i-apply-the-rule-extension-to-a-group-or-an-organization
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewGroupAssignmentMustBeForAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -240,7 +251,10 @@ func NewGroupAssignmentMustBeForAdminGroupError(detail string, options ...snyk_e
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0009",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#can-i-apply-the-rule-extension-to-a-group-or-an-organization",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -256,6 +270,11 @@ func NewGroupAssignmentMustBeForAdminGroupError(detail string, options ...snyk_e
 // You cannot use the Rule Extensions feature with an Org outside of the administrating Group.
 // 
 // Make sure each Org in the request is within the requested Group.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#what-entitlements-and-permissions-do-i-need-to-use-this-feature
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#can-i-apply-the-rule-extension-to-a-group-or-an-organization
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -265,7 +284,11 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0010",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#what-entitlements-and-permissions-do-i-need-to-use-this-feature",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#can-i-apply-the-rule-extension-to-a-group-or-an-organization",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -281,6 +304,10 @@ func NewOrgOutsideAdminGroupError(detail string, options ...snyk_errors.Option) 
 // You have hit the maximum number of published Snyk Rule Extensions allowed for a Group.
 // 
 // To create a new Rule Extension you will have to remove an existing one.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#is-there-a-limit-to-the-number-of-rule-extensions-i-can-create
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -290,7 +317,10 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0011",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/faq-and-troubleshooting#is-there-a-limit-to-the-number-of-rule-extensions-i-can-create",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -308,6 +338,10 @@ func NewRuleExtensionsLimitReachedError(detail string, options ...snyk_errors.Op
 // A test cannot be performed if a Rule Extension with the same fully qualified name
 // and type is already published for the Group. Either delete the already published Rule Extension
 // or perform a test with a different fully qualified name or type.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -317,7 +351,10 @@ func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ..
     StatusCode: 400,
     ErrorCode:  "SNYK-CODE-0012",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -333,6 +370,10 @@ func NewTestRuleExtensionAlreadyPublishedForGroupError(detail string, options ..
 // The requested Test ID for testing a Rule Extension was not found.
 // 
 // Make sure to provide a valid Test ID.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -342,7 +383,10 @@ func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_e
     StatusCode: 404,
     ErrorCode:  "SNYK-CODE-0013",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
@@ -358,6 +402,10 @@ func NewTestIDNotFoundError(detail string, options ...snyk_errors.Option) snyk_e
 // The results for testing Rule Extensions have expired and are no longer available.
 // 
 // Please trigger a new test.
+//
+// Read more:
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing
+// - https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions
 func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
@@ -367,7 +415,10 @@ func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) sn
     StatusCode: 404,
     ErrorCode:  "SNYK-CODE-0014",
     Classification: "ACTIONABLE",
-    Links: []string{},
+    Links: []string{
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions/impact-testing",
+      "https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/rule-extensions",
+    },
     Level:  "error",
     Detail: detail,
   }
