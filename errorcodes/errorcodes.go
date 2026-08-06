@@ -387,6 +387,12 @@ type UploadRevisionCodes struct {
   UploadRevisionUnsealedError string
 }
 
+type SecretsCodes struct {
+  TestError string
+  NotEnabledError string
+  AnalysisError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -750,5 +756,11 @@ var UploadRevision = UploadRevisionCodes {
   UploadRevisionIdMismatchError: "SNYK-UPLOAD-REVISION-0010",
   MultipartFieldNameMissingError: "SNYK-UPLOAD-REVISION-0011",
   UploadRevisionUnsealedError: "SNYK-UPLOAD-REVISION-0012",
+}
+
+var Secrets = SecretsCodes {
+  TestError: "SNYK-SECRETS-0001",
+  NotEnabledError: "SNYK-SECRETS-0002",
+  AnalysisError: "SNYK-SECRETS-0003",
 }
 

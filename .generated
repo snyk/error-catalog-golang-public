@@ -18,6 +18,7 @@ purl/vulnerabilities/vulnerabilities.go
 sbomexport/sbomexport.go
 sbomtest/sbomtest.go
 scm/scm.go
+secrets/secrets.go
 snyk/snyk.go
 target/target.go
 uploadrevision/uploadrevision.go
