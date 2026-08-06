@@ -803,6 +803,68 @@ func NewCommandTimeoutError(detail string, options ...snyk_errors.Option) snyk_e
   return err
 }
 
+// NewConnectionResetError displays errors with the following description:
+// Your firewall or security device resets the connection to Snyk. Verify your network settings or switch to a different network to isolate the interference. Read more about troubleshooting in the [Snyk CLI debugging guide](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli) and visit our [Snyk Status](https://status.snyk.io/) page.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+// - https://status.snyk.io/
+// - https://privatecloudstatus.snyk.io
+func NewConnectionResetError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0027",
+    Title:      "Connection reset",
+    Description: "Your firewall or security device resets the connection to Snyk. Verify your network settings or switch to a different network to isolate the interference. Read more about troubleshooting in the [Snyk CLI debugging guide](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli) and visit our [Snyk Status](https://status.snyk.io/) page.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0027",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+      "https://status.snyk.io/",
+      "https://privatecloudstatus.snyk.io",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewProxyConnectionError displays errors with the following description:
+// Your HTTP proxy rejects the connection to Snyk. Verify your proxy authentication and ensure that the [environment variables](https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli) are correct. Review [debugging the Snyk CLI](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli) for more troubleshooting steps.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewProxyConnectionError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0028",
+    Title:      "Proxy connection failed",
+    Description: "Your HTTP proxy rejects the connection to Snyk. Verify your proxy authentication and ensure that the [environment variables](https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli) are correct. Review [debugging the Snyk CLI](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli) for more troubleshooting steps.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0028",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli",
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

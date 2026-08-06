@@ -318,6 +318,8 @@ type CLICodes struct {
   DataRenderingError string
   TerminatedBySignalError string
   CommandTimeoutError string
+  ConnectionResetError string
+  ProxyConnectionError string
   ConnectionTimeoutError string
 }
 
@@ -689,6 +691,8 @@ var CLI = CLICodes {
   DataRenderingError: "SNYK-CLI-0024",
   TerminatedBySignalError: "SNYK-CLI-0025",
   CommandTimeoutError: "SNYK-CLI-0026",
+  ConnectionResetError: "SNYK-CLI-0027",
+  ProxyConnectionError: "SNYK-CLI-0028",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
