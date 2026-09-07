@@ -15,6 +15,7 @@ opensource/unmanaged/unmanaged.go
 policies/policies.go
 prchecks/prchecks.go
 purl/vulnerabilities/vulnerabilities.go
+rift/rift.go
 sbomexport/sbomexport.go
 sbomtest/sbomtest.go
 scm/scm.go

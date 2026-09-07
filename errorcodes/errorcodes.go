@@ -374,6 +374,10 @@ type AiBomCodes struct {
   NoSupportedFilesError string
 }
 
+type RiftCodes struct {
+  ScanFailedError string
+}
+
 type UploadRevisionCodes struct {
   UploadRevisionNotFoundError string
   UploadRevisionSealedError string
@@ -745,6 +749,10 @@ var AiBom = AiBomCodes {
   InternalError: "SNYK-AIBOM-0001",
   ForbiddenError: "SNYK-AIBOM-0002",
   NoSupportedFilesError: "SNYK-AIBOM-0003",
+}
+
+var Rift = RiftCodes {
+  ScanFailedError: "SNYK-RIFT-0001",
 }
 
 var UploadRevision = UploadRevisionCodes {
