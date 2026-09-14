@@ -50,3 +50,33 @@ func NewInvalidPolicyApplyError(detail string, options ...snyk_errors.Option) sn
 
   return err
 }
+
+// NewInvalidPolicyFileError displays errors with the following description:
+// The file is not valid YAML, or does not match the structure Snyk expects. Correct the file and try again.
+//
+// Read more:
+// - https://docs.snyk.io/manage-risk/policies/the-.snyk-file
+// - https://docs.snyk.io/manage-risk/policies
+func NewInvalidPolicyFileError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-policy-0002",
+    Title:      "Unable to read the .snyk file",
+    Description: "The file is not valid YAML, or does not match the structure Snyk expects. Correct the file and try again.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-POLICY-0002",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/manage-risk/policies/the-.snyk-file",
+      "https://docs.snyk.io/manage-risk/policies",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

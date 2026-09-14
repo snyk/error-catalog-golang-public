@@ -366,6 +366,7 @@ type SCMCodes struct {
 
 type PoliciesCodes struct {
   InvalidPolicyApplyError string
+  InvalidPolicyFileError string
 }
 
 type AiBomCodes struct {
@@ -743,6 +744,7 @@ var SCM = SCMCodes {
 
 var Policies = PoliciesCodes {
   InvalidPolicyApplyError: "SNYK-POLICY-0001",
+  InvalidPolicyFileError: "SNYK-POLICY-0002",
 }
 
 var AiBom = AiBomCodes {
