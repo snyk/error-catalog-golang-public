@@ -1,4 +1,6 @@
 aibom/aibom.go
+classifications/classifications.go
+classifications/classifications_test.go
 cli/cli.go
 code/code.go
 custombaseimages/custombaseimages.go
