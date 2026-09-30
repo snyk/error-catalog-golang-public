@@ -23,5 +23,6 @@ sbomtest/sbomtest.go
 scm/scm.go
 secrets/secrets.go
 snyk/snyk.go
+supplychain/supplychain.go
 target/target.go
 uploadrevision/uploadrevision.go

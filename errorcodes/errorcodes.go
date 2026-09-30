@@ -400,6 +400,12 @@ type SecretsCodes struct {
   AnalysisError string
 }
 
+type SupplyChainCodes struct {
+  ConfigurationDriftError string
+  ConflictingConfigurationError string
+  RegistryCredentialRejectedError string
+}
+
 var Snyk = SnykCodes {
   TooManyRequestsError: "SNYK-0001",
   NotImplementedError: "SNYK-0002",
@@ -776,5 +782,11 @@ var Secrets = SecretsCodes {
   TestError: "SNYK-SECRETS-0001",
   NotEnabledError: "SNYK-SECRETS-0002",
   AnalysisError: "SNYK-SECRETS-0003",
+}
+
+var SupplyChain = SupplyChainCodes {
+  ConfigurationDriftError: "SNYK-SC-REGPROXY-0001",
+  ConflictingConfigurationError: "SNYK-SC-REGPROXY-0002",
+  RegistryCredentialRejectedError: "SNYK-SC-REGPROXY-0003",
 }
 
