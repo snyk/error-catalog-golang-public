@@ -329,6 +329,7 @@ var Classifications = map[string]Classification{
 	"SNYK-SC-REGPROXY-0001": Actionable,
 	"SNYK-SC-REGPROXY-0002": Actionable,
 	"SNYK-SC-REGPROXY-0003": Actionable,
+	"SNYK-SC-REGPROXY-0004": Actionable,
 	"SNYK-SCM-0001": Unsupported,
 	"SNYK-SCM-0002": Actionable,
 	"SNYK-SCM-0003": Actionable,

@@ -403,7 +403,8 @@ type SecretsCodes struct {
 type SupplyChainCodes struct {
   ConfigurationDriftError string
   ConflictingConfigurationError string
-  RegistryCredentialRejectedError string
+  RegistryProxySecretRejectedError string
+  RegistryProxyUnreachableError string
 }
 
 var Snyk = SnykCodes {
@@ -787,6 +788,7 @@ var Secrets = SecretsCodes {
 var SupplyChain = SupplyChainCodes {
   ConfigurationDriftError: "SNYK-SC-REGPROXY-0001",
   ConflictingConfigurationError: "SNYK-SC-REGPROXY-0002",
-  RegistryCredentialRejectedError: "SNYK-SC-REGPROXY-0003",
+  RegistryProxySecretRejectedError: "SNYK-SC-REGPROXY-0003",
+  RegistryProxyUnreachableError: "SNYK-SC-REGPROXY-0004",
 }
 

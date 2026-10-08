@@ -68,16 +68,39 @@ func NewConflictingConfigurationError(detail string, options ...snyk_errors.Opti
   return err
 }
 
-// NewRegistryCredentialRejectedError displays errors with the following description:
-// The Registry Proxy rejected the stored token, so package installs through it fail. Create a new token and run `snyk sc install` again.
-func NewRegistryCredentialRejectedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+// NewRegistryProxySecretRejectedError displays errors with the following description:
+// The Registry Proxy rejected the stored Registry Proxy Secret, so package installs through it fail. Get a new Registry Proxy Secret and run `snyk sc install` again.
+func NewRegistryProxySecretRejectedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
   err := snyk_errors.Error{
     ID:         uuid.NewString(),
     Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-sc-regproxy-0003",
-    Title:      "Registry Credential rejected",
-    Description: "The Registry Proxy rejected the stored token, so package installs through it fail. Create a new token and run `snyk sc install` again.",
+    Title:      "Registry Proxy Secret rejected",
+    Description: "The Registry Proxy rejected the stored Registry Proxy Secret, so package installs through it fail. Get a new Registry Proxy Secret and run `snyk sc install` again.",
     StatusCode: 0,
     ErrorCode:  "SNYK-SC-REGPROXY-0003",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewRegistryProxyUnreachableError displays errors with the following description:
+// The Registry Proxy couldn't be reached or didn't answer as expected, so package installs through it fail. Check the network connection to the Registry Proxy, then run `snyk sc status` again.
+func NewRegistryProxyUnreachableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-sc-regproxy-0004",
+    Title:      "Registry Proxy unreachable",
+    Description: "The Registry Proxy couldn't be reached or didn't answer as expected, so package installs through it fail. Check the network connection to the Registry Proxy, then run `snyk sc status` again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-SC-REGPROXY-0004",
     Classification: "ACTIONABLE",
     Links: []string{},
     Level:  "error",
