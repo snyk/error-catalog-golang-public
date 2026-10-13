@@ -123,6 +123,7 @@ var Classifications = map[string]Classification{
 	"SNYK-CODE-0012": Actionable,
 	"SNYK-CODE-0013": Actionable,
 	"SNYK-CODE-0014": Actionable,
+	"SNYK-CODE-0015": Actionable,
 	"SNYK-INTEGRATION-0001": Actionable,
 	"SNYK-OPENAPI-0001": Actionable,
 	"SNYK-OPENAPI-0002": Actionable,

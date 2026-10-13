@@ -429,3 +429,26 @@ func NewTestResultsExpiredError(detail string, options ...snyk_errors.Option) sn
 
   return err
 }
+
+// NewSuggestionsNotEnabledError displays errors with the following description:
+// Rule Extension suggestions are not enabled.
+func NewSuggestionsNotEnabledError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-code-0015",
+    Title:      "Suggestions are not enabled",
+    Description: "Rule Extension suggestions are not enabled.",
+    StatusCode: 403,
+    ErrorCode:  "SNYK-CODE-0015",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

@@ -274,6 +274,7 @@ type CodeCodes struct {
   TestRuleExtensionAlreadyPublishedForGroupError string
   TestIDNotFoundError string
   TestResultsExpiredError string
+  SuggestionsNotEnabledError string
 }
 
 type PRChecksCodes struct {
@@ -662,6 +663,7 @@ var Code = CodeCodes {
   TestRuleExtensionAlreadyPublishedForGroupError: "SNYK-CODE-0012",
   TestIDNotFoundError: "SNYK-CODE-0013",
   TestResultsExpiredError: "SNYK-CODE-0014",
+  SuggestionsNotEnabledError: "SNYK-CODE-0015",
 }
 
 var PRChecks = PRChecksCodes {

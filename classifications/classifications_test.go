@@ -111,6 +111,7 @@ func TestClassify_KnownCodes(t *testing.T) {
 		{want: classifications.Actionable, code: "SNYK-CODE-0012"},
 		{want: classifications.Actionable, code: "SNYK-CODE-0013"},
 		{want: classifications.Actionable, code: "SNYK-CODE-0014"},
+		{want: classifications.Actionable, code: "SNYK-CODE-0015"},
 		{want: classifications.Actionable, code: "SNYK-INTEGRATION-0001"},
 		{want: classifications.Actionable, code: "SNYK-OPENAPI-0001"},
 		{want: classifications.Actionable, code: "SNYK-OPENAPI-0002"},
