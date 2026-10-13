@@ -320,6 +320,9 @@ type CLICodes struct {
   CommandTimeoutError string
   ConnectionResetError string
   ProxyConnectionError string
+  InvalidMachineIDError string
+  MachineIDFileUnreadableError string
+  MachineIDNotPersistedError string
   ConnectionTimeoutError string
 }
 
@@ -705,6 +708,9 @@ var CLI = CLICodes {
   CommandTimeoutError: "SNYK-CLI-0026",
   ConnectionResetError: "SNYK-CLI-0027",
   ProxyConnectionError: "SNYK-CLI-0028",
+  InvalidMachineIDError: "SNYK-CLI-0029",
+  MachineIDFileUnreadableError: "SNYK-CLI-0030",
+  MachineIDNotPersistedError: "SNYK-CLI-0031",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 

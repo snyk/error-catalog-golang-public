@@ -865,6 +865,90 @@ func NewProxyConnectionError(detail string, options ...snyk_errors.Option) snyk_
   return err
 }
 
+// NewInvalidMachineIDError displays errors with the following description:
+// Snyk failed to parse a machine ID. The error details identify the source and the reason the value was rejected. If the value was supplied explicitly to the Snyk CLI or your integration, correct the value, because Snyk does not fix it automatically and this warning repeats on every run. If the value came from a machine ID file and this warning keeps recurring, another tool is writing an invalid value to that file.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewInvalidMachineIDError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0029",
+    Title:      "Invalid machine ID",
+    Description: "Snyk failed to parse a machine ID. The error details identify the source and the reason the value was rejected. If the value was supplied explicitly to the Snyk CLI or your integration, correct the value, because Snyk does not fix it automatically and this warning repeats on every run. If the value came from a machine ID file and this warning keeps recurring, another tool is writing an invalid value to that file.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0029",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewMachineIDFileUnreadableError displays errors with the following description:
+// A machine ID file exists but Snyk could not read it, for example because of its permissions or ownership, an I/O error, or because the path is not a regular file. Check the permissions and ownership of the file named in the error details and ensure that the user running Snyk can read it.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewMachineIDFileUnreadableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0030",
+    Title:      "Machine ID file unreadable",
+    Description: "A machine ID file exists but Snyk could not read it, for example because of its permissions or ownership, an I/O error, or because the path is not a regular file. Check the permissions and ownership of the file named in the error details and ensure that the user running Snyk can read it.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0030",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewMachineIDNotPersistedError displays errors with the following description:
+// Snyk could not store a machine ID in any location, so no machine ID is reported for this machine. Typical causes are a read-only file system or container, a missing home directory, or a full disk. The error details list the paths that were tried and the operating system error.
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewMachineIDNotPersistedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0031",
+    Title:      "Machine ID not persisted",
+    Description: "Snyk could not store a machine ID in any location, so no machine ID is reported for this machine. Typical causes are a read-only file system or container, a missing home directory, or a full disk. The error details list the paths that were tried and the operating system error.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0031",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "warn",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
