@@ -113,3 +113,26 @@ func NewRegistryProxyUnreachableError(detail string, options ...snyk_errors.Opti
 
   return err
 }
+
+// NewSupplyChainNotEnabledError displays errors with the following description:
+// Application Supply Chain isn't enabled, so the Registry Proxy refuses package installs through it. Ask a Snyk admin to enable it, or remove the configuration with `snyk sc uninstall`.
+func NewSupplyChainNotEnabledError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-sc-regproxy-0005",
+    Title:      "Application Supply Chain is not enabled",
+    Description: "Application Supply Chain isn't enabled, so the Registry Proxy refuses package installs through it. Ask a Snyk admin to enable it, or remove the configuration with `snyk sc uninstall`.",
+    StatusCode: 403,
+    ErrorCode:  "SNYK-SC-REGPROXY-0005",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

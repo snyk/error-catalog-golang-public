@@ -410,6 +410,7 @@ type SupplyChainCodes struct {
   ConflictingConfigurationError string
   RegistryProxySecretRejectedError string
   RegistryProxyUnreachableError string
+  SupplyChainNotEnabledError string
 }
 
 var Snyk = SnykCodes {
@@ -800,5 +801,6 @@ var SupplyChain = SupplyChainCodes {
   ConflictingConfigurationError: "SNYK-SC-REGPROXY-0002",
   RegistryProxySecretRejectedError: "SNYK-SC-REGPROXY-0003",
   RegistryProxyUnreachableError: "SNYK-SC-REGPROXY-0004",
+  SupplyChainNotEnabledError: "SNYK-SC-REGPROXY-0005",
 }
 
