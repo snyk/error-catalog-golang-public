@@ -324,6 +324,7 @@ type CLICodes struct {
   InvalidMachineIDError string
   MachineIDFileUnreadableError string
   MachineIDNotPersistedError string
+  TokenScoperError string
   ConnectionTimeoutError string
 }
 
@@ -713,6 +714,7 @@ var CLI = CLICodes {
   InvalidMachineIDError: "SNYK-CLI-0029",
   MachineIDFileUnreadableError: "SNYK-CLI-0030",
   MachineIDNotPersistedError: "SNYK-CLI-0031",
+  TokenScoperError: "SNYK-CLI-0032",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
