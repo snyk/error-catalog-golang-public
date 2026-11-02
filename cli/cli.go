@@ -981,6 +981,75 @@ func NewTokenScoperError(detail string, options ...snyk_errors.Option) snyk_erro
   return err
 }
 
+// NewConfigProfileNotFoundError displays errors with the following description:
+// The configuration profile cannot be found. Check the name for typos, then try again.
+func NewConfigProfileNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0033",
+    Title:      "Configuration profile not found",
+    Description: "The configuration profile cannot be found. Check the name for typos, then try again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0033",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewInvalidConfigProfileNameError displays errors with the following description:
+// A profile name can contain only lowercase letters, digits, hyphens and underscores, and cannot be a reserved system name such as nul. Use a different name and try again.
+func NewInvalidConfigProfileNameError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0034",
+    Title:      "Invalid configuration profile name",
+    Description: "A profile name can contain only lowercase letters, digits, hyphens and underscores, and cannot be a reserved system name such as nul. Use a different name and try again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0034",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewConfigProfileUnreadableError displays errors with the following description:
+// The configuration profile cannot be read because its file is unreadable or invalid. Restore a valid copy or correct the file. Deleting it erases the profile's settings.
+func NewConfigProfileUnreadableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0035",
+    Title:      "Configuration profile unreadable",
+    Description: "The configuration profile cannot be read because its file is unreadable or invalid. Restore a valid copy or correct the file. Deleting it erases the profile's settings.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0035",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

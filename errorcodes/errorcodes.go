@@ -325,6 +325,9 @@ type CLICodes struct {
   MachineIDFileUnreadableError string
   MachineIDNotPersistedError string
   TokenScoperError string
+  ConfigProfileNotFoundError string
+  InvalidConfigProfileNameError string
+  ConfigProfileUnreadableError string
   ConnectionTimeoutError string
 }
 
@@ -716,6 +719,9 @@ var CLI = CLICodes {
   MachineIDFileUnreadableError: "SNYK-CLI-0030",
   MachineIDNotPersistedError: "SNYK-CLI-0031",
   TokenScoperError: "SNYK-CLI-0032",
+  ConfigProfileNotFoundError: "SNYK-CLI-0033",
+  InvalidConfigProfileNameError: "SNYK-CLI-0034",
+  ConfigProfileUnreadableError: "SNYK-CLI-0035",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
