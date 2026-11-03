@@ -90,3 +90,26 @@ func NewAnalysisError(detail string, options ...snyk_errors.Option) snyk_errors.
 
   return err
 }
+
+// NewGitHistoryPrerequisiteError displays errors with the following description:
+// An error occurred while running prerequisite for git history scanning. Review the request, then try again. If the error persists, contact Snyk Support.
+func NewGitHistoryPrerequisiteError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-secrets-0004",
+    Title:      "Git history scan error",
+    Description: "An error occurred while running prerequisite for git history scanning. Review the request, then try again. If the error persists, contact Snyk Support.",
+    StatusCode: 412,
+    ErrorCode:  "SNYK-SECRETS-0004",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}

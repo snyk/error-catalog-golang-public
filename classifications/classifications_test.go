@@ -337,6 +337,7 @@ func TestClassify_KnownCodes(t *testing.T) {
 		{want: classifications.Unexpected, code: "SNYK-SECRETS-0001"},
 		{want: classifications.Actionable, code: "SNYK-SECRETS-0002"},
 		{want: classifications.Unexpected, code: "SNYK-SECRETS-0003"},
+		{want: classifications.Unexpected, code: "SNYK-SECRETS-0004"},
 		{want: classifications.Actionable, code: "SNYK-TARGET-0001"},
 		{want: classifications.Actionable, code: "SNYK-TARGET-0002"},
 		{want: classifications.Actionable, code: "SNYK-UPLOAD-REVISION-0001"},

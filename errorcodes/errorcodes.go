@@ -406,6 +406,7 @@ type SecretsCodes struct {
   TestError string
   NotEnabledError string
   AnalysisError string
+  GitHistoryPrerequisiteError string
 }
 
 type SupplyChainCodes struct {
@@ -800,6 +801,7 @@ var Secrets = SecretsCodes {
   TestError: "SNYK-SECRETS-0001",
   NotEnabledError: "SNYK-SECRETS-0002",
   AnalysisError: "SNYK-SECRETS-0003",
+  GitHistoryPrerequisiteError: "SNYK-SECRETS-0004",
 }
 
 var SupplyChain = SupplyChainCodes {

@@ -349,6 +349,7 @@ var Classifications = map[string]Classification{
 	"SNYK-SECRETS-0001": Unexpected,
 	"SNYK-SECRETS-0002": Actionable,
 	"SNYK-SECRETS-0003": Unexpected,
+	"SNYK-SECRETS-0004": Unexpected,
 	"SNYK-TARGET-0001": Actionable,
 	"SNYK-TARGET-0002": Actionable,
 	"SNYK-UPLOAD-REVISION-0001": Actionable,
