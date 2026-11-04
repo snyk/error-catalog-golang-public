@@ -943,6 +943,75 @@ func NewIncompatibleTargetFrameworkError(detail string, options ...snyk_errors.O
   return err
 }
 
+// NewProjectFileNotFoundError displays errors with the following description:
+// Snyk could not find the project file in the repository at the revision that was tested. The file was probably deleted, renamed or moved.
+// 
+// To resolve this, do one of the following:
+// 
+// 1. If the project file was deleted, deactivate or delete the Snyk project for it.
+// 2. If the project file was renamed or moved, import the repository again. Snyk then creates a project for the new path.
+//
+// Read more:
+// - https://docs.snyk.io/scan-with-snyk/project-repositories/snyk-repo-content-sync
+func NewProjectFileNotFoundError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0016",
+    Title:      "The project file was not found in the repository",
+    Description: "Snyk could not find the project file in the repository at the revision that was tested. The file was probably deleted, renamed or moved.\n\nTo resolve this, do one of the following:\n\n1. If the project file was deleted, deactivate or delete the Snyk project for it.\n2. If the project file was renamed or moved, import the repository again. Snyk then creates a project for the new path.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0016",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/scan-with-snyk/project-repositories/snyk-repo-content-sync",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewProjectTargetFrameworkMismatchError displays errors with the following description:
+// Snyk could not match this project to a target framework of its project file.
+// 
+// The target framework that was stored for the project may no longer be in the project file.
+// 
+// The stored value may also be one Snyk cannot read, such as an unevaluated MSBuild property like `$(TargetFramework)`. If the project file now defines more than one target framework, Snyk cannot tell which one the project stands for.
+// 
+// To resolve this, import the repository again. Snyk then creates one project for each target framework in the project file. You can then delete this project.
+//
+// Read more:
+// - https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#targetframework
+// - https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#targetframeworks
+func NewProjectTargetFrameworkMismatchError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-os-dotnet-0017",
+    Title:      "The target framework of the project does not match the project file",
+    Description: "Snyk could not match this project to a target framework of its project file.\n\nThe target framework that was stored for the project may no longer be in the project file.\n\nThe stored value may also be one Snyk cannot read, such as an unevaluated MSBuild property like `$(TargetFramework)`. If the project file now defines more than one target framework, Snyk cannot tell which one the project stands for.\n\nTo resolve this, import the repository again. Snyk then creates one project for each target framework in the project file. You can then delete this project.",
+    StatusCode: 422,
+    ErrorCode:  "SNYK-OS-DOTNET-0017",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#targetframework",
+      "https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#targetframeworks",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewPrivateModuleError displays errors with the following description:
 // Snyk could not access the private modules within your go.mod files.
 //

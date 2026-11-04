@@ -66,6 +66,8 @@ type OpenSourceEcosystemsCodes struct {
   CpmMissingPackageVersionError string
   CpmDisabledOrMissingVersionError string
   IncompatibleTargetFrameworkError string
+  ProjectFileNotFoundError string
+  ProjectTargetFrameworkMismatchError string
   PrivateModuleError string
   GoModFileMissingError string
   SsoReAuthRequiredError string
@@ -461,6 +463,8 @@ var OpenSourceEcosystems = OpenSourceEcosystemsCodes {
   CpmMissingPackageVersionError: "SNYK-OS-DOTNET-0013",
   CpmDisabledOrMissingVersionError: "SNYK-OS-DOTNET-0014",
   IncompatibleTargetFrameworkError: "SNYK-OS-DOTNET-0015",
+  ProjectFileNotFoundError: "SNYK-OS-DOTNET-0016",
+  ProjectTargetFrameworkMismatchError: "SNYK-OS-DOTNET-0017",
   PrivateModuleError: "SNYK-OS-GO-0001",
   GoModFileMissingError: "SNYK-OS-GO-0002",
   SsoReAuthRequiredError: "SNYK-OS-GO-0003",

@@ -170,6 +170,8 @@ func TestClassify_KnownCodes(t *testing.T) {
 		{want: classifications.Actionable, code: "SNYK-OS-DOTNET-0013"},
 		{want: classifications.Actionable, code: "SNYK-OS-DOTNET-0014"},
 		{want: classifications.Actionable, code: "SNYK-OS-DOTNET-0015"},
+		{want: classifications.Actionable, code: "SNYK-OS-DOTNET-0016"},
+		{want: classifications.Actionable, code: "SNYK-OS-DOTNET-0017"},
 		{want: classifications.Actionable, code: "SNYK-OS-GO-0001"},
 		{want: classifications.Actionable, code: "SNYK-OS-GO-0002"},
 		{want: classifications.Actionable, code: "SNYK-OS-GO-0003"},

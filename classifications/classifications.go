@@ -182,6 +182,8 @@ var Classifications = map[string]Classification{
 	"SNYK-OS-DOTNET-0013": Actionable,
 	"SNYK-OS-DOTNET-0014": Actionable,
 	"SNYK-OS-DOTNET-0015": Actionable,
+	"SNYK-OS-DOTNET-0016": Actionable,
+	"SNYK-OS-DOTNET-0017": Actionable,
 	"SNYK-OS-GO-0001": Actionable,
 	"SNYK-OS-GO-0002": Actionable,
 	"SNYK-OS-GO-0003": Actionable,
