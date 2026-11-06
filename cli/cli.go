@@ -1050,6 +1050,52 @@ func NewConfigProfileUnreadableError(detail string, options ...snyk_errors.Optio
   return err
 }
 
+// NewConfigProfileDirectoryInvalidError displays errors with the following description:
+// The directory that holds the configuration profiles is not set or is not an absolute path. Set it to an absolute path and try again.
+func NewConfigProfileDirectoryInvalidError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0036",
+    Title:      "Invalid configuration profile directory",
+    Description: "The directory that holds the configuration profiles is not set or is not an absolute path. Set it to an absolute path and try again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0036",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewConfigProfilesUnavailableError displays errors with the following description:
+// Configuration profiles cannot be used because of a problem outside the profile name, file and directory, for example because the application that runs the command does not support them or is not set up for them. The profile itself is not the cause. If this happens with an official Snyk build, report it to Snyk support.
+func NewConfigProfilesUnavailableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0037",
+    Title:      "Configuration profiles unavailable",
+    Description: "Configuration profiles cannot be used because of a problem outside the profile name, file and directory, for example because the application that runs the command does not support them or is not set up for them. The profile itself is not the cause. If this happens with an official Snyk build, report it to Snyk support.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0037",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

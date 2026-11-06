@@ -114,6 +114,8 @@ var Classifications = map[string]Classification{
 	"SNYK-CLI-0033": Actionable,
 	"SNYK-CLI-0034": Actionable,
 	"SNYK-CLI-0035": Actionable,
+	"SNYK-CLI-0036": Actionable,
+	"SNYK-CLI-0037": Unexpected,
 	"SNYK-CODE-0001": Unsupported,
 	"SNYK-CODE-0002": Unsupported,
 	"SNYK-CODE-0003": Unsupported,
