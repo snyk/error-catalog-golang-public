@@ -104,6 +104,7 @@ func TestClassify_KnownCodes(t *testing.T) {
 		{want: classifications.Actionable, code: "SNYK-CLI-0035"},
 		{want: classifications.Actionable, code: "SNYK-CLI-0036"},
 		{want: classifications.Unexpected, code: "SNYK-CLI-0037"},
+		{want: classifications.Actionable, code: "SNYK-CLI-0038"},
 		{want: classifications.Unsupported, code: "SNYK-CODE-0001"},
 		{want: classifications.Unsupported, code: "SNYK-CODE-0002"},
 		{want: classifications.Unsupported, code: "SNYK-CODE-0003"},

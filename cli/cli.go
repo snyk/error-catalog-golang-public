@@ -1096,6 +1096,34 @@ func NewConfigProfilesUnavailableError(detail string, options ...snyk_errors.Opt
   return err
 }
 
+// NewInstallOrUninstallFailedError displays errors with the following description:
+// One or more steps provided by extensions failed, so the install or uninstall did not complete. A failed step does not stop the other steps. The error details list each failed step on its own line as `step ID: message`. Fix the cause named in each message, then run the command again. See [Snyk CLI debugging](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli).
+//
+// Read more:
+// - https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli
+func NewInstallOrUninstallFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0038",
+    Title:      "Install or uninstall failed",
+    Description: "One or more steps provided by extensions failed, so the install or uninstall did not complete. A failed step does not stop the other steps. The error details list each failed step on its own line as `step ID: message`. Fix the cause named in each message, then run the command again. See [Snyk CLI debugging](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli).",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0038",
+    Classification: "ACTIONABLE",
+    Links: []string{
+      "https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli",
+    },
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
