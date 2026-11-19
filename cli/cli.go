@@ -1147,6 +1147,52 @@ func NewExternalProgramFailedError(detail string, options ...snyk_errors.Option)
   return err
 }
 
+// NewConfigFileInWorkingDirectoryIgnoredError displays errors with the following description:
+// No credentials were found. A configuration file in the current working directory is deliberately ignored, because a project must not choose the credentials or endpoint that are used. Authenticate using a supported method, or explicitly point the application at a trusted configuration file, then run the command again.
+func NewConfigFileInWorkingDirectoryIgnoredError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0040",
+    Title:      "Config file in working directory ignored",
+    Description: "No credentials were found. A configuration file in the current working directory is deliberately ignored, because a project must not choose the credentials or endpoint that are used. Authenticate using a supported method, or explicitly point the application at a trusted configuration file, then run the command again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0040",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewConfigFileInvalidError displays errors with the following description:
+// The configured path of the configuration file is not an absolute path or cannot be used. Set it to the absolute path of a readable, writable JSON file, then try again.
+func NewConfigFileInvalidError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0041",
+    Title:      "Invalid configuration file path",
+    Description: "The configured path of the configuration file is not an absolute path or cannot be used. Set it to the absolute path of a readable, writable JSON file, then try again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0041",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

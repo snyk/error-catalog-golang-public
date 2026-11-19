@@ -334,6 +334,8 @@ type CLICodes struct {
   ConfigProfilesUnavailableError string
   InstallOrUninstallFailedError string
   ExternalProgramFailedError string
+  ConfigFileInWorkingDirectoryIgnoredError string
+  ConfigFileInvalidError string
   ConnectionTimeoutError string
 }
 
@@ -735,6 +737,8 @@ var CLI = CLICodes {
   ConfigProfilesUnavailableError: "SNYK-CLI-0037",
   InstallOrUninstallFailedError: "SNYK-CLI-0038",
   ExternalProgramFailedError: "SNYK-CLI-0039",
+  ConfigFileInWorkingDirectoryIgnoredError: "SNYK-CLI-0040",
+  ConfigFileInvalidError: "SNYK-CLI-0041",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
