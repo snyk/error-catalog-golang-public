@@ -1124,6 +1124,29 @@ func NewInstallOrUninstallFailedError(detail string, options ...snyk_errors.Opti
   return err
 }
 
+// NewExternalProgramFailedError displays errors with the following description:
+// An external program could not be prepared, could not be started, or exited with an error.
+func NewExternalProgramFailedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0039",
+    Title:      "External program failed",
+    Description: "An external program could not be prepared, could not be started, or exited with an error.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0039",
+    Classification: "UNEXPECTED",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //
