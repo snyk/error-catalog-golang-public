@@ -1193,6 +1193,29 @@ func NewConfigFileInvalidError(detail string, options ...snyk_errors.Option) sny
   return err
 }
 
+// NewConfigNotPersistedError displays errors with the following description:
+// Your settings were not saved because there is no configuration file to save them to. Set a home directory, or point the application at a writable configuration file, then try again.
+func NewConfigNotPersistedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-cli-0042",
+    Title:      "Configuration cannot be saved",
+    Description: "Your settings were not saved because there is no configuration file to save them to. Set a home directory, or point the application at a writable configuration file, then try again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-CLI-0042",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
 // NewConnectionTimeoutError displays errors with the following description:
 // A request to the Snyk API has unexpectedly timeout. Check Snyk status, then try again.
 //

@@ -336,6 +336,7 @@ type CLICodes struct {
   ExternalProgramFailedError string
   ConfigFileInWorkingDirectoryIgnoredError string
   ConfigFileInvalidError string
+  ConfigNotPersistedError string
   ConnectionTimeoutError string
 }
 
@@ -739,6 +740,7 @@ var CLI = CLICodes {
   ExternalProgramFailedError: "SNYK-CLI-0039",
   ConfigFileInWorkingDirectoryIgnoredError: "SNYK-CLI-0040",
   ConfigFileInvalidError: "SNYK-CLI-0041",
+  ConfigNotPersistedError: "SNYK-CLI-0042",
   ConnectionTimeoutError: "SNYK-OS-7001",
 }
 
