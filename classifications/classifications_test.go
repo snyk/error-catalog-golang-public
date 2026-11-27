@@ -336,6 +336,8 @@ func TestClassify_KnownCodes(t *testing.T) {
 		{want: classifications.Actionable, code: "SNYK-SC-REGPROXY-0003"},
 		{want: classifications.Actionable, code: "SNYK-SC-REGPROXY-0004"},
 		{want: classifications.Actionable, code: "SNYK-SC-REGPROXY-0005"},
+		{want: classifications.Actionable, code: "SNYK-SC-REGPROXY-0006"},
+		{want: classifications.Actionable, code: "SNYK-SC-REGPROXY-0007"},
 		{want: classifications.Unsupported, code: "SNYK-SCM-0001"},
 		{want: classifications.Actionable, code: "SNYK-SCM-0002"},
 		{want: classifications.Actionable, code: "SNYK-SCM-0003"},

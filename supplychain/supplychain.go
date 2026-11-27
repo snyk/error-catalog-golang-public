@@ -136,3 +136,49 @@ func NewSupplyChainNotEnabledError(detail string, options ...snyk_errors.Option)
 
   return err
 }
+
+// NewConfigurationRefusedError displays errors with the following description:
+// Writing package manager configuration on this machine as it stands would be unsafe. That configuration was left unchanged, so those package managers keep reading what they read before. Fix each package manager configuration file named in the error details, then run the command again.
+func NewConfigurationRefusedError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-sc-regproxy-0006",
+    Title:      "Package manager configuration change refused",
+    Description: "Writing package manager configuration on this machine as it stands would be unsafe. That configuration was left unchanged, so those package managers keep reading what they read before. Fix each package manager configuration file named in the error details, then run the command again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-SC-REGPROXY-0006",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
+
+// NewConfigurationUnreadableError displays errors with the following description:
+// A package manager configuration file couldn't be read. Without it, there is no way to tell whether its package managers install through the Registry Proxy. Fix each package manager configuration file or path named in the error details, then run the command again.
+func NewConfigurationUnreadableError(detail string, options ...snyk_errors.Option) snyk_errors.Error {
+  err := snyk_errors.Error{
+    ID:         uuid.NewString(),
+    Type:       "https://docs.snyk.io/scan-with-snyk/error-catalog#snyk-sc-regproxy-0007",
+    Title:      "Package manager configuration cannot be read",
+    Description: "A package manager configuration file couldn't be read. Without it, there is no way to tell whether its package managers install through the Registry Proxy. Fix each package manager configuration file or path named in the error details, then run the command again.",
+    StatusCode: 0,
+    ErrorCode:  "SNYK-SC-REGPROXY-0007",
+    Classification: "ACTIONABLE",
+    Links: []string{},
+    Level:  "error",
+    Detail: detail,
+  }
+
+  for _, option := range options {
+    option(&err)
+  }
+
+  return err
+}
